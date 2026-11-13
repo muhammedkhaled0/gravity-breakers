@@ -1,0 +1,252 @@
+{
+  "nasa_space_missions": {
+    "total_missions": 4,
+    "source": "NASA Science Official Pages",
+    "missions": [
+      {
+        "id": "viking-1",
+        "name": {
+          "ar": "فايكنغ 1",
+          "en": "Viking 1"
+        },
+        "target": {
+          "ar": "المريخ",
+          "en": "Mars"
+        },
+        "overview": {
+          "ar": "على مدار التاريخ، كان المريخ مرئياً ولكن لم يكن من الممكن الوصول إليه — حتى 20 يوليو 1976، عندما هبطت مركبة فايكنغ 1 التابعة لناسا بنجاح وبدأت في إرسال الصور الأولى من سطح الكوكب الأحمر. حققت فايكنغ 1 أول هبوط ناجح حقاً على المريخ وجمعت أدلة حول إمكانية وجود حياة.",
+          "en": "Throughout history, Mars had been in sight, but never within reach — until July 20, 1976, when NASA’s Viking 1 lander touched down safely and began transmitting the first images from the surface of the Red Planet. Viking 1 made the first truly successful landing on Mars and collected evidence on the possibility of life."
+        },
+        "spacecraft_components": {
+          "orbiter_mass": "5,157 pounds (2,339 kilograms)",
+          "lander_mass": "2,156 pounds (978 kilograms)",
+          "design_notes": {
+            "ar": "تصميم المداري استوحى الكثير من حافلات مركبات مارينر؛ بينما شابه مركبة الهبوط نسخة أكبر من مركبة سيرفاير القمري للهبوط.",
+            "en": "Orbiter design borrowed heavily from Mariner spacecraft buses; lander resembled a larger version of the Surveyor lunar lander."
+          }
+        },
+        "key_dates": [
+          {
+            "date": "1975-08-20",
+            "event": {
+              "ar": "الإطلاق",
+              "en": "Launch"
+            }
+          },
+          {
+            "date": "1976-06-19",
+            "event": {
+              "ar": "دخلو المركبة في مدار حول المريخ (المدار الأولي 1,500 × 50,300 كم؛ المدار التشغيلي 1,500 × 32,800 كم)",
+              "en": "Spacecraft entered orbit around Mars (initial orbit 1,500 x 50,300 km; operational orbit 1,500 x 32,800 km)"
+            }
+          },
+          {
+            "date": "1976-07-20",
+            "event": {
+              "ar": "انفصال مركبة الهبوط الساعة 08:32 بالتوقيت العالمي وهبوطها بسلام على المنحدرات الغربية لسهل خريسي بلانيتيا (22.483° شمالاً، 47.94° غرباً) الساعة 11:53:06 بالتوقيت العالمي، على بعد حوالي 17 ميلاً (28 كم) من الهدف",
+              "en": "Lander separated at 08:32 UT and touched down safely on the western slopes of Chryse Planitia (22.483° N, 47.94° W) at 11:53:06 UT, about 17 miles (28 km) from target"
+            }
+          },
+          {
+            "date": "1976-07-28",
+            "event": {
+              "ar": "قامت الذراع الآلية لمركبة الهبوط بأخذ عينات أولية من التربة ووضعها في المختبر البيولوجي (مقياس الطيف الكتلي كروماتوغرافيا الغاز)",
+              "en": "Lander robot arm scooped up first soil samples into the biological laboratory (gas chromatograph mass spectrometer)"
+            }
+          },
+          {
+            "date": "1980-08-07",
+            "event": {
+              "ar": "إيقاف تشغيل المركبة المدارية في مدارها الـ 1,489 بعد نفاد وقود التحكم في توجيهها",
+              "en": "Orbiter shut down on its 1,489th orbit after running out of attitude-control propellant"
+            }
+          },
+          {
+            "date": "1982-01",
+            "event": {
+              "ar": "إعادة تسمية مركبة الهبوط لتصبح 'محطة توماس موتش التذكارية'",
+              "en": "Lander renamed Thomas Mutch Memorial Station"
+            }
+          },
+          {
+            "date": "1982-11-11",
+            "event": {
+              "ar": "توقف مركبة الهبوط عن العمل بعد تلقيها أُمراً خاطئاً من الأرض",
+              "en": "Lander stopped operating after receiving a faulty command from Earth"
+            }
+          }
+        ],
+        "mission_phases": [
+          "Primary Mission (ended November 1976)",
+          "Extended Mission (November 1976 – May 1978)",
+          "Continuation Mission (May 1978 – July 1979)",
+          "Orbiter Survey Mission (July 1979 – July 1980)",
+          "Viking Monitor Mission (daily/weekly weather reports)"
+        ],
+        "scientific_findings_and_stats": {
+          "combined_viking_images": "52,663 orbiter images mapping ~97% of Mars surface at 300m resolution; 4,500 surface photos from both landers",
+          "panorama": "Captured high-resolution 3-color images and a 300-degree panorama of Chryse Planitia",
+          "surface_temperatures": "-123°F (-86°C) before dawn to -27°F (-33°C) in the afternoon",
+          "soil_analysis": "Abundance of sulfur unlike Earth or Moon materials; gas chromatograph test for organic compounds (>10–100 ppb) gave negative results despite weak positive biological readings",
+          "instrument_note": "Lander seismometer was inoperable"
+        },
+        "reference": "Siddiqi, Asif A. Beyond Earth: A Chronicle of Deep Space Exploration, 1958-2016. NASA History Program Office, 2018."
+      },
+      {
+        "id": "mars-exploration-rovers",
+        "name": {
+          "ar": "مركبات استكشاف المريخ: سبيريت وأبورتيونيتي",
+          "en": "Mars Exploration Rovers: Spirit and Opportunity"
+        },
+        "target": {
+          "ar": "المريخ",
+          "en": "Mars"
+        },
+        "overview": {
+          "ar": "كانت مركبتا سبيريت وأبورتيونيتي التابعتان لناسا روبوتين توأمين متطابقين ساعدا في إعادة صياغة فهمنا للتاريخ المبكر للمريخ، حيث أكدتا من خلال سجل الصخور أن المياه السائلة كانت موجودة لفترات طويلة على السطح في العصور القديمة.",
+          "en": "NASA’s Spirit and Opportunity rovers were identical twin robots that helped rewrite our understanding of the early history of Mars, confirming through the rock record that liquid water was long-standing on the surface in ancient times."
+        },
+        "rovers": [
+          {
+            "name": {
+              "ar": "سبيريت",
+              "en": "Spirit"
+            },
+            "landing_site": {
+              "ar": "فوهة غوسيف (بحيرة محتملة سابقة داخل فوهة اصطدام عملاقة)",
+              "en": "Gusev Crater (a possible former lake in a giant impact crater)"
+            },
+            "distance_traveled": "4.8 miles (7.7 kilometers)"
+          },
+          {
+            "name": {
+              "ar": "أبورتيونيتي",
+              "en": "Opportunity"
+            },
+            "landing_site": {
+              "ar": "مريدياني بلانوم (منطقة توحي رواسبها المعدنية بتاريخ رطب للمريخ)",
+              "en": "Meridiani Planum (an area with mineral deposits suggesting a wet history)"
+            },
+            "distance_traveled": "28.06 miles (45.16 kilometers)",
+            "status_note": {
+              "ar": "توقفت عن الاتصال في يونيو 2018؛ واحتفظت برقم قياسي لمسافة التجوال خارج الأرض حتى 11 أكتوبر 2026 عندما تجاوزتها مركبة بيرسيفيرانس بقطعها 28.10 ميلاً (45.22 كم).",
+              "en": "Fell silent in June 2018; held the off-Earth roving distance record until October 11, 2026, when NASA's Perseverance rover surpassed it at 28.10 miles (45.22 km)."
+            }
+          }
+        ],
+        "scientific_contributions": [
+          "Contributed uniquely to the four overarching goals of the Mars Exploration Program",
+          "Confirmed ancient long-standing surface water on Mars via geological and mineralogical analysis"
+        ]
+      },
+      {
+        "id": "dawn",
+        "name": {
+          "ar": "مركبة داون",
+          "en": "Dawn"
+        },
+        "targets": [
+          {
+            "ar": "الكويكب العملاق فيستا",
+            "en": "Giant asteroid Vesta"
+          },
+          {
+            "ar": "الكوكب القزم سيريس",
+            "en": "Dwarf planet Ceres"
+          }
+        ],
+        "region": {
+          "ar": "حزام الكويكبات الرئيسي بين المريخ والمشتري",
+          "en": "Main asteroid belt between Mars and Jupiter"
+        },
+        "overview": {
+          "ar": "كانت داون أول مركبة فضائية بين كواكب حقاً تابعة لناسا، وتميزت بإقامات مدارية ممتدة في جسمين فلكيين مختلفين تماماً في حزام الكويكبات الرئيسي: الكويكب العملاق فيستا والكوكب القزم سيريس.",
+          "en": "Dawn was NASA’s first truly interplanetary spaceship, featuring extended orbital stays at two very different extraterrestrial bodies in the main asteroid belt: giant asteroid Vesta and dwarf planet Ceres."
+        },
+        "key_research_highlights": [
+          "Fluid flow in Ceres due to core heating",
+          "Evidence that Ceres may have had long-standing energy to fuel habitability",
+          "Hidden secrets about the interiors of Vesta and comparisons with the Moon",
+          "Observations of crescent Ceres and gullies on giant asteroid Vesta"
+        ]
+      },
+      {
+        "id": "kepler-k2",
+        "name": {
+          "ar": "تلسكوب كيبلر / K2",
+          "en": "Kepler / K2"
+        },
+        "target": {
+          "ar": "الكواكب الخارجية في مجرة درب التبانة",
+          "en": "Exoplanets in the Milky Way galaxy"
+        },
+        "overview": {
+          "ar": "تلسكوب كيبلر الفضائي هو أول مهمة لناسا للبحث عن الكواكب، وقد تم تخصيصه لمسح جزء من مجرة درب التبانة بحثاً عن كواكب بحجم الأرض تدور حول نجوم خارج نظامنا الشمسي. على مدار تسع سنوات في الفضاء العُميق عبر مهمته الأصلية ومهمة K2 الممتدة، أثبت أن مجرتنا تحتوي على كواكب أكثر من النجوم.",
+          "en": "The Kepler space telescope was NASA’s first planet-hunting mission, designed to survey a portion of the Milky Way for Earth-sized planets orbiting stars outside our solar system. Over nine years in deep space across its primary mission and K2 extended mission, it proved there are more planets than stars in our galaxy."
+        },
+        "key_dates": [
+          {
+            "date": "2009-03-06",
+            "event": {
+              "ar": "إطلاق تلسكوب كيبلر الفضائي",
+              "en": "Launch of Kepler space telescope"
+            }
+          },
+          {
+            "date": "2010-01",
+            "event": {
+              "ar": "الإعلان عن أول خمسة كواكب خارجية مكتشفة (Kepler 4b, 5b, 6b, 7b, 8b)",
+              "en": "Announcement of first five discovered exoplanets (Kepler 4b, 5b, 6b, 7b, and 8b)"
+            }
+          },
+          {
+            "date": "2010-04",
+            "event": {
+              "ar": "اكتشاف Kepler-9، وهو أول نظام كوكبي مؤكد يضم أكثر من كوكب يعبر أمام نفس النجم",
+              "en": "Discovery of Kepler-9, the first confirmed planetary system with multiple planets transiting the same star"
+            }
+          },
+          {
+            "date": "2011-02",
+            "event": {
+              "ar": "الإعلان عن نظام Kepler-11، وهو نظام يتكون من ستة كواكب يدور حول نجم قزم أصفر على بعد حوالي 2000 سنة ضوئية",
+              "en": "Announcement of Kepler-11, a six-planet system orbiting a yellow dwarf star ~2,000 light-years away"
+            }
+          },
+          {
+            "date": "2013-05",
+            "event": {
+              "ar": "فقدان عجلة التفاعل الثانية من أصل أربع عجلات، مما أنهى وضع التوجيه الأصلي وأدى إلى إعادة تصميم مهمة K2",
+              "en": "Loss of second of four reaction wheels, ending original pointing mode and leading to the K2 redesign"
+            }
+          },
+          {
+            "date": "2018-10-30",
+            "event": {
+              "ar": "تقاعد المركبة الفضائية بعد إكمال 19 حملة رصد في مهمة K2",
+              "en": "Spacecraft retired after completing 19 observation campaigns in K2"
+            }
+          }
+        ],
+        "spacecraft_specifications": {
+          "instrument": "3-foot (1-meter) diameter aperture telescope with image sensor array and largest digital camera outfitted for space at launch",
+          "mirror_diameter": "4 feet, 7 inches (1.4 meters)",
+          "detection_method": "Transit photometry (measuring tiny dips in stellar brightness when a planet crosses in front of its star)",
+          "initial_target_field": "150,000 stars in the constellation Cygnus (designed to monitor ~100,000 main-sequence stars for 3.5 years)"
+        },
+        "k2_extended_mission": {
+          "pointing_solution": "Used solar photon pressure balanced against the remaining reaction wheels to maintain stability along the ecliptic plane",
+          "campaigns_completed": "19 campaigns (exceeding the initial estimate of 10 campaigns)",
+          "total_stars_surveyed": "More than 500,000 stars",
+          "additional_research": "Solar system objects, exploded stars (supernovae), stellar properties, Milky Way history, and distant supermassive black holes"
+        },
+        "major_discoveries": [
+          "20% to 50% of visible stars in the night sky are likely to host small, possibly rocky, Earth-sized planets within their habitable zones",
+          "Most common exoplanet size discovered is between Earth and Neptune (a class absent in our solar system)",
+          "Discovery of densely packed multi-planet systems orbiting very close to their parent stars",
+          "Laid the foundation for follow-up missions including TESS (launched April 2018) and the James Webb Space Telescope"
+        ]
+      }
+    ]
+  }
+}
