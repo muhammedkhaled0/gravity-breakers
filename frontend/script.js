@@ -1308,29 +1308,71 @@ async function handleCertificateSubmit(e) {
   submitBtn.disabled = true;
   statusEl.textContent = t("certSending");
 
-  try {
-    const res = await fetch("/api/certificate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        lang: state.lang,
-      }),
-    });
-    const payload = await res.json();
+  const CERTIFICATE_ENDPOINT =
+    "https://omaribrahim5589.app.n8n.cloud/webhook/762125c4-a2f2-427e-856d-e371401a4ef0";
 
-    if (res.ok && payload.ok) {
+  try {
+    let res;
+    let isSuccess = false;
+    let errorMsg = "";
+
+    try {
+      res = await fetch(CERTIFICATE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          lang: state.lang,
+        }),
+      });
+      isSuccess = res.ok;
+    } catch (primaryErr) {
+      console.warn("Direct n8n webhook fetch failed, trying local fallback:", primaryErr);
+      res = await fetch("/api/certificate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          lang: state.lang,
+        }),
+      });
+      isSuccess = res.ok;
+    }
+
+    if (res && res.ok) {
+      try {
+        const payload = await res.json();
+        if (payload && payload.ok === false) {
+          isSuccess = false;
+          errorMsg = payload.error || payload.message || "";
+        }
+      } catch {
+        // n8n response may be plain text or empty with 200 OK
+        isSuccess = true;
+      }
+    }
+
+    if (isSuccess) {
       audioManager.playChime("unlock");
-      statusEl.textContent = payload.emailSent ? t("certSentOk") : t("certReadyLocal");
-      setQuizAstronautText(payload.emailSent ? t("certSentOk") : t("certReadyLocal"));
+      statusEl.textContent = t("certSentOk");
+      setQuizAstronautText(t("certSentOk"));
     } else {
       statusEl.classList.add("is-error");
-      statusEl.textContent = payload.error || t("certReadyLocal");
+      statusEl.textContent =
+        errorMsg ||
+        (state.lang === "ar"
+          ? "حدث خطأ أثناء إرسال الشهادة، حاول مرة أخرى يا بطل!"
+          : "Error sending certificate, please try again!");
     }
-  } catch {
-    statusEl.textContent = t("certReadyLocal");
-    setQuizAstronautText(t("certReadyLocal"));
+  } catch (err) {
+    console.error("Certificate request error:", err);
+    statusEl.classList.add("is-error");
+    statusEl.textContent =
+      state.lang === "ar"
+        ? "حدث خطأ في الاتصال، حاول مرة أخرى يا بطل!"
+        : "Connection error, please try again!";
   } finally {
     submitBtn.disabled = false;
   }
