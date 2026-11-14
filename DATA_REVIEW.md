@@ -71,3 +71,4 @@ The following previously untranslated blocks have been translated and added with
 - `quizScore` → `نتيجتك: {score} من {total}` / `Your score: {score} of {total}`
 - `quizPassedMsg` → `ممتاز! عديت الاختبار بنجاح!` / `Awesome! You passed the quiz!`
 - `quizRetryMsg` → `تقدر تراجع الكروت وتجرب تاني!` / `Review the cards and try again!`
+

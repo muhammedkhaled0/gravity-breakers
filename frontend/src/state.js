@@ -90,3 +90,4 @@ export function toArabicNum(num) {
     .map((d) => digits[Number(d)] ?? d)
     .join("");
 }
+

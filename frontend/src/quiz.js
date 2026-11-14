@@ -153,7 +153,13 @@ export function finishQuiz() {
   if (victoryCard) victoryCard.hidden = false;
 
   audioMgr.playChime("unlock");
-  setQuizAstronautText(t("quizVictoryPrompt"));
+  audioMgr.playOutro();
+
+  setQuizAstronautText(
+    state.lang === "ar"
+      ? "وده يا أصحابي آخر الحكاية... أو أول الحكاية! مع السلامة يا أبطال الفضاء، وخلّوا عينيكم على السما!"
+      : t("quizVictoryPrompt")
+  );
 
   // Render score badge/pill inside victory card
   renderScoreSection(victoryCard);
@@ -241,3 +247,4 @@ export function setQuizAstronautText(text) {
   const el = document.getElementById("quiz-speech-text");
   if (el) el.textContent = text;
 }
+

@@ -258,3 +258,4 @@ if (errors.length > 0) {
   console.log("\n✅ Validation PASSED! All data schemas, keys, bilingual strings, assets and quiz match perfectly.");
   process.exit(0);
 }
+

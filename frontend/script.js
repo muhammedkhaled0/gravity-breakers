@@ -69,7 +69,8 @@ function createSoundIconSVG(isMuted) {
   }
   return `
     <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M11 5L6 9H2V15H6L11 19V5ZM15.5 8.5C16.8 9.8 17.5 11.4 17.5 13C17.5 14.6 16.8 16.2 15.5 17.5L14.1 16.1C15 15.2 15.5 14.1 15.5 13C15.5 11.9 15 10.8 14.1 9.9L15.5 8.5Z" fill="currentColor" />
+      <path d="M11 5L6 9H2V15H6L11 19V5Z" fill="currentColor" />
+      <path d="M15.5 8.5C16.8 9.8 17.5 11.4 17.5 13C17.5 14.6 16.8 16.2 15.5 17.5L14.1 16.1C15 15.2 15.5 14.1 15.5 13C15.5 11.9 15 10.8 14.1 9.9L15.5 8.5Z" fill="currentColor" />
     </svg>
   `;
 }
@@ -83,13 +84,27 @@ audioManager.onSubtitleUpdate = (screenId, lines, activeIndex) => {
   renderGuideDialogue(screenId, lines, activeIndex);
 };
 
-audioManager.onCardAudioStart = () => {
+audioManager.onCardAudioStart = (card) => {
   setFactAudioButtonState(true);
 };
 
-audioManager.onCardAudioEnd = () => {
+audioManager.onCardAudioEnd = (card) => {
   setFactAudioButtonState(false);
 };
+
+audioManager.onCardAudioPause = (card) => {
+  setFactAudioButtonState(false);
+};
+
+// Global user interaction listener to unlock audio on first touch
+function installGlobalAudioUnlocker() {
+  const unlockEvents = ["click", "touchstart", "pointerdown", "keydown"];
+  const handleInteraction = () => {
+    audioManager.unlockAudio();
+    unlockEvents.forEach((evt) => document.removeEventListener(evt, handleInteraction, true));
+  };
+  unlockEvents.forEach((evt) => document.addEventListener(evt, handleInteraction, true));
+}
 
 // =========================================================
 // MOUNT REAL PHOTOGRAPHS & ASTRONAUT SVGS
@@ -307,20 +322,13 @@ function applyLanguage(lang) {
   }
 
   // Refresh active screen narration or quiz question
-  if (state.currentScreen === "home") {
-    audioManager.playSequence("map", currentStory().map.lines, 0);
-  } else if (state.currentScreen === "quiz") {
+  if (state.currentScreen === "quiz") {
     const victoryCard = document.getElementById("quiz-victory-card");
     if (victoryCard && victoryCard.hidden) {
       setQuizAstronautText(t("quizIntroPrompt"));
       renderQuizQuestion();
     } else {
       setQuizAstronautText(t("quizVictoryPrompt"));
-    }
-  } else {
-    const data = currentStory()[state.currentScreen];
-    if (data && data.lines) {
-      audioManager.playSequence(state.currentScreen, data.lines, 0);
     }
   }
 }
@@ -348,12 +356,12 @@ function renderGuideDialogue(screenId, lines, activeIndex) {
 
   const textEl = guide.querySelector(".speech-text");
   const dotsEl = guide.querySelector(".speech-dots");
-  const line = lines[activeIndex];
+  const line = lines ? lines[activeIndex] : null;
   if (textEl && line) {
     textEl.textContent = line.text;
   }
 
-  if (dotsEl) {
+  if (dotsEl && lines) {
     dotsEl.innerHTML = "";
     if (lines.length > 1) {
       lines.forEach((_, idx) => {
@@ -400,14 +408,19 @@ function updateMapProgressUI() {
 }
 
 // =========================================================
-// FACT CARD MODAL (Richer Details + Gallery + Audio)
+// FACT CARD MODAL (Vehicle Sound on Tap + Audio Button)
 // =========================================================
 function setFactAudioButtonState(isPlaying) {
   const btn = document.getElementById("btn-fact-audio");
   const label = document.getElementById("fact-audio-label");
   if (!btn || !label) return;
   btn.classList.toggle("is-playing", isPlaying);
-  label.textContent = isPlaying ? t("factListening") : t("factListen");
+
+  if (state.lang === "ar") {
+    label.textContent = isPlaying ? "الرائد بيحكي... (دوس للإيقاف)" : "اسمعها من الرائد";
+  } else {
+    label.textContent = isPlaying ? "Astronaut speaking... (Tap to pause)" : "Hear from the Astronaut";
+  }
 }
 
 function openFactCard(screenId, cardKey, opts = {}) {
@@ -416,11 +429,6 @@ function openFactCard(screenId, cardKey, opts = {}) {
   const card = screenData.cards[cardKey];
   state.activeCardScreen = screenId;
   state.activeCardKey = cardKey;
-
-  if (!opts.silent) {
-    audioManager.playChime("tap");
-    audioManager.stopAll();
-  }
 
   document.querySelectorAll(".hotspot").forEach((h) => {
     const match = h.dataset.screen === screenId && h.dataset.card === cardKey;
@@ -440,7 +448,7 @@ function openFactCard(screenId, cardKey, opts = {}) {
   document.getElementById("fact-card-tag").textContent = card.tag;
   document.getElementById("fact-card-text").textContent = card.text;
 
-  // Status badge (Phase 5)
+  // Status badge
   const statusBadge = document.getElementById("fact-card-status");
   if (statusBadge) {
     if (card.status) {
@@ -459,7 +467,7 @@ function openFactCard(screenId, cardKey, opts = {}) {
     }
   }
 
-  // Chips (Phase 5)
+  // Chips
   const chipsContainer = document.getElementById("fact-card-chips");
   if (chipsContainer) {
     if (Array.isArray(card.chips) && card.chips.length > 0) {
@@ -473,11 +481,11 @@ function openFactCard(screenId, cardKey, opts = {}) {
     }
   }
 
-  // Gallery (Phase 5)
+  // Gallery
   const galleryEl = document.getElementById("fact-card-gallery");
   renderGallery(card.images, state.lang, galleryEl);
 
-  // Collapsible "More details" (Phase 5)
+  // Collapsible "More details"
   const detailsSection = document.getElementById("fact-card-details-section");
   const detailsContent = document.getElementById("fact-card-details-content");
   const detailsToggle = document.getElementById("btn-toggle-fact-details");
@@ -553,17 +561,60 @@ function openFactCard(screenId, cardKey, opts = {}) {
     }
   }
 
+  // Update astronaut speech bubble on screen
+  const guideText = document.querySelector(`.planet-screen:not([hidden]) .speech-text`);
+  if (guideText) {
+    guideText.textContent = card.text;
+  }
+
   document.getElementById("fact-card-modal").hidden = false;
+
+  // Scroll card to top for fresh content
+  const factCardEl = document.getElementById("fact-card-modal");
+  if (factCardEl) factCardEl.scrollTop = 0;
+
+  // USER REQUIREMENT: PLAY SOUND ON TAP!
+  if (!opts.silent) {
+    audioManager.playChime("tap");
+    if (card.audio) {
+      audioManager.playCardAudio(card);
+    }
+  }
 }
 
 function closeFactCard() {
-  audioManager.stopAll();
+  audioManager.stopCardAudio();
   state.activeCardKey = null;
   state.activeCardScreen = null;
   const modal = document.getElementById("fact-card-modal");
   if (modal) modal.hidden = true;
   document.querySelectorAll(".hotspot").forEach((h) => h.classList.remove("is-selected"));
   setFactAudioButtonState(false);
+}
+
+// =========================================================
+// INTRO TRIGGER HANDLER (Plays on first tap!)
+// =========================================================
+function handleStartIntro() {
+  audioManager.unlockAudio();
+  audioManager.playChime("tap");
+
+  const startBtn = document.getElementById("btn-start-journey");
+  if (startBtn) {
+    startBtn.disabled = true;
+    startBtn.textContent = state.lang === "ar" ? "🚀 انطلاااق! الرائد بيحكي..." : "🚀 Blast off! Astronaut speaking...";
+  }
+
+  // Play intro audio with countdown
+  audioManager.playIntro(() => {
+    // When finished, blast off to Moon!
+    audioManager.playChime("unlock");
+    showScreen("moon");
+    if (startBtn) {
+      startBtn.disabled = false;
+      startBtn.textContent = t("introCta");
+    }
+  });
 }
 
 // =========================================================
@@ -678,6 +729,13 @@ function showScreen(screenId, options = {}) {
   audioManager.stopAll();
   closeFactCard();
 
+  // Reset intro button text if we're navigating away mid-intro
+  const startBtn = document.getElementById("btn-start-journey");
+  if (startBtn) {
+    startBtn.disabled = false;
+    startBtn.textContent = t("introCta");
+  }
+
   document.querySelectorAll(".screen").forEach((screen) => {
     screen.hidden = screen.id !== `screen-${target}`;
   });
@@ -703,15 +761,22 @@ function showScreen(screenId, options = {}) {
     } else {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
-    audioManager.playSequence("map", currentStory().map.lines, 0);
+    const mapGuideText = document.getElementById("map-speech-text");
+    if (mapGuideText) {
+      mapGuideText.textContent =
+        state.lang === "ar"
+          ? "أهلًا يا بطل! أنا رائد الفضاء اللي هيحكيلك الحكاية. اختار أي مركبة عشان تسمع حكايتها!"
+          : "Hello, hero! Pick any spacecraft to hear its true story!";
+    }
   } else if (target === "quiz") {
     state.quizUnlocked = true;
     updateMapProgressUI();
     startQuiz();
   } else {
-    const data = currentStory()[target];
-    if (data && data.lines) {
-      audioManager.playSequence(target, data.lines, 0);
+    // Show planet initial guide text
+    const guideText = document.querySelector(`#screen-${target} .speech-text`);
+    if (guideText && currentStory()[target]?.lines?.[0]) {
+      guideText.textContent = currentStory()[target].lines[0].text;
     }
     centerSceneViewportOnMobile(target);
   }
@@ -741,6 +806,7 @@ function centerSceneViewportOnMobile(screenId) {
 // INITIALIZATION
 // =========================================================
 function init() {
+  installGlobalAudioUnlocker();
   loadStateFromStorage();
 
   mountRealSpacePhotos();
@@ -751,16 +817,16 @@ function init() {
   initQuiz(
     audioManager,
     () => {
-      // on victory
+      // on victory callback
       updateMapProgressUI();
     },
     (reviewCardKey) => {
-      // on review card click: find which world owns this card and open it!
+      // on review card click: navigate to the planet and open the card
       const findScreenForCard = (ck) => {
         for (const s of ["earth", "moon", "mars", "bonus"]) {
           if (currentStory()[s]?.cards?.[ck]) return s;
         }
-        return "earth";
+        return "moon";
       };
       const screenId = findScreenForCard(reviewCardKey);
       showScreen(screenId);
@@ -788,31 +854,25 @@ function init() {
     });
   });
 
-  // Intro triggers
-  document.getElementById("btn-intro-earth")?.addEventListener("click", () => {
-    audioManager.playChime("tap");
-    showScreen("earth");
-  });
-
-  document.getElementById("btn-start-journey")?.addEventListener("click", () => {
-    audioManager.playChime("tap");
-    showScreen("earth");
-  });
+  // Intro triggers (Earth click / Start button -> Starts Intro Audio immediately!)
+  document.getElementById("btn-intro-earth")?.addEventListener("click", handleStartIntro);
+  document.getElementById("btn-start-journey")?.addEventListener("click", handleStartIntro);
 
   document.getElementById("btn-scroll-map")?.addEventListener("click", () => {
+    audioManager.unlockAudio();
     const mapEl = document.getElementById("journey-map");
     if (mapEl) mapEl.scrollIntoView({ behavior: "smooth" });
-    audioManager.playSequence("map", currentStory().map.lines, 0);
   });
 
   document.getElementById("btn-map-fly")?.addEventListener("click", () => {
     audioManager.playChime("tap");
-    showScreen("earth");
+    showScreen("moon");
   });
 
   // Map Stop Clicks
   document.querySelectorAll(".map-stop").forEach((btn) => {
     btn.addEventListener("click", () => {
+      audioManager.unlockAudio();
       const stop = btn.dataset.stop;
       if (stop === "quiz" && !state.quizUnlocked) {
         audioManager.playChime("tap");
@@ -832,6 +892,7 @@ function init() {
   // Sound Toggles
   document.querySelectorAll(".js-sound-toggle").forEach((btn) => {
     btn.addEventListener("click", () => {
+      audioManager.unlockAudio();
       audioManager.setMuted(!state.isMuted);
       syncSoundButtons();
     });
@@ -856,34 +917,36 @@ function init() {
   // Replay Story buttons
   document.querySelectorAll(".js-replay-story").forEach((btn) => {
     btn.addEventListener("click", () => {
+      audioManager.playChime("tap");
       const screenId = btn.dataset.screen;
-      const lines =
-        screenId === "map" ? currentStory().map.lines : currentStory()[screenId]?.lines;
-      if (lines) {
-        audioManager.playChime("tap");
-        audioManager.playSequence(screenId, lines, 0);
+      if (screenId === "map") {
+        handleStartIntro();
+      } else {
+        const lines = currentStory()[screenId]?.lines;
+        if (lines) audioManager.playSequence(screenId, lines, 0);
       }
     });
   });
 
-  // Hotspots
+  // Hotspots: TAPPING ANY VEHICLE OPENS CARD & PLAYS ITS SOUND!
   document.querySelectorAll(".hotspot").forEach((btn) => {
     btn.addEventListener("click", () => {
       openFactCard(btn.dataset.screen, btn.dataset.card);
     });
   });
 
-  // Fact Card Controls
+  // Fact Card Close Button
   document.getElementById("btn-close-fact")?.addEventListener("click", closeFactCard);
 
+  // Fact Card Audio Play/Pause Button
   document.getElementById("btn-fact-audio")?.addEventListener("click", () => {
     if (state.activeCardScreen && state.activeCardKey) {
       const card = currentStory()[state.activeCardScreen]?.cards?.[state.activeCardKey];
-      if (card) audioManager.playCardAudio(card);
+      if (card) audioManager.toggleCardAudio(card);
     }
   });
 
-  // Collapsible Fact Details toggle (Phase 5)
+  // Collapsible Fact Details toggle
   document.getElementById("btn-toggle-fact-details")?.addEventListener("click", () => {
     const content = document.getElementById("fact-card-details-content");
     const toggle = document.getElementById("btn-toggle-fact-details");
@@ -925,22 +988,7 @@ function init() {
   if (initialHash && VALID_SCREENS.has(initialHash)) {
     handleHashRoute();
   } else {
-    renderGuideDialogue("map", currentStory().map.lines, 0);
-    const mapSection = document.getElementById("journey-map");
-    if ("IntersectionObserver" in window && mapSection) {
-      let triggered = false;
-      const obs = new IntersectionObserver(
-        (entries) => {
-          if (!triggered && entries[0]?.isIntersecting && state.currentScreen === "home") {
-            triggered = true;
-            audioManager.playSequence("map", currentStory().map.lines, 0);
-            obs.disconnect();
-          }
-        },
-        { threshold: 0.35 }
-      );
-      obs.observe(mapSection);
-    }
+    showScreen("home");
   }
 }
 

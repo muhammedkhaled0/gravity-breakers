@@ -854,6 +854,11 @@ html[dir="ltr"] .planet-guide-anchor {
   top: 96px;
   left: 20px;
   width: min(355px, calc(100vw - 40px));
+  max-height: calc(100vh - 116px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
   background-color: var(--navy-frame);
   color: var(--white);
   border: 3px solid var(--navy-dark);
@@ -864,6 +869,12 @@ html[dir="ltr"] .planet-guide-anchor {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  animation: fact-card-in 0.3s ease-out;
+}
+
+@keyframes fact-card-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 html[dir="ltr"] .fact-card {
@@ -1642,17 +1653,27 @@ html[dir="ltr"] .fact-close-btn {
 
   .fact-card {
     top: auto;
-    bottom: 155px;
-    left: 12px;
-    right: 12px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: auto;
-    max-height: 55vh;
+    max-height: 65vh;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    border-radius: 24px 24px 0 0;
+    padding: 18px 16px calc(18px + env(safe-area-inset-bottom, 12px));
+    animation: fact-card-slide-up 0.3s ease-out;
+  }
+
+  @keyframes fact-card-slide-up {
+    from { opacity: 0; transform: translateY(100%); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   html[dir="ltr"] .fact-card {
-    left: 12px;
-    right: 12px;
+    left: 0;
+    right: 0;
   }
 
   .fact-thumb {

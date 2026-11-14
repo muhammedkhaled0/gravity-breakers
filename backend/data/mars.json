@@ -639,6 +639,7 @@
             "ar": "/audio/ar/mars-card-sojourner.mp3",
             "en": null
           },
+          "audioStartTime": 75,
           "hero": {
             "src": "images/mars-surface.jpg",
             "focus": "76.5% 65%",

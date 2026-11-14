@@ -33,3 +33,4 @@ export function renderGallery(images, lang, containerEl) {
     </div>
   `;
 }
+

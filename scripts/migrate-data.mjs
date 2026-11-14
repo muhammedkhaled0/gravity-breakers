@@ -1323,3 +1323,4 @@ const finalMars = {
 
 fs.writeFileSync(path.join(dataDir, "mars.json"), JSON.stringify(finalMars, null, 2), "utf8");
 console.log("Successfully wrote mars.json (schemaVersion: 2)");
+

@@ -102,3 +102,4 @@ To add a new machine to `moon.json` or `mars.json`:
    }
    ```
 3. Run `npm run data:check` to verify your addition.
+

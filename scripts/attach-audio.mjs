@@ -32,6 +32,14 @@ function checkAndSetAudio(audioObj, expectedFilenameBase, locationDesc) {
 
 console.log("Scanning audio attachments across data files...");
 
+// Global audio tracks (Intro, Countdown, Outro)
+["intro", "countdown", "intro-raw", "outro"].forEach((track) => {
+  for (const lang of languages) {
+    const fullPath = path.join(audioBaseDir, lang, `${track}.mp3`);
+    expectedFiles.add(path.normalize(fullPath).toLowerCase());
+  }
+});
+
 // 1. journey.json
 const journeyPath = path.join(dataDir, "journey.json");
 if (fs.existsSync(journeyPath)) {
@@ -129,3 +137,4 @@ if (isStrict && missingAudio.length > 0) {
   console.log("Audio scan & attachment updated successfully.");
   process.exit(0);
 }
+

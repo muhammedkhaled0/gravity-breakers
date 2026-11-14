@@ -39,6 +39,7 @@ export function buildStoryData() {
           tag: m.card.tag[lang],
           text: m.card.kidText[lang],
           audio: m.card.audio?.[lang] || null,
+          audioStartTime: m.card.audioStartTime || 0,
           img: m.card.hero?.src || "",
           focus: m.card.hero?.focus || "50% 50%",
           scale: m.card.hero?.scale || 1.0,
@@ -69,6 +70,7 @@ export function buildStoryData() {
         tag: sc.tag[lang],
         text: sc.kidText[lang],
         audio: sc.audio?.[lang] || null,
+        audioStartTime: sc.audioStartTime || 0,
         img: sc.hero?.src || "",
         focus: sc.hero?.focus || "50% 50%",
         scale: sc.hero?.scale || 1.0,
@@ -159,3 +161,4 @@ export function buildStoryData() {
 }
 
 export { uiData, journeyData, moonData, marsData, quizData };
+

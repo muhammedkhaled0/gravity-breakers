@@ -1,34 +1,81 @@
 import { state } from "./state.js";
 
+function resolveAudioUrl(src) {
+  if (!src) return null;
+  if (typeof src !== "string") return null;
+  if (src.startsWith("http://") || src.startsWith("https://")) return src;
+
+  // Strip leading slash so it resolves relatively to the page/base
+  const cleanPath = src.replace(/^\/+/, "");
+  try {
+    const base = document.baseURI || window.location.href;
+    return new URL(cleanPath, base).href;
+  } catch {
+    return cleanPath;
+  }
+}
+
 export class AudioNarrationManager {
   constructor() {
     this.audioEl = new Audio();
     this.audioEl.preload = "auto";
+
     this.cardAudioEl = new Audio();
-    this.fallbackTimer = null;
-    this.cardFallbackTimer = null;
+    this.cardAudioEl.preload = "auto";
+
     this.audioCtx = null;
+    this.isUnlocked = false;
+
     this.sequenceId = 0;
     this.currentScreenId = null;
     this.currentLines = [];
     this.currentIndex = 0;
 
-    // Callbacks hooked by UI
+    this.activeCard = null;
+    this.isCardAudioPlaying = false;
+
+    this.fallbackTimer = null;
+    this.cardFallbackTimer = null;
+
+    // UI event hooks
     this.onSubtitleUpdate = null;
     this.onSequenceComplete = null;
     this.onCardAudioStart = null;
     this.onCardAudioEnd = null;
+    this.onCardAudioPause = null;
+  }
+
+  unlockAudio() {
+    if (this.isUnlocked) return;
+    this.isUnlocked = true;
+
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (Ctx && !this.audioCtx) {
+        this.audioCtx = new Ctx();
+      }
+      if (this.audioCtx && this.audioCtx.state === "suspended") {
+        this.audioCtx.resume();
+      }
+    } catch (e) {
+      console.warn("AudioContext unlock warning:", e);
+    }
   }
 
   playChime(type = "tap") {
     if (state.isMuted) return;
+    this.unlockAudio();
+
     try {
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (!Ctx) return;
-      if (!this.audioCtx) this.audioCtx = new Ctx();
+      if (!this.audioCtx) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) this.audioCtx = new Ctx();
+      }
+      if (!this.audioCtx) return;
       if (this.audioCtx.state === "suspended") {
         this.audioCtx.resume();
       }
+
       const now = this.audioCtx.currentTime;
       const notes =
         type === "success"
@@ -36,6 +83,7 @@ export class AudioNarrationManager {
           : type === "unlock"
             ? [587.33, 739.99, 880, 1174.66]
             : [520];
+
       notes.forEach((freq, idx) => {
         const osc = this.audioCtx.createOscillator();
         const gain = this.audioCtx.createGain();
@@ -43,7 +91,6 @@ export class AudioNarrationManager {
         osc.frequency.setValueAtTime(freq, now + idx * 0.08);
         gain.gain.setValueAtTime(0.001, now + idx * 0.08);
         gain.gain.exponentialRampToValueAtTime(0.08, now + idx * 0.08 + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.08 + 0.02);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.08 + 0.22);
         osc.connect(gain);
         gain.connect(this.audioCtx.destination);
@@ -62,15 +109,198 @@ export class AudioNarrationManager {
 
     this.audioEl.pause();
     this.audioEl.removeAttribute("src");
-    this.audioEl.load();
 
     this.cardAudioEl.pause();
     this.cardAudioEl.removeAttribute("src");
-    this.cardAudioEl.load();
+
+    this.isCardAudioPlaying = false;
+    this.activeCard = null;
 
     if (this.onCardAudioEnd) this.onCardAudioEnd();
   }
 
+  stopCardAudio() {
+    clearTimeout(this.cardFallbackTimer);
+    this.cardAudioEl.pause();
+    this.isCardAudioPlaying = false;
+    this.activeCard = null;
+    if (this.onCardAudioEnd) this.onCardAudioEnd();
+  }
+
+  // =========================================================
+  // VEHICLE CARD AUDIO PLAYBACK (Autoplays on vehicle click!)
+  // =========================================================
+  playCardAudio(card) {
+    this.unlockAudio();
+    clearTimeout(this.cardFallbackTimer);
+
+    // Stop narrative guide audio to let the vehicle speak
+    this.audioEl.pause();
+    clearTimeout(this.fallbackTimer);
+
+    this.activeCard = card;
+
+    let rawSrc = null;
+    if (card && card.audio) {
+      if (typeof card.audio === "object") {
+        rawSrc = card.audio[state.lang] || card.audio.ar || null;
+      } else if (typeof card.audio === "string") {
+        rawSrc = card.audio;
+      }
+    }
+
+    const audioUrl = resolveAudioUrl(rawSrc);
+
+    if (state.isMuted || !audioUrl) {
+      console.warn("Card audio skipped (muted or no audio file):", audioUrl);
+      this.isCardAudioPlaying = false;
+      if (this.onCardAudioEnd) this.onCardAudioEnd(card);
+      return;
+    }
+
+    this.cardAudioEl.pause();
+    this.cardAudioEl.currentTime = 0;
+    this.cardAudioEl.src = audioUrl;
+
+    // Support audioStartTime for cards that share a combined recording
+    const startTime = card.audioStartTime || 0;
+
+    const onAudioEnded = () => {
+      this.isCardAudioPlaying = false;
+      this.cardAudioEl.removeEventListener("ended", onAudioEnded);
+      this.cardAudioEl.removeEventListener("error", onAudioError);
+      if (this.onCardAudioEnd) this.onCardAudioEnd(card);
+    };
+
+    const onAudioError = (err) => {
+      console.warn("Card audio failed to play from:", audioUrl, err);
+      this.isCardAudioPlaying = false;
+      this.cardAudioEl.removeEventListener("ended", onAudioEnded);
+      this.cardAudioEl.removeEventListener("error", onAudioError);
+      if (this.onCardAudioEnd) this.onCardAudioEnd(card);
+    };
+
+    this.cardAudioEl.removeEventListener("ended", onAudioEnded);
+    this.cardAudioEl.removeEventListener("error", onAudioError);
+    this.cardAudioEl.addEventListener("ended", onAudioEnded, { once: true });
+    this.cardAudioEl.addEventListener("error", onAudioError, { once: true });
+
+    const playPromise = this.cardAudioEl.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          if (startTime > 0) {
+            this.cardAudioEl.currentTime = startTime;
+          }
+          this.isCardAudioPlaying = true;
+          if (this.onCardAudioStart) this.onCardAudioStart(card);
+        })
+        .catch((err) => {
+          console.warn("Card audio play promise rejected:", err);
+          onAudioError(err);
+        });
+    }
+  }
+
+  toggleCardAudio(card) {
+    if (this.isCardAudioPlaying && this.cardAudioEl.src) {
+      this.cardAudioEl.pause();
+      this.isCardAudioPlaying = false;
+      if (this.onCardAudioPause) this.onCardAudioPause(card);
+    } else {
+      if (this.cardAudioEl.src && this.cardAudioEl.currentTime > 0 && !this.cardAudioEl.ended) {
+        this.unlockAudio();
+        this.cardAudioEl
+          .play()
+          .then(() => {
+            this.isCardAudioPlaying = true;
+            if (this.onCardAudioStart) this.onCardAudioStart(card);
+          })
+          .catch(() => this.playCardAudio(card));
+      } else {
+        this.playCardAudio(card);
+      }
+    }
+  }
+
+  // =========================================================
+  // INTRO & OUTRO TRACKS
+  // =========================================================
+  playIntro(onComplete) {
+    this.unlockAudio();
+    this.stopAll();
+
+    const introUrl = resolveAudioUrl("/audio/ar/intro.mp3");
+    if (state.isMuted || !introUrl) {
+      if (onComplete) onComplete();
+      return;
+    }
+
+    this.audioEl.src = introUrl;
+    this.audioEl.currentTime = 0;
+
+    const onEnded = () => {
+      this.audioEl.removeEventListener("ended", onEnded);
+      this.audioEl.removeEventListener("error", onError);
+      if (onComplete) onComplete();
+    };
+
+    const onError = () => {
+      this.audioEl.removeEventListener("ended", onEnded);
+      this.audioEl.removeEventListener("error", onError);
+      if (onComplete) onComplete();
+    };
+
+    this.audioEl.addEventListener("ended", onEnded, { once: true });
+    this.audioEl.addEventListener("error", onError, { once: true });
+
+    this.audioEl
+      .play()
+      .catch((err) => {
+        console.warn("Intro audio play rejected:", err);
+        onError();
+      });
+  }
+
+  playOutro(onComplete) {
+    this.unlockAudio();
+    this.stopAll();
+
+    const outroUrl = resolveAudioUrl("/audio/ar/outro.mp3");
+    if (state.isMuted || !outroUrl) {
+      if (onComplete) onComplete();
+      return;
+    }
+
+    this.audioEl.src = outroUrl;
+    this.audioEl.currentTime = 0;
+
+    const onEnded = () => {
+      this.audioEl.removeEventListener("ended", onEnded);
+      this.audioEl.removeEventListener("error", onError);
+      if (onComplete) onComplete();
+    };
+
+    const onError = () => {
+      this.audioEl.removeEventListener("ended", onEnded);
+      this.audioEl.removeEventListener("error", onError);
+      if (onComplete) onComplete();
+    };
+
+    this.audioEl.addEventListener("ended", onEnded, { once: true });
+    this.audioEl.addEventListener("error", onError, { once: true });
+
+    this.audioEl
+      .play()
+      .catch((err) => {
+        console.warn("Outro audio play rejected:", err);
+        onError();
+      });
+  }
+
+  // =========================================================
+  // SEQUENCE NARRATION (Step by step guide with subtitles)
+  // =========================================================
   playSequence(screenId, lines, startIndex = 0) {
     this.stopAll();
     const mySeq = ++this.sequenceId;
@@ -95,27 +325,16 @@ export class AudioNarrationManager {
       this.onSubtitleUpdate(this.currentScreenId, this.currentLines, index);
     }
 
-    // Resolve audio source: object {ar, en} or direct string
-    let audioSrc = null;
+    let rawSrc = null;
     if (line.audio) {
       if (typeof line.audio === "object") {
-        audioSrc = line.audio[state.lang] || line.audio.ar || null;
+        rawSrc = line.audio[state.lang] || line.audio.ar || null;
       } else if (typeof line.audio === "string") {
-        audioSrc = line.audio;
+        rawSrc = line.audio;
       }
     }
 
-    // Preload next line audio if available
-    const nextLine = this.currentLines[index + 1];
-    if (nextLine?.audio) {
-      const nextSrc = typeof nextLine.audio === "object" ? nextLine.audio[state.lang] : nextLine.audio;
-      if (nextSrc) {
-        const preloader = new Audio();
-        preloader.preload = "auto";
-        preloader.src = nextSrc;
-      }
-    }
-
+    const audioUrl = resolveAudioUrl(rawSrc);
     const fallbackDuration = Math.max(3200, (line.text.length * 75) + 1200);
 
     const proceedToNext = () => {
@@ -125,7 +344,7 @@ export class AudioNarrationManager {
       }, 700);
     };
 
-    if (!audioSrc || state.isMuted) {
+    if (!audioUrl || state.isMuted) {
       this.fallbackTimer = setTimeout(proceedToNext, fallbackDuration);
       return;
     }
@@ -145,7 +364,6 @@ export class AudioNarrationManager {
       resolved = true;
       this.audioEl.removeEventListener("ended", onEnd);
       this.audioEl.removeEventListener("error", onError);
-      console.warn("Narration audio failed to play, falling back to timed subtitle:", audioSrc);
       this.fallbackTimer = setTimeout(proceedToNext, fallbackDuration);
     };
 
@@ -154,77 +372,21 @@ export class AudioNarrationManager {
     this.audioEl.addEventListener("ended", onEnd, { once: true });
     this.audioEl.addEventListener("error", onError, { once: true });
 
-    this.audioEl.src = audioSrc;
+    this.audioEl.src = audioUrl;
     this.audioEl
       .play()
-      .catch((err) => {
-        console.warn("Autoplay blocked or audio missing:", err);
+      .catch(() => {
         onError();
       });
 
-    // Safety timeout in case audio hangs
     this.fallbackTimer = setTimeout(() => {
       if (!resolved) onError();
-    }, 24000);
+    }, 28000);
   }
 
   playSingleHint(screenId, hint) {
     if (!hint) return;
     this.playSequence(screenId, [hint], 0);
-  }
-
-  playCardAudio(card) {
-    clearTimeout(this.cardFallbackTimer);
-    this.cardAudioEl.pause();
-
-    let audioSrc = null;
-    if (card.audio) {
-      if (typeof card.audio === "object") {
-        audioSrc = card.audio[state.lang] || card.audio.ar || null;
-      } else if (typeof card.audio === "string") {
-        audioSrc = card.audio;
-      }
-    }
-
-    const fallbackDuration = Math.max(3400, (card.text.length * 75) + 1400);
-
-    if (this.onCardAudioStart) this.onCardAudioStart();
-
-    const onCardDone = () => {
-      clearTimeout(this.cardFallbackTimer);
-      if (this.onCardAudioEnd) this.onCardAudioEnd();
-    };
-
-    if (!audioSrc || state.isMuted) {
-      this.cardFallbackTimer = setTimeout(onCardDone, fallbackDuration);
-      return;
-    }
-
-    const onEnded = () => {
-      this.cardAudioEl.removeEventListener("ended", onEnded);
-      this.cardAudioEl.removeEventListener("error", onError);
-      onCardDone();
-    };
-
-    const onError = () => {
-      this.cardAudioEl.removeEventListener("ended", onEnded);
-      this.cardAudioEl.removeEventListener("error", onError);
-      console.warn("Card audio failed to play, using fallback timer:", audioSrc);
-      this.cardFallbackTimer = setTimeout(onCardDone, fallbackDuration);
-    };
-
-    this.cardAudioEl.removeEventListener("ended", onEnded);
-    this.cardAudioEl.removeEventListener("error", onError);
-    this.cardAudioEl.addEventListener("ended", onEnded, { once: true });
-    this.cardAudioEl.addEventListener("error", onError, { once: true });
-
-    this.cardAudioEl.src = audioSrc;
-    this.cardAudioEl
-      .play()
-      .catch((err) => {
-        console.warn("Card audio play error:", err);
-        onError();
-      });
   }
 
   setMuted(muted) {
