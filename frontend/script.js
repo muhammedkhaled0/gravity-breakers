@@ -720,10 +720,14 @@ async function handleCertificateSubmit(e) {
 // =========================================================
 // SCREEN ROUTING & PROGRESS
 // =========================================================
-const VALID_SCREENS = new Set(["home", "earth", "moon", "mars", "quiz", "bonus"]);
+const VALID_SCREENS = new Set(["home", "moon", "mars", "quiz", "bonus"]);
 
 function showScreen(screenId, options = {}) {
   const { fromHash = false, scrollToMap = false } = options;
+  if (screenId === "earth") {
+    // Earth stop on map scrolls back up to the launchpad on Home
+    screenId = "home";
+  }
   const target = VALID_SCREENS.has(screenId) ? screenId : "home";
 
   audioManager.stopAll();
@@ -749,7 +753,7 @@ function showScreen(screenId, options = {}) {
     }
   }
 
-  if (target === "earth" || target === "moon" || target === "mars" || target === "bonus") {
+  if (target === "moon" || target === "mars" || target === "bonus") {
     state.visited[target] = true;
     updateMapProgressUI();
   }
@@ -823,7 +827,7 @@ function init() {
     (reviewCardKey) => {
       // on review card click: navigate to the planet and open the card
       const findScreenForCard = (ck) => {
-        for (const s of ["earth", "moon", "mars", "bonus"]) {
+        for (const s of ["moon", "mars", "bonus"]) {
           if (currentStory()[s]?.cards?.[ck]) return s;
         }
         return "moon";

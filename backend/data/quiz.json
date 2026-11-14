@@ -5,8 +5,8 @@
       "id": "q-first-landing",
       "world": "moon",
       "question": {
-        "ar": "إيه أول مركبة هبطت ببشر على القمر سنة ١٩٦٩؟",
-        "en": "Which spacecraft first landed humans on the Moon in 1969?"
+        "ar": "إيه أول مركبة في التاريخ هبطت برواد فضاء على سطح القمر سنة ١٩٦٩؟",
+        "en": "Which spacecraft in history first landed astronauts on the Moon in 1969?"
       },
       "options": [
         {
@@ -33,159 +33,158 @@
       ],
       "correctId": "a",
       "explanation": {
-        "ar": "مركبة النسر (أبولو ١١) هي أول مركبة هبطت برواد فضاء على سطح القمر في ٢٠ يوليو ١٩٦٩!",
-        "en": "Eagle (Apollo 11) was the first spacecraft to land humans on the Moon on July 20, 1969!"
+        "ar": "مركبة «النسر» في أبولو ١١ هي أول مركبة هبطت برواد فضاء على القمر يوم ٢٠ يوليو ١٩٦٩ في بحر الهدوء!",
+        "en": "Eagle (Apollo 11) was the first craft to land astronauts on the Moon on July 20, 1969 in the Sea of Tranquility!"
       },
       "learnMoreCard": "eagle"
     },
     {
-      "id": "q-rover-distance",
+      "id": "q-falcon-hammer-feather",
       "world": "moon",
       "question": {
-        "ar": "العربية القمرية (أبولو ١٥) مشيت قد إيه على القمر؟",
-        "en": "About how far did the Apollo 15 Lunar Rover drive on the Moon?"
+        "ar": "ديفيد سكوت على القمر أسقط ريشة خفيفة ومطرقة تقيلة سوا، مين وصل لسطح القمر الأول؟",
+        "en": "David Scott dropped a light feather and heavy hammer on the Moon. Which one hit the ground first?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "ar": "حوالي ٢٨ كيلومتر",
-            "en": "About 28 kilometers"
+            "ar": "المطرقة لأنها أتقل",
+            "en": "The hammer because it is heavier"
           }
         },
         {
           "id": "b",
           "text": {
-            "ar": "١٥ سنتيمتر بس",
-            "en": "Just 15 centimeters"
+            "ar": "وقعوا مع بعض بنفس السرعة لأن مفيش هوا",
+            "en": "They fell together at the exact same speed because there's no air"
           }
         },
         {
           "id": "c",
           "text": {
-            "ar": "٦ سنين",
-            "en": "6 years"
+            "ar": "الريشة طارت في الفضاء",
+            "en": "The feather floated away into space"
+          }
+        }
+      ],
+      "correctId": "b",
+      "explanation": {
+        "ar": "لأن القمر مفيهوش هوا ومقاومة، الريشة الخفيفة والمطرقة التقيلة وقعوا سوا بالظبط وتعادلوا في السباق!",
+        "en": "Because there is no air on the Moon to slow the feather down, both objects fell at the exact same rate!"
+      },
+      "learnMoreCard": "falcon"
+    },
+    {
+      "id": "q-viking-landing",
+      "world": "mars",
+      "question": {
+        "ar": "مركبة «فايكنج ١» أول مركبة تنجح في الهبوط على المريخ، هبطت في نفس يوم هبوط أنهي مركبة على القمر بعد ٧ سنين؟",
+        "en": "Viking 1 was the first successful Mars landing. It touched down on the exact same day as which Moon mission 7 years earlier?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "ar": "النسر (أبولو ١١) في ٢٠ يوليو",
+            "en": "Eagle (Apollo 11) on July 20"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "ar": "إنتربيد (أبولو ١٢)",
+            "en": "Intrepid (Apollo 12)"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "ar": "فالكون (أبولو ١٥)",
+            "en": "Falcon (Apollo 15)"
           }
         }
       ],
       "correctId": "a",
       "explanation": {
-        "ar": "العربية القمرية مشيت حوالي ٢٨ كيلومتر، ولسه راكنة على سطح القمر لحد النهارده!",
-        "en": "The Lunar Rover traveled about 28 kilometers and is still parked on the Moon today!"
+        "ar": "فايكنج ١ نزلت على المريخ يوم ٢٠ يوليو ١٩٧٦، وهو نفس يوم هبوط النسر على القمر سنة ١٩٦٩... عيد ميلاد مشترك تقريباً!",
+        "en": "Viking 1 landed on Mars on July 20, 1976 — the exact 7-year anniversary of Apollo 11's Moon landing!"
       },
-      "learnMoreCard": "rover"
+      "learnMoreCard": "viking"
     },
     {
       "id": "q-pathfinder-landing",
       "world": "mars",
       "question": {
-        "ar": "إزاي مركبة «باثفايندر» هبطت على المريخ سنة ١٩٩٧؟",
+        "ar": "إزاي مركبة «باثفايندر» هبطت على سطح المريخ سنة ١٩٩٧؟",
         "en": "How did Mars Pathfinder land on Mars in 1997?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "ar": "بعجل كبير زي العربية",
+            "ar": "نزلت على عجل سباق كبير",
             "en": "On giant racing wheels"
           }
         },
         {
           "id": "b",
           "text": {
-            "ar": "جوا وسائد هوائية عملاقة اتنططت ١٥ مرة",
-            "en": "Inside giant airbags that bounced ~15 times"
+            "ar": "اتغلفت ببالونات هوا ضخمة اتنططت ١٥ مرة زي كورة شاطئ",
+            "en": "Wrapped in giant airbags that bounced 15 times like a beach ball"
           }
         },
         {
           "id": "c",
           "text": {
-            "ar": "بشراع في البحر",
-            "en": "With a sailboat"
+            "ar": "هبطت في بحيرة مية دافية",
+            "en": "Splashed into a warm lake"
           }
         }
       ],
       "correctId": "b",
       "explanation": {
-        "ar": "باثفايندر كانت متغلفة بوسائد هوائية كبيرة اتنططت ١٥ مرة قبل ما تفتح بأمان!",
-        "en": "Pathfinder was cushioned by giant airbags that bounced about 15 times before settling safely!"
+        "ar": "باثفايندر نزلت ببالونات هوا عملاقة اتنططت ١٥ مرة لارتفاع وصل ١٥ متر قبل ما تقف وتفتح زي الوردة!",
+        "en": "Pathfinder was cushioned by giant airbags, bouncing 15 times up to 15 meters high before settling safely!"
       },
       "learnMoreCard": "pathfinder"
     },
     {
-      "id": "q-sojourner-size",
-      "world": "mars",
+      "id": "q-near-asteroid",
+      "world": "deepspace",
       "question": {
-        "ar": "طول الروبوت الصغير «سوجورنر» أد إيه؟",
-        "en": "How long is the tiny Sojourner rover?"
+        "ar": "إيه أول مركبة في تاريخ البشرية تنجح في الهبوط على سطح كويكب فضائي سنة ٢٠٠١؟",
+        "en": "Which spacecraft in human history first successfully landed on an asteroid in 2001?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "ar": "٣٠ سنتيمتر قد مسطرة المدرسة",
-            "en": "30 cm — like a school ruler"
+            "ar": "نير شوميكر (على كويكب إيروس)",
+            "en": "NEAR Shoemaker (on Asteroid Eros)"
           }
         },
         {
           "id": "b",
           "text": {
-            "ar": "طول أتوبيس كبير",
-            "en": "As long as a big bus"
+            "ar": "تلسكوب كبلر",
+            "en": "Kepler Space Telescope"
           }
         },
         {
           "id": "c",
           "text": {
-            "ar": "كيلومتر كامل",
-            "en": "1 kilometer"
+            "ar": "العربية القمرية",
+            "en": "The Lunar Rover"
           }
         }
       ],
       "correctId": "a",
       "explanation": {
-        "ar": "سوجورنر روبوت صغنن طوله ٣٠ سم بس ووزنه ١٠٫٥ كجم، ومسجل كأول متجول على المريخ!",
-        "en": "Sojourner was a tiny 30 cm rover weighing just 10.5 kg, the first rover on Mars!"
+        "ar": "مركبة «نير شوميكر» هبطت بنجاح على صخرة كويكب إيروس (طوله ٣٤ كم) في ١٢ فبراير ٢٠٠١ وفضلت تبعت معلومات لأسبوعين!",
+        "en": "NEAR Shoemaker made history by landing gently on giant asteroid Eros on February 12, 2001, transmitting data for two weeks!"
       },
-      "learnMoreCard": "sojourner"
-    },
-    {
-      "id": "q-atmosphere-line",
-      "world": "earth",
-      "question": {
-        "ar": "ليه الخط الأزرق اللي حوالين الأرض مهم لينا؟",
-        "en": "Why is the thin blue line around Earth so important?"
-      },
-      "options": [
-        {
-          "id": "a",
-          "text": {
-            "ar": "عشان ده لون المية في السما",
-            "en": "It's ocean water in the sky"
-          }
-        },
-        {
-          "id": "b",
-          "text": {
-            "ar": "ده الهوا والغلاف الجوي اللي بيحمينا",
-            "en": "It's our air and atmosphere that protects us"
-          }
-        },
-        {
-          "id": "c",
-          "text": {
-            "ar": "دي صخور سابحة في الفضاء",
-            "en": "It's a ring of space rocks"
-          }
-        }
-      ],
-      "correctId": "b",
-      "explanation": {
-        "ar": "الغلاف الجوي للأرض هو الهوا اللي بنتنفسه والدرع اللي بيحمينا من إشعاع الفضاء!",
-        "en": "Earth's atmosphere is the air we breathe and the shield protecting us from space radiation!"
-      },
-      "learnMoreCard": "air"
+      "learnMoreCard": "eros"
     }
   ]
 }
-

@@ -75,8 +75,8 @@
               "en": "First Successful Mars Landing · 1976"
             },
             "kidText": {
-              "ar": "أول مركبة تنجح في الهبوط على المريخ! فضلت شغالة أكتر من ٦ سنين، لحد ما أمر غلط اتبعت من الأرض قطع الاتصال بيها.",
-              "en": "The first craft to land and work successfully on Mars! It operated for over 6 years until a wrong command from Earth cut contact."
+              "ar": "«فايكنج ١» هي أول مركبة تنجح في الهبوط والعمل على المريخ! نزلت يوم ٢٠ يوليو ١٩٧٦ في نفس يوم نزول النسر على القمر بعد ٧ سنين (عيد ميلاد مشترك!). صورت بانوراما ملونة في جو برد جداً (-٨٦ درجة تحت الصفر)، وفضلت شغالة أكتر من ٦ سنين لحد ما جاها أمر غلط من الأرض قطع الاتصال!",
+              "en": "Viking 1 was the first craft to successfully land and operate on Mars! It touched down on July 20, 1976 — the exact same day Apollo 11 landed 7 years earlier! It took color panoramas in freezing cold (-86°C) and worked for over 6 years until an accidental command from Earth cut contact."
             },
             "audio": {
               "ar": "/audio/ar/mars-card-viking.mp3",
@@ -278,320 +278,6 @@
             "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-075C"
           ],
           "needsReview": false
-        },
-        {
-          "id": "spirit",
-          "world": "mars",
-          "name": {
-            "ar": "مركبة استكشاف المريخ: سبيريت (MER-A)",
-            "en": "Mars Exploration Rover: Spirit (MER-A)"
-          },
-          "cosparId": "2003-027A",
-          "alternateNames": [
-            "MER-A",
-            "Spirit Rover"
-          ],
-          "type": "rover",
-          "status": "silent",
-          "location": {
-            "lat": -14.5684,
-            "lon": 175.4726
-          },
-          "coordinatesText": "14.5684° S, 175.4726° E",
-          "card": null,
-          "chips": [
-            {
-              "icon": "car",
-              "label": {
-                "ar": "مسافة التجوال",
-                "en": "Distance"
-              },
-              "value": {
-                "ar": "٧٫٧ كم (٤٫٨ ميل)",
-                "en": "7.7 km (4.8 mi)"
-              }
-            },
-            {
-              "icon": "calendar",
-              "label": {
-                "ar": "تاريخ الهبوط",
-                "en": "Landed"
-              },
-              "value": {
-                "ar": "٤ يناير ٢٠٠٤",
-                "en": "Jan 4, 2004"
-              }
-            },
-            {
-              "icon": "map-pin",
-              "label": {
-                "ar": "موقع الهبوط",
-                "en": "Landing Site"
-              },
-              "value": {
-                "ar": "فوهة غوسيف",
-                "en": "Gusev Crater"
-              }
-            }
-          ],
-          "images": [],
-          "summary": {
-            "ar": "مركبة استكشاف روبوتية هبطت في فوهة غوسيف بالمريخ في يناير 2004، واستمرت في العمل لأكثر من 6 سنوات متجاوزة مهمتها المقررة بثلاثين ضعفاً، ووجدت أدلة قوية على ينابيع حارة قديمة.",
-            "en": "A robotic geologist rover that touched down in Gusev Crater on Mars in January 2004, operating for over 6 years (30 times its planned mission) and uncovering evidence of past hydrothermal activity."
-          },
-          "facts": [
-            {
-              "id": "landing-site",
-              "label": {
-                "ar": "موقع الهبوط",
-                "en": "Landing Site"
-              },
-              "value": {
-                "ar": "فوهة غوسيف (بحيرة قديمة محتملة)",
-                "en": "Gusev Crater (a possible former lake)"
-              }
-            },
-            {
-              "id": "distance-traveled",
-              "label": {
-                "ar": "المسافة المقطوعة",
-                "en": "Distance Traveled"
-              },
-              "value": {
-                "ar": "٧٫٧ كم",
-                "en": "7.7 km"
-              },
-              "numeric": {
-                "value": 7.7,
-                "unit": "km"
-              }
-            }
-          ],
-          "timeline": [
-            {
-              "date": "2003-06-10",
-              "event": {
-                "ar": "إطلاق سبيريت من كيب كانافيرال",
-                "en": "Launch of Spirit from Cape Canaveral"
-              }
-            },
-            {
-              "date": "2004-01-04",
-              "event": {
-                "ar": "الهبوط في فوهة غوسيف بالمريخ",
-                "en": "Landing in Gusev Crater on Mars"
-              }
-            },
-            {
-              "date": "2010-03-22",
-              "event": {
-                "ar": "آخر اتصال بمركبة سبيريت بعد أن علقت في رمال ناعمة",
-                "en": "Final communication from Spirit after getting stuck in soft soil"
-              }
-            }
-          ],
-          "highlights": [
-            {
-              "title": {
-                "ar": "اكتشاف السيليكا النقية والينابيع الحارة",
-                "en": "Discovery of Pure Silica & Hydrothermal Springs"
-              },
-              "description": {
-                "ar": "كشفت عجلات سبيريت أثناء حفرها بالرمال عن وجود سيليكا نقية بنسبة 90%، وهي دليل قاطع على بيئة ينابيع مياه حارة سابقة.",
-                "en": "While dragging a stuck wheel, Spirit churned up 90% pure silica deposits, proving ancient hot spring activity on Mars."
-              }
-            }
-          ],
-          "people": [],
-          "instruments": [
-            {
-              "name": {
-                "ar": "كاميرا البانوراما ومطياف موسباور",
-                "en": "Pancam & Mössbauer Spectrometer"
-              },
-              "purpose": {
-                "ar": "تصوير السطح وتحليل التركيب المعدني للحديد في صخور المريخ",
-                "en": "High-resolution imaging and mineralogical analysis of iron-bearing rocks"
-              }
-            }
-          ],
-          "quizFacts": [],
-          "sources": [
-            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-027A"
-          ],
-          "needsReview": false
-        },
-        {
-          "id": "opportunity",
-          "world": "mars",
-          "name": {
-            "ar": "مركبة استكشاف المريخ: أبورتيونيتي (MER-B)",
-            "en": "Mars Exploration Rover: Opportunity (MER-B)"
-          },
-          "cosparId": "2003-032A",
-          "alternateNames": [
-            "MER-B",
-            "Opportunity Rover",
-            "Oppy"
-          ],
-          "type": "rover",
-          "status": "silent",
-          "location": {
-            "lat": -1.9462,
-            "lon": 354.4734
-          },
-          "coordinatesText": "1.9462° S, 354.4734° E",
-          "card": null,
-          "chips": [
-            {
-              "icon": "car",
-              "label": {
-                "ar": "مسافة التجوال القياسية",
-                "en": "Distance Record"
-              },
-              "value": {
-                "ar": "٤٥٫١٦ كم (٢٨٫٠٦ ميل)",
-                "en": "45.16 km (28.06 mi)"
-              }
-            },
-            {
-              "icon": "calendar",
-              "label": {
-                "ar": "تاريخ الهبوط",
-                "en": "Landed"
-              },
-              "value": {
-                "ar": "٢٥ يناير ٢٠٠٤",
-                "en": "Jan 25, 2004"
-              }
-            },
-            {
-              "icon": "clock",
-              "label": {
-                "ar": "مدة العمل",
-                "en": "Active Duration"
-              },
-              "value": {
-                "ar": "نحو ١٥ سنة (حتى ٢٠١٨)",
-                "en": "Nearly 15 years (to 2018)"
-              }
-            },
-            {
-              "icon": "map-pin",
-              "label": {
-                "ar": "موقع الهبوط",
-                "en": "Landing Site"
-              },
-              "value": {
-                "ar": "مريدياني بلانوم",
-                "en": "Meridiani Planum"
-              }
-            }
-          ],
-          "images": [],
-          "summary": {
-            "ar": "الروبوت الأسطوري الذي هبط في مريدياني بلانوم وعمل لما يقرب من 15 عاماً قاطعاً أكثر من 45 كيلومتراً، مؤكداً وجود بيئة مائية قديمة ملائمة للحياة.",
-            "en": "The legendary rover that touched down on Meridiani Planum, operating for nearly 15 years and driving over 45 kilometers to confirm persistent liquid water once existed on ancient Mars."
-          },
-          "facts": [
-            {
-              "id": "landing-site",
-              "label": {
-                "ar": "موقع الهبوط",
-                "en": "Landing Site"
-              },
-              "value": {
-                "ar": "مريدياني بلانوم",
-                "en": "Meridiani Planum"
-              }
-            },
-            {
-              "id": "distance-traveled",
-              "label": {
-                "ar": "المسافة المقطوعة",
-                "en": "Distance Traveled"
-              },
-              "value": {
-                "ar": "٤٥٫١٦ كم",
-                "en": "45.16 km"
-              },
-              "numeric": {
-                "value": 45.16,
-                "unit": "km"
-              }
-            },
-            {
-              "id": "distance-record-note",
-              "label": {
-                "ar": "الرقم القياسي للتجوال",
-                "en": "Roving Distance Record"
-              },
-              "value": {
-                "ar": "احتفظت بالرقم القياسي لمسافة التجوال خارج الأرض (45.16 كم) حتى تجاوزتها بيرسيفيرانس في أكتوبر 2026",
-                "en": "Held off-Earth distance record (45.16 km) until passed by Perseverance in October 2026"
-              }
-            }
-          ],
-          "timeline": [
-            {
-              "date": "2003-07-07",
-              "event": {
-                "ar": "إطلاق أبورتيونيتي نحو المريخ",
-                "en": "Launch of Opportunity towards Mars"
-              }
-            },
-            {
-              "date": "2004-01-25",
-              "event": {
-                "ar": "الهبوط في فوهة إيغل على سهل مريدياني بلانوم",
-                "en": "Hole-in-one landing in Eagle Crater on Meridiani Planum"
-              }
-            },
-            {
-              "date": "2015-03-24",
-              "event": {
-                "ar": "إكمال مسافة ماراثون كامل (42.195 كم) على سطح المريخ",
-                "en": "Completes first off-Earth marathon distance (42.195 km)"
-              }
-            },
-            {
-              "date": "2018-06-10",
-              "event": {
-                "ar": "عاصفة ترابية كوكبية تحجب الشمس وتنهي الاتصال بالمركبة",
-                "en": "Global dust storm blocks solar panels, ending communications"
-              }
-            }
-          ],
-          "highlights": [
-            {
-              "title": {
-                "ar": "إثبات وجود مياه سائلة قديمة",
-                "en": "Confirming Ancient Liquid Water"
-              },
-              "description": {
-                "ar": "اكتشفت كريات الهيماتيت الدقيقة (العنب البري للمريخ) وطبقات صخرية رسوبية تشكلت في مياه جارية.",
-                "en": "Discovered hematite spherules ('blueberries') and sedimentary rock layers formed in flowing acidic water."
-              }
-            }
-          ],
-          "people": [],
-          "instruments": [
-            {
-              "name": {
-                "ar": "أداة حك الصخور ومطياف ألفا",
-                "en": "Rock Abrasion Tool (RAT) & APXS"
-              },
-              "purpose": {
-                "ar": "كشط أسطح الصخور المريخية وتحليل عناصرها الداخلية",
-                "en": "Grinded rock surfaces to examine unweathered interior compositions"
-              }
-            }
-          ],
-          "quizFacts": [],
-          "sources": [
-            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-032A"
-          ],
-          "needsReview": false
         }
       ],
       "storyCards": [
@@ -599,16 +285,16 @@
           "cardKey": "pathfinder",
           "world": "mars",
           "title": {
-            "ar": "باثفايندر",
-            "en": "Mars Pathfinder"
+            "ar": "باثفايندر وسوجورنر",
+            "en": "Mars Pathfinder & Sojourner"
           },
           "tag": {
-            "ar": "١٩٩٧ · محطة كارل ساجان",
-            "en": "1997 · Carl Sagan Station"
+            "ar": "١٩٩٧ · محطة كارل ساجان وروبوت سوجورنر",
+            "en": "1997 · Carl Sagan Station & Sojourner"
           },
           "kidText": {
-            "ar": "هبطت على المريخ جوا وسائد هوائية عملاقة، واتنططت على السطح حوالي ١٥ مرة لحد ما وقفت وفتحت!",
-            "en": "It landed wrapped inside giant airbags and bounced about 15 times across Mars before settling and opening its solar petals!"
+            "ar": "سنة ١٩٩٧ نزلت مركبة «باثفايندر» بطريقة مجنونة: مظلة وبالونات هوا ضخمة اتنططت ١٥ مرة زي كورة شاطئ عملاقة لحد ما وقفت وفتحت! اتسمت محطة كارل ساجان، وكان جواها الروبوت الصغير «سوجورنر» (طوله ٣٠ سم زي مسطرة مدرسة ووزنه ١٠٫٥ كجم). نزلوا في وادي أريس ولقوا صخور مدورة بتثبت إن كان فيه مية بتجري زمان!",
+            "en": "In 1997, Mars Pathfinder made an incredible landing wrapped in giant airbags that bounced 15 times like a gigantic beach ball! Named Carl Sagan Station, it carried tiny rover Sojourner (just 30 cm long like a school ruler and 10.5 kg). They touched down in Ares Vallis and found rounded rocks proving ancient water once flowed there!"
           },
           "audio": {
             "ar": "/audio/ar/mars-card-pathfinder.mp3",
@@ -616,34 +302,8 @@
           },
           "hero": {
             "src": "images/mars-surface.jpg",
-            "focus": "56% 51%",
-            "scale": 2.1
-          }
-        },
-        {
-          "cardKey": "sojourner",
-          "world": "mars",
-          "title": {
-            "ar": "سوجورنر",
-            "en": "Sojourner"
-          },
-          "tag": {
-            "ar": "روبوت المريخ الصغير",
-            "en": "Tiny Mars Rover"
-          },
-          "kidText": {
-            "ar": "روبوت صغنن خالص! وزنه ١٠٫٥ كيلوجرام، وطوله ٣٠ سنتيمتر... يعني قد مسطرة المدرسة بالظبط! ولسه موجود على المريخ.",
-            "en": "A super tiny robot! Only 10.5 kg and 30 cm long — just like a school ruler — and it's still on Mars today."
-          },
-          "audio": {
-            "ar": "/audio/ar/mars-card-sojourner.mp3",
-            "en": null
-          },
-          "audioStartTime": 75,
-          "hero": {
-            "src": "images/mars-surface.jpg",
-            "focus": "76.5% 65%",
-            "scale": 2.4
+            "focus": "58% 52%",
+            "scale": 2.2
           }
         }
       ]
@@ -712,16 +372,16 @@
           "card": {
             "cardKey": "kepler",
             "title": {
-              "ar": "تلسكوب كيبلر الفضائي",
-              "en": "Kepler Space Telescope"
+              "ar": "تلسكوب كبلر الفضائي ومهمة كي-تو",
+              "en": "Kepler Space Telescope & K2"
             },
             "tag": {
-              "ar": "نجوم بعيدة أوي أوي",
-              "en": "Stars Far, Far Away"
+              "ar": "صائد الكواكب خارج المجموعة الشمسية · ٢٠٠٩",
+              "en": "Exoplanet Hunter · 2009"
             },
             "kidText": {
-              "ar": "تلسكوب طار في الفضاء وبص على نجوم بعيدة أوي أوي عشان يدور على كواكب تانية برا مجموعتنا الشمسية، ولسه سابح في الفضاء.",
-              "en": "A deep-space telescope that stared at distant stars to discover thousands of planets outside our solar system."
+              "ar": "صائد الكواكب الأعظم! تلسكوب انطلق سنة ٢٠٠٩ وبص على ١٥٠ ألف نجمة في نفس الوقت، ولما كوكب يعدي قدام نجمه النور بيخفت شوية (زي حشرة بتعدي قدام لمبة). اكتشف أكتر من ٢٦٠٠ كوكب! ولما عجلاته اتعطلت المهندسين استخدموا ضوء الشمس لتثبيته في مهمة كي-تو العبقرية.",
+              "en": "The greatest planet hunter ever! Launched in 2009, Kepler observed 150,000 stars simultaneously, spotting worlds when starlight dimmed (like a bug passing a light bulb). It discovered over 2,600 confirmed planets! When reaction wheels failed, engineers balanced it using sunlight pressure in the brilliant K2 mission."
             },
             "audio": {
               "ar": "/audio/ar/bonus-card-kepler.mp3",
@@ -895,148 +555,6 @@
             "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2009-011A"
           ],
           "needsReview": false
-        },
-        {
-          "id": "dawn",
-          "world": "deepspace",
-          "name": {
-            "ar": "مركبة داون الفضائية",
-            "en": "Dawn Spacecraft"
-          },
-          "cosparId": "2007-043A",
-          "alternateNames": [
-            "Discovery 9",
-            "Dawn"
-          ],
-          "type": "orbiter",
-          "status": "silent",
-          "location": null,
-          "coordinatesText": null,
-          "card": null,
-          "chips": [
-            {
-              "icon": "orbit",
-              "label": {
-                "ar": "الأهداف الفلكية",
-                "en": "Targets"
-              },
-              "value": {
-                "ar": "الكويكب فيستا والكوكب القزم سيريس",
-                "en": "Asteroid Vesta & Dwarf Planet Ceres"
-              }
-            },
-            {
-              "icon": "calendar",
-              "label": {
-                "ar": "تاريخ الإطلاق",
-                "en": "Launched"
-              },
-              "value": {
-                "ar": "٢٧ سبتمبر ٢٠٠٧",
-                "en": "Sep 27, 2007"
-              }
-            },
-            {
-              "icon": "zap",
-              "label": {
-                "ar": "نظام الدفع",
-                "en": "Propulsion"
-              },
-              "value": {
-                "ar": "دفع أيوني كهربائي متطور",
-                "en": "Advanced Ion Propulsion"
-              }
-            }
-          ],
-          "images": [],
-          "summary": {
-            "ar": "أول مركبة فضائية تدور حول جسمين مختلفين خارج الأرض في حزام الكويكبات الرئيسي: الكويكب العملاق فيستا والكوكب القزم الجليدي سيريس.",
-            "en": "NASA's historic mission that became the first spacecraft to orbit two different extraterrestrial bodies: giant asteroid Vesta and icy dwarf planet Ceres."
-          },
-          "facts": [
-            {
-              "id": "region",
-              "label": {
-                "ar": "المنطقة الفضائية",
-                "en": "Region"
-              },
-              "value": {
-                "ar": "حزام الكويكبات الرئيسي بين المريخ والمشتري",
-                "en": "Main asteroid belt between Mars and Jupiter"
-              }
-            },
-            {
-              "id": "propulsion",
-              "label": {
-                "ar": "نوع المحرك",
-                "en": "Propulsion"
-              },
-              "value": {
-                "ar": "محركات دفع أيونية بالزينون",
-                "en": "Xenon ion thrusters"
-              }
-            }
-          ],
-          "timeline": [
-            {
-              "date": "2007-09-27",
-              "event": {
-                "ar": "إطلاق مركبة داون نحو حزام الكويكبات",
-                "en": "Launch of Dawn towards asteroid belt"
-              }
-            },
-            {
-              "date": "2011-07-16",
-              "event": {
-                "ar": "دخول المدار حول الكويكب العملاق فيستا",
-                "en": "Enters orbit around giant asteroid Vesta"
-              }
-            },
-            {
-              "date": "2015-03-06",
-              "event": {
-                "ar": "دخول المدار حول الكوكب القزم سيريس",
-                "en": "Historic orbit insertion around dwarf planet Ceres"
-              }
-            },
-            {
-              "date": "2018-11-01",
-              "event": {
-                "ar": "نفاد وقود الهيدرازين ونهاية المهمة في مدار مستقر حول سيريس",
-                "en": "Hydrazine depletion concludes mission in stable Ceres orbit"
-              }
-            }
-          ],
-          "highlights": [
-            {
-              "title": {
-                "ar": "استكشاف البقع اللامعة على سيريس",
-                "en": "Bright Faculae Spots on Ceres"
-              },
-              "description": {
-                "ar": "كشفت داون عن بقع ملحية لامعة وبقايا محيط مائي جوفي تحت قشرة الكوكب القزم سيريس.",
-                "en": "Revealed dazzling sodium carbonate salt spots and past subsurface oceanic brine on Ceres."
-              }
-            }
-          ],
-          "people": [],
-          "instruments": [
-            {
-              "name": {
-                "ar": "كاميرا التأطير ومطياف أشعة غاما",
-                "en": "Framing Camera & GRaND"
-              },
-              "purpose": {
-                "ar": "رسم خرائط طبوغرافية وتحليل العناصر السطحية لسيريس وفيستا",
-                "en": "High-resolution topography and elemental mapping of asteroids"
-              }
-            }
-          ],
-          "quizFacts": [],
-          "sources": [
-            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-043A"
-          ],
-          "needsReview": false
         }
       ],
       "storyCards": [
@@ -1044,16 +562,16 @@
           "cardKey": "eros",
           "world": "deepspace",
           "title": {
-            "ar": "نير شوميكر على إيروس",
-            "en": "NEAR Shoemaker on Eros"
+            "ar": "نير شوميكر على كويكب إيروس",
+            "en": "NEAR Shoemaker on Asteroid Eros"
           },
           "tag": {
-            "ar": "صخرة كبيرة سابحة في الفضاء",
-            "en": "Floating Rock in Space"
+            "ar": "أول هبوط على كويكب في التاريخ · ٢٠٠١",
+            "en": "First Asteroid Landing in History · 2001"
           },
           "kidText": {
-            "ar": "أول مركبة تهبط على كويكب! هبطت على صخرة كبيرة سابحة في الفضاء اسمها «إيروس»، وفضلت مستقرة فوقها.",
-            "en": "The first spacecraft ever to land on an asteroid! It touched down on the giant space rock Eros and stayed there."
+            "ar": "أول مركبة تلف حوالين كويكب وأول مركبة تنزل على كويكب في التاريخ! الكويكب اسمه «إيروس» (صخرة طولها ٣٤ كم زي مدينة كاملة). نير مكنتش متصممة أصلاً للنزول، بس نزلوها بهدوء بسرعة ٦٫٥ كم/ساعة ونجحت وفضلت تبعت معلومات وصور في برد قارس (-١٧٣ درجة) لأسبوعين!",
+            "en": "The first spacecraft to orbit and land on an asteroid in history! Asteroid Eros is a giant 34 km space rock like a whole city. NEAR was never designed to land, but touched down gently at 6.5 km/h, sending 160,000 photos and operating for 2 weeks in -173°C cold!"
           },
           "audio": {
             "ar": "/audio/ar/bonus-card-eros.mp3",
@@ -1061,8 +579,8 @@
           },
           "hero": {
             "src": "images/deep-space.jpg",
-            "focus": "35% 24%",
-            "scale": 2.1
+            "focus": "35% 22%",
+            "scale": 1.8
           }
         }
       ]

@@ -496,111 +496,7 @@
       </section>
 
       <!-- =========================================================
-           SCREEN 2: EARTH FROM ORBIT (#earth) — Real-life Photo Scene
-           ========================================================= -->
-      <section id="screen-earth" class="screen planet-screen" aria-label="محطة الأرض من الفضاء" hidden>
-        <div class="scene-viewport">
-          <div class="scene-stage" data-scene="earth">
-            <img
-              id="scene-img-earth"
-              class="scene-photo"
-              alt="صورة حقيقية لكوكب الأرض من المدار مع الغلاف الجوي الأزرق والشروق والقمر البعيد"
-              referrerpolicy="no-referrer"
-            />
-            <!-- Hotspots pinned directly on the real features -->
-            <button
-              type="button"
-              class="hotspot"
-              style="left: 48%; top: 26%;"
-              data-screen="earth"
-              data-card="air"
-              aria-label="الخط الأزرق - الغلاف الجوي"
-            >
-              <span class="hotspot-ring"></span>
-              <span class="hotspot-core"></span>
-            </button>
-
-            <button
-              type="button"
-              class="hotspot"
-              style="left: 45%; top: 58%;"
-              data-screen="earth"
-              data-card="earth"
-              aria-label="كوكب الأرض"
-            >
-              <span class="hotspot-ring"></span>
-              <span class="hotspot-core"></span>
-            </button>
-
-            <button
-              type="button"
-              class="hotspot"
-              style="left: 19.8%; top: 14.5%;"
-              data-screen="earth"
-              data-card="moon"
-              aria-label="القمر البعيد"
-            >
-              <span class="hotspot-ring"></span>
-              <span class="hotspot-core"></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="planet-ui-layer">
-          <div class="place-card">
-            <div class="place-icon" aria-hidden="true">
-              <svg width="42" height="42" viewBox="0 0 60 60">
-                <circle cx="30" cy="30" r="24" fill="#2B7CE9" stroke="#FFD54A" stroke-width="3" />
-                <path d="M18,22 C24,17 34,20 35,28 C36,36 25,38 22,32 Z" fill="#57C278" />
-                <path d="M38,24 C44,26 46,35 42,40 C37,42 35,34 38,24 Z" fill="#57C278" />
-              </svg>
-            </div>
-            <div>
-              <h2 class="place-title" data-i18n="earthTitle">الأرض</h2>
-              <p class="place-subtitle" data-i18n="earthSubtitle">شوف بيتنا من الفضاء، قبل ما نطير</p>
-            </div>
-          </div>
-
-          <div class="top-left-controls">
-            <button type="button" class="btn btn-white btn-sm js-go-map">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M15 5L9 3L3 5.5V20L9 17.5L15 20L21 17.5V3L15 5ZM15 17.8L9 15.4V5.2L15 7.6V17.8Z" fill="currentColor" />
-              </svg>
-              <span data-i18n="btnMap">الخريطة</span>
-            </button>
-            <button type="button" class="btn btn-white btn-sm js-lang-toggle">English</button>
-            <button type="button" class="btn btn-white btn-sm js-sound-toggle" aria-pressed="false">
-              <span class="sound-icon-slot" aria-hidden="true"></span>
-              <span class="sound-label">الصوت</span>
-            </button>
-          </div>
-
-          <div class="planet-guide-anchor">
-            <div class="astronaut-companion" data-guide="earth">
-              <div class="astronaut-figure" aria-hidden="true"></div>
-              <div class="speech-bubble">
-                <p class="speech-text" aria-live="polite"></p>
-                <div class="speech-controls">
-                  <div class="speech-dots" aria-hidden="true"></div>
-                  <div class="speech-actions">
-                    <button type="button" class="btn-icon-round js-replay-story" data-screen="earth" aria-label="Replay">
-                      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 5V2L7 6.5L12 11V8C15.3 8 18 10.7 18 14C18 17.3 15.3 20 12 20C8.7 20 6 17.3 6 14H4C4 18.4 7.6 22 12 22C16.4 22 20 18.4 20 14C20 9.6 16.4 5 12 5Z" fill="currentColor" />
-                      </svg>
-                    </button>
-                    <button type="button" class="btn btn-yellow btn-sm js-next-stop" data-next="moon" data-i18n="earthNext">
-                      يلا للقمر!
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =========================================================
-           SCREEN 3: MOON SURFACE (#moon) — Real-life Photo Scene
+           SCREEN 2: MOON SURFACE (#moon) — Real-life Photo Scene
            ========================================================= -->
       <section id="screen-moon" class="screen planet-screen" aria-label="محطة القمر" hidden>
         <div class="scene-viewport">
@@ -641,8 +537,8 @@
               class="hotspot"
               style="left: 78%; top: 50%;"
               data-screen="moon"
-              data-card="rover"
-              aria-label="العربية القمرية — فالكون أبولو ١٥"
+              data-card="falcon"
+              aria-label="فالكون والعربية القمرية — أبولو ١٥"
             >
               <span class="hotspot-ring"></span>
               <span class="hotspot-core"></span>
@@ -731,22 +627,10 @@
             <button
               type="button"
               class="hotspot"
-              style="left: 56%; top: 50%;"
+              style="left: 60%; top: 52%;"
               data-screen="mars"
               data-card="pathfinder"
-              aria-label="باثفايندر — ١٩٩٧ · محطة كارل ساجان"
-            >
-              <span class="hotspot-ring"></span>
-              <span class="hotspot-core"></span>
-            </button>
-
-            <button
-              type="button"
-              class="hotspot"
-              style="left: 76.5%; top: 65%;"
-              data-screen="mars"
-              data-card="sojourner"
-              aria-label="الروبوت سوجورنر"
+              aria-label="باثفايندر وسوجورنر — ١٩٩٧ · محطة كارل ساجان والروبوت سوجورنر"
             >
               <span class="hotspot-ring"></span>
               <span class="hotspot-core"></span>
@@ -949,7 +833,7 @@
               style="left: 75%; top: 49%;"
               data-screen="bonus"
               data-card="kepler"
-              aria-label="تلسكوب كيبلر الفضائي"
+              aria-label="تلسكوب كبلر الفضائي ومهمة كي-تو"
             >
               <span class="hotspot-ring"></span>
               <span class="hotspot-core"></span>

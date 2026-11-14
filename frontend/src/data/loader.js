@@ -78,6 +78,11 @@ export function buildStoryData() {
       };
     }
 
+    // Backward compatibility aliases
+    if (cards["falcon"] && !cards["rover"]) {
+      cards["rover"] = cards["falcon"];
+    }
+
     return cards;
   };
 

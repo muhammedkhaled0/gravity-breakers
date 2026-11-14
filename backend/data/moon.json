@@ -76,8 +76,8 @@
               "en": "Apollo 11 · 1969"
             },
             "kidText": {
-              "ar": "أول مركبة هبطت ببشر على القمر. نصّها التحتاني لسه موجود هناك لحد دلوقتي، وجنبه جهاز صغير كان بيحس بـ «زلازل القمر»!",
-              "en": "The first craft to land humans on the Moon! Its lower half is still parked there, right beside a small device that sensed moonquakes."
+              "ar": "في سنة ١٩٦٩ هبطت مركبة «النسر» كأول مركبة في التاريخ تنزّل بني آدمين على القمر! مفيش فيها ولا كرسي، الرواد فضلوا واقفين زي المترو في الزحمة. نيل أرمسترونج وبَز ألدرين نزلوا في بحر الهدوء، وجمعوا ٢١ كيلو صخور وتراب، وسابوا جهاز بيحس بزلازل القمر بيشتغل بالطاقة الشمسية!",
+              "en": "In 1969, Eagle became the first spacecraft to land humans on the Moon! There were no chairs inside — astronauts stood the whole trip like a crowded subway. Neil Armstrong and Buzz Aldrin explored the Sea of Tranquility, gathered 21 kg of rocks, and left a solar-powered moonquake sensor!"
             },
             "audio": {
               "ar": "/audio/ar/moon-card-eagle.mp3",
@@ -373,8 +373,8 @@
               "en": "Apollo 12 · 1969"
             },
             "kidText": {
-              "ar": "مركبة إنتربيد هبطت جنب مركبة قديمة اسمها «سيرفيور ٣»، ورواد الفضاء فكّوا منها حوالي ١٠ كيلوجرام من أجزائها ورجعوا بيها للأرض.",
-              "en": "Intrepid landed right next to the older Surveyor 3 probe, and astronauts brought back about 10 kg of its parts to study on Earth."
+              "ar": "مركبة «إنتربيد» يعني الشجاع! نزلوا يوم ١٩ نوفمبر ١٩٦٩ جنب مركبة قديمة اسمها سيرفيور ٣ بدقة جامدة جداً (على بعد ١٨٠ متر بس!). فكوا منها ١٠ كيلو أجزاء ورجعوا بيها للأرض زي بطيخة كبيرة من القمر، وقعدوا ٣١ ساعة، وسابوا المركبة تتخبط في القمر قصد عشان يعملوا أول زلزال يصنعه الإنسان!",
+              "en": "Intrepid means fearless! On November 19, 1969, astronauts landed just 180 meters from Surveyor 3 with pinpoint accuracy! They brought back 10 kg of Surveyor parts like a lunar watermelon, stayed 31 hours, and deliberately crashed the ascent stage to make the first human-made moonquake!"
             },
             "audio": {
               "ar": "/audio/ar/moon-card-intrepid.mp3",
@@ -643,21 +643,21 @@
           },
           "coordinatesText": "26.13239° N, 3.63330° E",
           "card": {
-            "cardKey": "rover",
+            "cardKey": "falcon",
             "title": {
-              "ar": "العربية القمرية",
-              "en": "Lunar Rover"
+              "ar": "فالكون والعربية القمرية",
+              "en": "Falcon & Lunar Rover"
             },
             "tag": {
-              "ar": "فالكون · أبولو ١٥ · ١٩٧١",
-              "en": "Falcon · Apollo 15 · 1971"
+              "ar": "أبولو ١٥ · ١٩٧١",
+              "en": "Apollo 15 · 1971"
             },
             "kidText": {
-              "ar": "أول عربية اتساقت على القمر! مشيت حوالي ٢٨ كيلومتر، ولسه راكنة هناك على سطح القمر لحد النهارده.",
-              "en": "The very first car driven on the Moon! It traveled about 28 kilometers and is still parked there today."
+              "ar": "مركبة «فالكون» يعني الصقر! رابع مركبة تنزّل بشر على القمر، وجابوا معاهم أول عربية تتسوق على القمر من غير زحمة ولا إشارات! قطعوا بالعربية ٢٨ كم وجمعوا ٧٧ كيلو صخور (وزن راجل كبير!). وسكوت عمل أشهر سباق بين ريشة ومطرقة ووقعوا سوا بنفس السرعة لأن مفيش هوا في القمر!",
+              "en": "Falcon means Hawk! The fourth craft to land humans on the Moon brought the first lunar car ever driven — no traffic or stoplights! They drove 28 km, collected 77 kg of rocks, and David Scott dropped a hammer and feather together, hitting the surface at the exact same moment in the vacuum of space!"
             },
             "audio": {
-              "ar": "/audio/ar/moon-card-rover.mp3",
+              "ar": "/audio/ar/moon-card-falcon.mp3",
               "en": null
             },
             "hero": {
