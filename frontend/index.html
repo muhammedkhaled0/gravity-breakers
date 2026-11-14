@@ -397,7 +397,23 @@
                         <span class="stop-meta" data-i18n="stopMarsMeta">مركبتين</span>
                       </button>
 
-                      <!-- 4. QUIZ -->
+                      <!-- 4. DEEP SPACE (Unlocked Stop 3 in Journey) -->
+                      <button type="button" class="map-stop stop-bonus" data-stop="bonus">
+                        <span class="stop-art">
+                          <svg viewBox="0 0 140 140" aria-hidden="true">
+                            <circle cx="70" cy="70" r="42" fill="#181C44" stroke="#7A6EC2" stroke-width="4" stroke-dasharray="7 5" />
+                            <path d="M46,72 C44,58 58,48 74,52 C88,54 96,68 90,80 C82,92 50,88 46,72 Z" fill="#8E92B2" stroke="#14173A" stroke-width="3" />
+                            <circle cx="62" cy="64" r="5" fill="#6B6E8C" />
+                            <circle cx="78" cy="74" r="4" fill="#6B6E8C" />
+                            <path d="M98,40 L101,48 L109,51 L101,54 L98,62 L95,54 L87,51 L95,48 Z" fill="#FFD54A" />
+                            <circle cx="42" cy="46" r="3" fill="#B9D7FF" />
+                          </svg>
+                        </span>
+                        <span class="stop-name" data-i18n="stopBonusName">الفضاء البعيد</span>
+                        <span class="stop-meta" id="bonus-stop-meta" data-i18n="stopBonusMeta">مركبتين</span>
+                      </button>
+
+                      <!-- 5. QUIZ -->
                       <button type="button" class="map-stop stop-quiz is-locked" data-stop="quiz">
                         <span class="stop-art">
                           <svg viewBox="0 0 150 150" aria-hidden="true">
@@ -448,31 +464,8 @@
                           </span>
                         </span>
                         <span class="stop-name" data-i18n="stopQuizName">اختبار</span>
-                        <span class="stop-meta" id="quiz-stop-meta" data-i18n="stopQuizMeta">بعد المريخ</span>
+                        <span class="stop-meta" id="quiz-stop-meta" data-i18n="stopQuizMeta">بعد الفضاء البعيد</span>
                       </button>
-
-                      <!-- 5. DEEP SPACE -->
-                      <button type="button" class="map-stop stop-bonus is-locked" data-stop="bonus">
-                        <span class="stop-art">
-                          <svg viewBox="0 0 140 140" aria-hidden="true">
-                            <circle cx="70" cy="70" r="42" fill="#181C44" stroke="#7A6EC2" stroke-width="4" stroke-dasharray="7 5" />
-                            <path d="M46,72 C44,58 58,48 74,52 C88,54 96,68 90,80 C82,92 50,88 46,72 Z" fill="#8E92B2" stroke="#14173A" stroke-width="3" />
-                            <circle cx="62" cy="64" r="5" fill="#6B6E8C" />
-                            <circle cx="78" cy="74" r="4" fill="#6B6E8C" />
-                            <path d="M98,40 L101,48 L109,51 L101,54 L98,62 L95,54 L87,51 L95,48 Z" fill="#FFD54A" />
-                            <circle cx="42" cy="46" r="3" fill="#B9D7FF" />
-                          </svg>
-                          <span class="stop-lock-badge" aria-hidden="true">
-                            <svg width="18" height="18" viewBox="0 0 24 24">
-                              <path
-                                d="M17 10H16V7C16 4.8 14.2 3 12 3C9.8 3 8 4.8 8 7V10H7C5.9 10 5 10.9 5 12V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V12C19 10.9 18.1 10 17 10ZM10 7C10 5.9 10.9 5 12 5C13.1 5 14 5.9 14 7V10H10V7Z"
-                                fill="#14173A"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                        <span class="stop-name" data-i18n="stopBonusName">الفضاء البعيد</span>
-                        <span class="stop-meta" id="bonus-stop-meta" data-i18n="stopBonusMeta">مفاجأة!</span>
                       </button>
                     </div>
                   </div>
@@ -680,8 +673,8 @@
                         <path d="M12 5V2L7 6.5L12 11V8C15.3 8 18 10.7 18 14C18 17.3 15.3 20 12 20C8.7 20 6 17.3 6 14H4C4 18.4 7.6 22 12 22C16.4 22 20 18.4 20 14C20 9.6 16.4 5 12 5Z" fill="currentColor" />
                       </svg>
                     </button>
-                    <button type="button" class="btn btn-yellow btn-sm js-next-stop" data-next="quiz" data-i18n="marsNext">
-                      يلا للاختبار!
+                    <button type="button" class="btn btn-yellow btn-sm js-next-stop" data-next="bonus" data-i18n="marsNext">
+                      يلا للفضاء البعيد!
                     </button>
                   </div>
                 </div>
@@ -882,8 +875,8 @@
                         <path d="M12 5V2L7 6.5L12 11V8C15.3 8 18 10.7 18 14C18 17.3 15.3 20 12 20C8.7 20 6 17.3 6 14H4C4 18.4 7.6 22 12 22C16.4 22 20 18.4 20 14C20 9.6 16.4 5 12 5Z" fill="currentColor" />
                       </svg>
                     </button>
-                    <button type="button" class="btn btn-yellow btn-sm js-go-map" data-i18n="bonusBackMap">
-                      ارجع للخريطة
+                    <button type="button" class="btn btn-yellow btn-sm js-next-stop" data-next="quiz" data-i18n="bonusNext">
+                      يلا للاختبار والشهادة!
                     </button>
                   </div>
                 </div>

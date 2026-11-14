@@ -75,13 +75,17 @@
     "ar": "الفضاء البعيد",
     "en": "Deep Space"
   },
+  "stopBonusMeta": {
+    "ar": "مركبتين",
+    "en": "2 Spacecraft"
+  },
   "stopBonusMetaLocked": {
-    "ar": "مفاجأة!",
-    "en": "Surprise!"
+    "ar": "المحطة التالتة",
+    "en": "Stop 3"
   },
   "stopBonusMetaOpen": {
-    "ar": "مفتوح!",
-    "en": "Unlocked!"
+    "ar": "مركبتين",
+    "en": "2 Spacecraft"
   },
   "quizSvgWord": {
     "ar": "اختبار",
@@ -144,8 +148,12 @@
     "en": "The Red Neighbor · 2 Landers & a Rover"
   },
   "marsNext": {
-    "ar": "يلا للاختبار!",
-    "en": "Take the Quiz!"
+    "ar": "يلا للفضاء البعيد!",
+    "en": "Off to Deep Space!"
+  },
+  "bonusNext": {
+    "ar": "يلا للاختبار والشهادة!",
+    "en": "Take the Quiz & Certificate!"
   },
   "bonusTitle": {
     "ar": "الفضاء البعيد",

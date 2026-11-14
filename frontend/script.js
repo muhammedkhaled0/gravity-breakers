@@ -382,10 +382,17 @@ function updateMapProgressUI() {
   const quizBtn = document.querySelector('.map-stop[data-stop="quiz"]');
   const bonusBtn = document.querySelector('.map-stop[data-stop="bonus"]');
 
-  if (earthBtn) earthBtn.classList.toggle("is-visited", state.visited.earth);
-  if (moonBtn) moonBtn.classList.toggle("is-visited", state.visited.moon);
-  if (marsBtn) marsBtn.classList.toggle("is-visited", state.visited.mars);
+  if (earthBtn) earthBtn.classList.toggle("is-visited", Boolean(state.visited.earth));
+  if (moonBtn) moonBtn.classList.toggle("is-visited", Boolean(state.visited.moon));
+  if (marsBtn) marsBtn.classList.toggle("is-visited", Boolean(state.visited.mars));
+  if (bonusBtn) {
+    bonusBtn.classList.remove("is-locked");
+    bonusBtn.classList.toggle("is-visited", Boolean(state.visited.bonus));
+    const meta = document.getElementById("bonus-stop-meta");
+    if (meta) meta.textContent = t("stopBonusMeta");
+  }
 
+  // Quiz unlocks after exploring Moon, Mars or Deep Space
   if (state.visited.moon && state.visited.mars) {
     state.quizUnlocked = true;
   }
@@ -395,13 +402,6 @@ function updateMapProgressUI() {
     quizBtn.classList.toggle("is-visited", state.quizPassed);
     const meta = document.getElementById("quiz-stop-meta");
     if (meta) meta.textContent = state.quizUnlocked ? t("stopQuizMetaOpen") : t("stopQuizMetaLocked");
-  }
-
-  if (bonusBtn) {
-    bonusBtn.classList.toggle("is-locked", !state.quizPassed);
-    bonusBtn.classList.toggle("is-visited", state.visited.bonus);
-    const meta = document.getElementById("bonus-stop-meta");
-    if (meta) meta.textContent = state.quizPassed ? t("stopBonusMetaOpen") : t("stopBonusMetaLocked");
   }
 
   saveStateToStorage();
@@ -883,11 +883,6 @@ function init() {
         audioManager.playSingleHint("map", currentStory().map.lockedQuiz);
         return;
       }
-      if (stop === "bonus" && !state.quizPassed) {
-        audioManager.playChime("tap");
-        audioManager.playSingleHint("map", currentStory().map.lockedBonus);
-        return;
-      }
       audioManager.playChime("tap");
       showScreen(stop);
     });
@@ -979,10 +974,6 @@ function init() {
   const handleHashRoute = () => {
     const raw = window.location.hash.replace("#", "").trim().toLowerCase();
     const target = VALID_SCREENS.has(raw) ? raw : "home";
-    if (target === "bonus" && !state.quizPassed) {
-      showScreen("home", { scrollToMap: true });
-      return;
-    }
     showScreen(target, { fromHash: true });
   };
 
