@@ -3,14 +3,15 @@
   "private": true,
   "version": "1.0.0",
   "description": "أطول رحلة في الدنيا — The Longest Journey in the World",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
     "dev": "npm --prefix frontend run dev",
     "start": "npm --prefix frontend run dev",
     "build": "npm --prefix frontend run build",
     "preview": "npm --prefix frontend run preview",
-    "install:all": "npm --prefix frontend install && npm --prefix backend install",
-    "dev:backend": "npm --prefix backend run dev",
-    "data:check": "node scripts/validate-data.mjs",
-    "data:audio": "node scripts/attach-audio.mjs"
+    "dev:backend": "npm --prefix backend run dev"
   }
 }
