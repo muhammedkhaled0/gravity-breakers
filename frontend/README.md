@@ -1,6 +1,6 @@
 # Gravity Breakers Frontend
 
-أطول رحلة في الدنيا — The Longest Journey in the World
+The Longest Journey in the World
 
 A story-driven, bilingual (Arabic RTL + English LTR) web experience for children about NASA hardware left on the Moon, Mars, and Deep Space.
 

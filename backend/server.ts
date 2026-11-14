@@ -3,10 +3,9 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 
-dotenv.config();
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, ".env") });
 
 interface CertificateRecord {
   id: string;
@@ -19,13 +18,11 @@ interface CertificateRecord {
 }
 
 const certificateRequests: CertificateRecord[] = [];
-const N8N_WEBHOOK_URL =
-  process.env.N8N_WEBHOOK_URL ||
-  "https://omaribrahim5589.app.n8n.cloud/webhook/762125c4-a2f2-427e-856d-e371401a4ef0";
+const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
 
 async function startServer() {
   const app = express();
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 3001;
 
   // Simple CORS middleware to allow frontend calls
   app.use((req, res, next) => {
@@ -71,20 +68,30 @@ async function startServer() {
       let webhookSent = false;
       let emailSent = false;
 
-      // 1. Forward to published n8n Webhook
-      try {
-        const webhookRes = await fetch(N8N_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: cleanName,
-            email: cleanEmail,
-            lang: chosenLang,
-          }),
-        });
-        webhookSent = webhookRes.ok;
-      } catch (webhookErr) {
-        console.warn("n8n webhook forward failed:", webhookErr);
+      // 1. Forward to n8n only when the owner explicitly configures a webhook.
+      if (N8N_WEBHOOK_URL) {
+        try {
+          const webhookRes = await fetch(N8N_WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: cleanName,
+              email: cleanEmail,
+              lang: chosenLang,
+            }),
+          });
+          webhookSent = webhookRes.ok;
+          const webhookBody = await webhookRes.text().catch(() => "");
+          console.log(
+            `n8n webhook responded HTTP ${webhookRes.status}:`,
+            webhookBody.slice(0, 1000),
+          );
+          if (!webhookRes.ok) {
+            console.warn("n8n did not accept the certificate request.");
+          }
+        } catch (webhookErr) {
+          console.warn("n8n webhook forward failed:", webhookErr);
+        }
       }
 
       // 2. Direct Resend fallback (if configured)
@@ -126,6 +133,10 @@ async function startServer() {
           });
 
           emailSent = mailRes.ok;
+          if (!mailRes.ok) {
+            const details = await mailRes.text().catch(() => "");
+            console.warn(`Resend returned HTTP ${mailRes.status}:`, details);
+          }
         } catch (resendErr) {
           console.warn("Resend email failed:", resendErr);
         }
@@ -143,10 +154,19 @@ async function startServer() {
       certificateRequests.push(record);
 
       return res.json({
-        ok: true,
+        // A successful webhook response means n8n accepted the request; it does
+        // not prove that its downstream email node delivered a message.
+        ok: webhookSent || emailSent,
         id: record.id,
         webhookSent,
         emailSent,
+        deliveryStatus: emailSent ? "sent" : webhookSent ? "queued" : "failed",
+        error:
+          webhookSent || emailSent
+            ? undefined
+            : chosenLang === "ar"
+              ? "لم يتم إعداد خدمة إرسال الشهادة. أضف RESEND_API_KEY صالحًا إلى backend/.env أو فعّل webhook في n8n."
+              : "Certificate email could not be sent. Configure RESEND_API_KEY in backend/.env or activate the n8n webhook.",
       });
     } catch (err) {
       console.error("Certificate endpoint error:", err);

@@ -665,55 +665,21 @@ async function handleCertificateSubmit(e) {
   submitBtn.disabled = true;
   statusEl.textContent = t("certSending");
 
-  const CERTIFICATE_ENDPOINT =
-    "https://omaribrahim5589.app.n8n.cloud/webhook/762125c4-a2f2-427e-856d-e371401a4ef0";
-
   try {
-    let res;
-    let isSuccess = false;
-    let errorMsg = "";
-
-    try {
-      res = await fetch(CERTIFICATE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          lang: state.lang,
-        }),
-      });
-      isSuccess = res.ok;
-    } catch (primaryErr) {
-      console.warn("Direct n8n webhook fetch failed, trying local server fallback:", primaryErr);
-      res = await fetch("/api/certificate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          lang: state.lang,
-        }),
-      });
-      isSuccess = res.ok;
-    }
-
-    if (res && res.ok) {
-      try {
-        const payload = await res.json();
-        if (payload && payload.ok === false) {
-          isSuccess = false;
-          errorMsg = payload.error || payload.message || "";
-        }
-      } catch {
-        isSuccess = true;
-      }
-    }
+    const res = await fetch("/api/certificate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, lang: state.lang }),
+    });
+    const payload = await res.json().catch(() => ({}));
+    const isSuccess = res.ok && payload.ok === true;
+    const errorMsg = payload.error || payload.message || "";
 
     if (isSuccess) {
       audioManager.playChime("unlock");
-      statusEl.textContent = t("certSentOk");
-      setQuizAstronautText(t("certSentOk"));
+      const statusKey = payload.emailSent ? "certSentOk" : "certQueued";
+      statusEl.textContent = t(statusKey);
+      setQuizAstronautText(t(statusKey));
     } else {
       statusEl.textContent = errorMsg || t("certReadyLocal");
       setQuizAstronautText(t("certReadyLocal"));
