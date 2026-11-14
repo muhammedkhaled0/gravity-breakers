@@ -751,13 +751,50 @@ html[dir="ltr"] .speech-bubble::after {
 
 .hotspot-core {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background-color: var(--yellow);
   border: 3px solid var(--navy-dark);
-  box-shadow: 0 0 0 3px rgba(61, 123, 224, 0.8);
+  box-shadow: 0 0 0 3px rgba(61, 123, 224, 0.8), 0 4px 10px rgba(0, 0, 0, 0.4);
   transition: transform 0.16s ease, background-color 0.16s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotspot-num {
+  font-family: var(--font-display, 'Lalezar', sans-serif);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--navy-dark);
+  line-height: 1;
+}
+
+.hotspot-pill {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(11, 15, 46, 0.92);
+  color: #ffd54a;
+  border: 1.5px solid rgba(255, 213, 74, 0.6);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hotspot:hover .hotspot-pill,
+.hotspot.is-selected .hotspot-pill {
+  background-color: var(--yellow);
+  color: var(--navy-dark);
+  border-color: #ffffff;
+  transform: translateX(-50%) scale(1.08);
 }
 
 .hotspot:hover .hotspot-core,

@@ -155,6 +155,38 @@
     "ar": "يلا للاختبار والشهادة!",
     "en": "Take the Quiz & Certificate!"
   },
+  "spotEaglePill": {
+    "ar": "١. النسر",
+    "en": "1. Eagle"
+  },
+  "spotIntrepidPill": {
+    "ar": "٢. إنتربيد",
+    "en": "2. Intrepid"
+  },
+  "spotFalconPill": {
+    "ar": "٣. فالكون",
+    "en": "3. Falcon"
+  },
+  "spotVikingPill": {
+    "ar": "١. فايكنج ١",
+    "en": "1. Viking 1"
+  },
+  "spotPathfinderPill": {
+    "ar": "٢. باثفايندر وسوجورنر",
+    "en": "2. Pathfinder & Sojourner"
+  },
+  "spotErosPill": {
+    "ar": "١. نير شوميكر",
+    "en": "1. NEAR Shoemaker"
+  },
+  "spotNearPill": {
+    "ar": "١. نير شوميكر",
+    "en": "1. NEAR Shoemaker"
+  },
+  "spotKeplerPill": {
+    "ar": "٢. تلسكوب كبلر",
+    "en": "2. Kepler Telescope"
+  },
   "bonusTitle": {
     "ar": "الفضاء البعيد",
     "en": "Deep Space"

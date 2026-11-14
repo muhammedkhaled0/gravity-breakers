@@ -290,7 +290,17 @@ function applyLanguage(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (key) el.textContent = t(key);
+    if (key) {
+      const translated = t(key);
+      if (translated) el.textContent = translated;
+    }
+  });
+
+  document.querySelectorAll(".hotspot-num").forEach((numEl) => {
+    const rawNum = numEl.getAttribute("data-num");
+    if (rawNum) {
+      numEl.textContent = state.lang === "ar" ? toArabicNum(rawNum) : rawNum;
+    }
   });
 
   document.querySelectorAll(".js-lang-toggle").forEach((btn) => {
@@ -799,10 +809,7 @@ function centerSceneViewportOnMobile(screenId) {
   const vp = screenEl ? screenEl.querySelector(".scene-viewport") : null;
   if (!vp) return;
   requestAnimationFrame(() => {
-    const maxScroll = vp.scrollWidth - vp.clientWidth;
-    if (maxScroll > 0) {
-      vp.scrollLeft = maxScroll / 2;
-    }
+    vp.scrollLeft = 0;
   });
 }
 
