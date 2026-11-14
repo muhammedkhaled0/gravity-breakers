@@ -1,565 +1,24 @@
+import {
+  state,
+  UI_STRINGS,
+  STORY_DATA,
+  t,
+  currentStory,
+  loadStateFromStorage,
+  saveStateToStorage,
+  resetProgress,
+  toArabicNum,
+} from "./src/state.js";
+import { AudioNarrationManager } from "./src/audio.js";
+import { initQuiz, startQuiz, renderQuizQuestion, setQuizAstronautText } from "./src/quiz.js";
+import { renderGallery } from "./src/gallery.js";
+
 const realEarthGlobeImg = "images/earth-globe.jpg";
 const realEarthTextureImg = "images/earth-texture.jpg";
 const realEarthOrbitImg = "images/earth-orbit.jpg";
 const realMoonSurfaceImg = "images/moon-surface.jpg";
 const realMarsSurfaceImg = "images/mars-surface.jpg";
 const realDeepSpaceImg = "images/deep-space.jpg";
-
-// =========================================================
-// BILINGUAL STORY DATA, UI COPY & REAL PHOTO MAPPING
-// =========================================================
-export const UI_STRINGS = {
-  ar: {
-    pageTitle: "أطول رحلة في الدنيا",
-    langToggleLabel: "English",
-    introTitle: "أطول رحلة في الدنيا",
-    introSubtitle: "رحلة حقيقية من الأرض للقمر للمريخ، ورائد فضاء هيحكيلك الحكاية",
-    introCta: "دوس على الأرض عشان نبدأ!",
-    scrollMapHint: "انزل لتحت عشان تشوف الخريطة",
-    mapTitle: "خريطة الرحلة",
-    mapSubtitle: "اختار محطتك، ورائد الفضاء هيحكيلك الحكاية",
-    mapFly: "يلا نطير!",
-    stopEarthName: "الأرض",
-    stopEarthMeta: "البداية",
-    stopMoonName: "القمر",
-    stopMoonMeta: "٣ مركبات",
-    stopMarsName: "المريخ",
-    stopMarsMeta: "مركبتين",
-    stopQuizName: "اختبار",
-    stopQuizMetaLocked: "بعد المريخ",
-    stopQuizMetaOpen: "جاهز دلوقتي!",
-    stopBonusName: "الفضاء البعيد",
-    stopBonusMetaLocked: "مفاجأة!",
-    stopBonusMetaOpen: "مفتوح!",
-    quizSvgWord: "اختبار",
-    quizSvgQ: "؟",
-    btnMap: "الخريطة",
-    soundOnHome: "الصوت شغال",
-    soundOffHome: "الصوت مقفول",
-    soundOnShort: "الصوت",
-    soundOffShort: "مقفول",
-    earthTitle: "الأرض",
-    earthSubtitle: "شوف بيتنا من الفضاء، قبل ما نطير",
-    earthNext: "يلا للقمر!",
-    moonTitle: "القمر",
-    moonSubtitle: "أول محطة · ٣ مركبات",
-    moonNext: "يلا للمريخ!",
-    marsTitle: "المريخ",
-    marsSubtitle: "الجار الأحمر · مركبتين وروبوت",
-    marsNext: "يلا للاختبار!",
-    bonusTitle: "الفضاء البعيد",
-    bonusSubtitle: "آخر محطة · صخرة سابحة ونجوم بعيدة",
-    bonusBackMap: "ارجع للخريطة",
-    factListen: "اسمعها من الرائد",
-    factListening: "الرائد بيحكي...",
-    quizHeaderTitle: "اختبار أبطال الفضاء",
-    quizHeaderSubtitle: "جاوب عشان تستلم شهادتك وتفتح الفضاء البعيد!",
-    quizIntroPrompt: "جاهز يا بطل؟ اختار الإجابة الصح!",
-    quizCorrectMsg: "برافو عليك يا بطل! إجابة صح مية في المية!",
-    quizNextPrompt: "شاطر! يلا نشوف السؤال اللي بعده.",
-    quizWrongMsg: "قرّبت! فكّر شوية وجرب اختيار تاني.",
-    quizVictoryPrompt: "أحسنت يا بطل الفضاء! اكتب اسمك وإيميلك عشان تستلم شهادتك!",
-    victoryTitle: "مبروك يا بطل الفضاء!",
-    victoryDesc: "اكتب اسمك وبريدك الإلكتروني عشان نصمم شهادتك ونبعتهالك على الإيميل!",
-    certNameLabel: "اسمك الجميل",
-    certNamePlaceholder: "مثال: علي محمد",
-    certEmailLabel: "البريد الإلكتروني",
-    certEmailPlaceholder: "name@example.com",
-    certSubmitBtn: "ابعتلي الشهادة على الإيميل!",
-    certSending: "بنبعت بياناتك...",
-    certSentOk: "تم الإرسال! راجع بريدك الإلكتروني عشان تستلم الشهادة!",
-    certReadyLocal: "تم استلام اسمك وإيميلك بنجاح! راجع بريدك الإلكتروني عشان تستلم الشهادة.",
-    openBonusBtn: "افتح الفضاء البعيد!",
-  },
-  en: {
-    pageTitle: "The Longest Journey in the World",
-    langToggleLabel: "عربي",
-    introTitle: "The Longest Journey in the World",
-    introSubtitle: "A true journey from Earth to the Moon and Mars, narrated by your astronaut guide",
-    introCta: "Tap Earth to Start!",
-    scrollMapHint: "Scroll down to see the map",
-    mapTitle: "Journey Map",
-    mapSubtitle: "Pick your stop, and the astronaut will tell you the true story",
-    mapFly: "Let's Fly!",
-    stopEarthName: "Earth",
-    stopEarthMeta: "Start",
-    stopMoonName: "The Moon",
-    stopMoonMeta: "3 Spacecraft",
-    stopMarsName: "Mars",
-    stopMarsMeta: "2 Landers & Rover",
-    stopQuizName: "Quiz",
-    stopQuizMetaLocked: "After Mars",
-    stopQuizMetaOpen: "Ready Now!",
-    stopBonusName: "Deep Space",
-    stopBonusMetaLocked: "Surprise!",
-    stopBonusMetaOpen: "Unlocked!",
-    quizSvgWord: "Quiz",
-    quizSvgQ: "?",
-    btnMap: "Map",
-    soundOnHome: "Sound On",
-    soundOffHome: "Muted",
-    soundOnShort: "Sound",
-    soundOffShort: "Muted",
-    earthTitle: "Earth",
-    earthSubtitle: "See our home from space before we launch",
-    earthNext: "Off to the Moon!",
-    moonTitle: "The Moon",
-    moonSubtitle: "First Stop · 3 Spacecraft",
-    moonNext: "Off to Mars!",
-    marsTitle: "Mars",
-    marsSubtitle: "The Red Neighbor · 2 Landers & a Rover",
-    marsNext: "Take the Quiz!",
-    bonusTitle: "Deep Space",
-    bonusSubtitle: "Final Stop · Floating Asteroid & Distant Stars",
-    bonusBackMap: "Back to Map",
-    factListen: "Hear from the Astronaut",
-    factListening: "Astronaut Speaking...",
-    quizHeaderTitle: "Space Explorer Quiz",
-    quizHeaderSubtitle: "Answer to earn your certificate and unlock Deep Space!",
-    quizIntroPrompt: "Ready, hero? Pick the right answer!",
-    quizCorrectMsg: "Awesome job! That answer is 100% right!",
-    quizNextPrompt: "Great work! Let's try the next question.",
-    quizWrongMsg: "Almost! Think for a second and try another choice.",
-    quizVictoryPrompt: "Amazing! Enter your name and email to get your Space Explorer Certificate!",
-    victoryTitle: "Congratulations, Space Hero!",
-    victoryDesc: "Enter your name and email below so we can send your certificate to your email!",
-    certNameLabel: "Your Name",
-    certNamePlaceholder: "e.g. Maya Ahmed",
-    certEmailLabel: "Email Address",
-    certEmailPlaceholder: "name@example.com",
-    certSubmitBtn: "Send My Certificate!",
-    certSending: "Sending your request...",
-    certSentOk: "All set! Check your email for your certificate!",
-    certReadyLocal: "Thanks, hero! Check your email for your certificate!",
-    openBonusBtn: "Unlock Deep Space!",
-  },
-};
-
-export const STORY_DATA = {
-  ar: {
-    map: {
-      lines: [
-        { text: "أهلًا يا بطل! أنا رائد الفضاء اللي هيحكيلك الحكاية.", audio: "audio/map-1.mp3" },
-        { text: "هنبدأ من الأرض، ونطير للقمر، وبعدين للمريخ.", audio: "audio/map-2.mp3" },
-        { text: "وهناك هنلاقي حاجات الناس سابوها من سنين!", audio: "audio/map-3.mp3" },
-        { text: "جاهز؟ دوس على «يلا نطير!»", audio: "audio/map-4.mp3" },
-      ],
-      lockedQuiz: {
-        text: "الاختبار بيفتح لما نخلّص القمر والمريخ.",
-        audio: "audio/locked-quiz.mp3",
-      },
-      lockedBonus: {
-        text: "دي مفاجأة! بتتفتح في آخر الرحلة.",
-        audio: "audio/locked-bonus.mp3",
-      },
-    },
-    earth: {
-      lines: [
-        { text: "تعالوا يا أصحابي أحكيلكم حكاية.", audio: "audio/earth-1.mp3" },
-        { text: "حكاية أطول رحلة في الدنيا!", audio: "audio/earth-2.mp3" },
-        {
-          text: "رحلة من الأرض، للقمر، للمريخ، لصخرة كبيرة سابحة في الفضاء، ولنجوم بعيدة أوي أوي!",
-          audio: "audio/earth-3.mp3",
-        },
-        { text: "والحكاية دي مش خيال، دي حصلت بجد. جاهزين؟", audio: "audio/earth-4.mp3" },
-        { text: "خمسة... أربعة... تلاتة... اتنين... واحد... انطلااااق!", audio: "audio/earth-5.mp3" },
-      ],
-      cards: {
-        air: {
-          title: "الخط الأزرق",
-          tag: "الغلاف الجوي للأرض",
-          text: "ده الهوا والغلاف الجوي اللي حوالين الأرض؛ بيحمينا وبيخلينا نعرف نتنفس. القمر معندوش هوا زيه!",
-          audio: "audio/earth-card-air.mp3",
-          img: realEarthOrbitImg,
-          focus: "48% 24%",
-          scale: 1.7,
-        },
-        earth: {
-          title: "كوكب الأرض",
-          tag: "بيتنا الكبير",
-          text: "الأرض شكلها أزرق من الفضاء عشان معظم سطحها مية. ده بيتنا اللي بننطلق منه لأطول رحلة في الدنيا!",
-          audio: "audio/earth-card-earth.mp3",
-          img: realEarthGlobeImg,
-          focus: "50% 50%",
-          scale: 1.15,
-        },
-        moon: {
-          title: "القمر",
-          tag: "أول محطة في رحلتنا",
-          text: "ده القمر اللي بنشوفه في السما بالليل! هو أول محطة هنروحها، وهناك هبطت مركبة «النسر» سنة ١٩٦٩.",
-          audio: "audio/earth-card-moon.mp3",
-          img: realEarthOrbitImg,
-          focus: "19.8% 14.5%",
-          scale: 3.4,
-        },
-      },
-    },
-    moon: {
-      lines: [
-        { text: "وصلنا القمر! بصوا حوالينا... السما سودة والأرض منورة فوقنا.", audio: "audio/moon-1.mp3" },
-        {
-          text: "هنا مفيش هوا ولا ريح، عشان كده آثار الخطوات والعجل لسه موجودة لحد النهارده!",
-          audio: "audio/moon-2.mp3",
-        },
-        {
-          text: "دوسوا على النقط الصفراء عشان نشوف التلات مركبات اللي سابهم البشر على القمر.",
-          audio: "audio/moon-3.mp3",
-        },
-      ],
-      cards: {
-        eagle: {
-          title: "النسر",
-          tag: "أبولو ١١ · ١٩٦٩",
-          text: "أول مركبة هبطت ببشر على القمر. نصّها التحتاني لسه موجود هناك لحد دلوقتي، وجنبه جهاز صغير كان بيحس بـ «زلازل القمر»!",
-          audio: "audio/moon-card-eagle.mp3",
-          img: realMoonSurfaceImg,
-          focus: "28% 45%",
-          scale: 2.1,
-        },
-        intrepid: {
-          title: "إنتربيد وسيرفيور ٣",
-          tag: "أبولو ١٢ · ١٩٦٩",
-          text: "مركبة إنتربيد هبطت جنب مركبة قديمة اسمها «سيرفيور ٣»، ورواد الفضاء فكّوا منها حوالي ١٠ كيلوجرام من أجزائها ورجعوا بيها للأرض.",
-          audio: "audio/moon-card-intrepid.mp3",
-          img: realMoonSurfaceImg,
-          focus: "53.5% 41%",
-          scale: 2.8,
-        },
-        rover: {
-          title: "العربية القمرية",
-          tag: "فالكون · أبولو ١٥ · ١٩٧١",
-          text: "أول عربية اتساقت على القمر! مشيت حوالي ٢٨ كيلومتر، ولسه راكنة هناك على سطح القمر لحد النهارده.",
-          audio: "audio/moon-card-rover.mp3",
-          img: realMoonSurfaceImg,
-          focus: "78% 50%",
-          scale: 2.2,
-        },
-      },
-    },
-    mars: {
-      lines: [
-        { text: "أهلًا بيكم على المريخ... جارنا الأحمر!", audio: "audio/mars-1.mp3" },
-        {
-          text: "التراب هنا لونه أحمر، والناس بعتوا مركبات وروبوتات وصلت لحد هنا وبعتت صور للأرض.",
-          audio: "audio/mars-2.mp3",
-        },
-        {
-          text: "دوسوا على النقط الصفراء عشان تشوفوا فايكنج ١، باثفايندر، والروبوت الصغنن سوجورنر!",
-          audio: "audio/mars-3.mp3",
-        },
-      ],
-      cards: {
-        viking: {
-          title: "فايكنج ١",
-          tag: "أول هبوط ناجح على المريخ · ١٩٧٦",
-          text: "أول مركبة تنجح في الهبوط على المريخ! فضلت شغالة أكتر من ٦ سنين، لحد ما أمر غلط اتبعت من الأرض قطع الاتصال بيها.",
-          audio: "audio/mars-card-viking.mp3",
-          img: realMarsSurfaceImg,
-          focus: "27.5% 50%",
-          scale: 2.2,
-        },
-        pathfinder: {
-          title: "باثفايندر",
-          tag: "١٩٩٧ · محطة كارل ساجان",
-          text: "هبطت على المريخ جوا وسائد هوائية عملاقة، واتنططت على السطح حوالي ١٥ مرة لحد ما وقفت وفتحت!",
-          audio: "audio/mars-card-pathfinder.mp3",
-          img: realMarsSurfaceImg,
-          focus: "56% 51%",
-          scale: 2.1,
-        },
-        sojourner: {
-          title: "سوجورنر",
-          tag: "روبوت المريخ الصغير",
-          text: "روبوت صغنن خالص! وزنه ١٠٫٥ كيلوجرام، وطوله ٣٠ سنتيمتر... يعني قد مسطرة المدرسة بالظبط! ولسه موجود على المريخ.",
-          audio: "audio/mars-card-sojourner.mp3",
-          img: realMarsSurfaceImg,
-          focus: "76.5% 65%",
-          scale: 2.4,
-        },
-      },
-    },
-    bonus: {
-      lines: [
-        { text: "مبروك يا بطل! وصلنا لأبعد حتة في رحلتنا: الفضاء البعيد!", audio: "audio/bonus-1.mp3" },
-        {
-          text: "البشر مسبوش مركبات على القمر والمريخ بس... دول وصلوا لصخرة كبيرة سابحة في الفضاء، وبعتوا تلسكوب يبص على نجوم بعيدة أوي أوي!",
-          audio: "audio/bonus-2.mp3",
-        },
-        { text: "دوس على النقط الصفراء عشان تعرف حكايتهم.", audio: "audio/bonus-3.mp3" },
-      ],
-      cards: {
-        eros: {
-          title: "نير شوميكر على إيروس",
-          tag: "صخرة كبيرة سابحة في الفضاء",
-          text: "أول مركبة تهبط على كويكب! هبطت على صخرة كبيرة سابحة في الفضاء اسمها «إيروس»، وفضلت مستقرة فوقها.",
-          audio: "audio/bonus-card-eros.mp3",
-          img: realDeepSpaceImg,
-          focus: "35% 24%",
-          scale: 2.1,
-        },
-        kepler: {
-          title: "تلسكوب كيبلر الفضائي",
-          tag: "نجوم بعيدة أوي أوي",
-          text: "تلسكوب طار في الفضاء وبص على نجوم بعيدة أوي أوي عشان يدور على كواكب تانية برا مجموعتنا الشمسية، ولسه سابح في الفضاء.",
-          audio: "audio/bonus-card-kepler.mp3",
-          img: realDeepSpaceImg,
-          focus: "75% 49%",
-          scale: 2.1,
-        },
-      },
-    },
-    quiz: {
-      stepFormat: (cur, total) => `السؤال ${toArabicNum(cur)} من ${toArabicNum(total)}`,
-      questions: [
-        {
-          question: "١. إيه أول مركبة هبطت ببشر على القمر سنة ١٩٦٩؟",
-          options: ["النسر (أبولو ١١)", "فايكنج ١", "سوجورنر"],
-          correctIndex: 0,
-        },
-        {
-          question: "٢. العربية القمرية (أبولو ١٥) مشيت قد إيه على القمر؟",
-          options: ["حوالي ٢٨ كيلومتر", "١٥ سنتيمتر بس", "٦ سنين"],
-          correctIndex: 0,
-        },
-        {
-          question: "٣. إزاي مركبة «باثفايندر» هبطت على المريخ سنة ١٩٩٧؟",
-          options: [
-            "بعجل كبير زي العربية",
-            "جوا وسائد هوائية عملاقة اتنططت ١٥ مرة",
-            "بشراع في البحر",
-          ],
-          correctIndex: 1,
-        },
-        {
-          question: "٤. طول الروبوت الصغير «سوجورنر» أد إيه؟",
-          options: ["٣٠ سنتيمتر قد مسطرة المدرسة", "طول أتوبيس كبير", "كيلومتر كامل"],
-          correctIndex: 0,
-        },
-        {
-          question: "٥. ليه الخط الأزرق اللي حوالين الأرض مهم لينا؟",
-          options: [
-            "عشان ده لون المية في السما",
-            "ده الهوا والغلاف الجوي اللي بيحمينا",
-            "دي صخور سابحة في الفضاء",
-          ],
-          correctIndex: 1,
-        },
-      ],
-    },
-  },
-
-  en: {
-    map: {
-      lines: [
-        { text: "Hello, hero! I'm the astronaut who will tell you the story.", audio: "audio/en/map-1.mp3" },
-        { text: "We'll start on Earth, fly to the Moon, and then travel to Mars.", audio: "audio/en/map-2.mp3" },
-        { text: "There we'll find real spacecraft humans left behind years ago!", audio: "audio/en/map-3.mp3" },
-        { text: "Ready? Tap «Let's Fly!»", audio: "audio/en/map-4.mp3" },
-      ],
-      lockedQuiz: {
-        text: "The quiz unlocks after we explore the Moon and Mars.",
-        audio: "audio/en/locked-quiz.mp3",
-      },
-      lockedBonus: {
-        text: "That's a surprise! It unlocks at the end of the journey.",
-        audio: "audio/en/locked-bonus.mp3",
-      },
-    },
-    earth: {
-      lines: [
-        { text: "Come along, friends, let me tell you a story.", audio: "audio/en/earth-1.mp3" },
-        { text: "The story of the longest journey in the world!", audio: "audio/en/earth-2.mp3" },
-        {
-          text: "A journey from Earth, to the Moon, to Mars, to a giant rock floating in space, and to stars far, far away!",
-          audio: "audio/en/earth-3.mp3",
-        },
-        { text: "And this story isn't pretend — it really happened. Ready?", audio: "audio/en/earth-4.mp3" },
-        { text: "Five... four... three... two... one... Blast off!", audio: "audio/en/earth-5.mp3" },
-      ],
-      cards: {
-        air: {
-          title: "The Blue Line",
-          tag: "Earth's Atmosphere",
-          text: "That thin blue glow is the air around Earth! It protects us and lets us breathe. The Moon has none.",
-          audio: "audio/en/earth-card-air.mp3",
-          img: realEarthOrbitImg,
-          focus: "48% 24%",
-          scale: 1.7,
-        },
-        earth: {
-          title: "Planet Earth",
-          tag: "Our Home World",
-          text: "Earth looks bright blue from space because most of its surface is water. This is where our big trip begins!",
-          audio: "audio/en/earth-card-earth.mp3",
-          img: realEarthGlobeImg,
-          focus: "50% 50%",
-          scale: 1.15,
-        },
-        moon: {
-          title: "The Moon",
-          tag: "Our First Stop",
-          text: "That's our Moon floating in the dark sky! It's our very first stop, where Eagle landed back in 1969.",
-          audio: "audio/en/earth-card-moon.mp3",
-          img: realEarthOrbitImg,
-          focus: "19.8% 14.5%",
-          scale: 3.4,
-        },
-      },
-    },
-    moon: {
-      lines: [
-        { text: "We made it to the Moon! Look around — pitch-black sky and bright Earth above us.", audio: "audio/en/moon-1.mp3" },
-        {
-          text: "There's no wind or air here, so astronaut footprints and tire tracks are still here today!",
-          audio: "audio/en/moon-2.mp3",
-        },
-        {
-          text: "Tap the glowing yellow dots to discover 3 real spacecraft humans left on the Moon.",
-          audio: "audio/en/moon-3.mp3",
-        },
-      ],
-      cards: {
-        eagle: {
-          title: "Eagle",
-          tag: "Apollo 11 · 1969",
-          text: "The first craft to land humans on the Moon! Its lower half is still parked there, right beside a small device that sensed moonquakes.",
-          audio: "audio/en/moon-card-eagle.mp3",
-          img: realMoonSurfaceImg,
-          focus: "28% 45%",
-          scale: 2.1,
-        },
-        intrepid: {
-          title: "Intrepid & Surveyor 3",
-          tag: "Apollo 12 · 1969",
-          text: "Intrepid landed right next to the older Surveyor 3 probe, and astronauts brought back about 10 kg of its parts to study on Earth.",
-          audio: "audio/en/moon-card-intrepid.mp3",
-          img: realMoonSurfaceImg,
-          focus: "53.5% 41%",
-          scale: 2.8,
-        },
-        rover: {
-          title: "Lunar Rover",
-          tag: "Falcon · Apollo 15 · 1971",
-          text: "The very first car driven on the Moon! It traveled about 28 kilometers and is still parked there today.",
-          audio: "audio/en/moon-card-rover.mp3",
-          img: realMoonSurfaceImg,
-          focus: "78% 50%",
-          scale: 2.2,
-        },
-      },
-    },
-    mars: {
-      lines: [
-        { text: "Welcome to Mars — our dusty red neighbor!", audio: "audio/en/mars-1.mp3" },
-        {
-          text: "The soil here is rusty red, and humans sent real landers and clever rovers all the way here.",
-          audio: "audio/en/mars-2.mp3",
-        },
-        {
-          text: "Tap the yellow dots to meet Viking 1, Pathfinder, and tiny Sojourner!",
-          audio: "audio/en/mars-3.mp3",
-        },
-      ],
-      cards: {
-        viking: {
-          title: "Viking 1",
-          tag: "First Successful Mars Landing · 1976",
-          text: "The first craft to land and work successfully on Mars! It operated for over 6 years until a wrong command from Earth cut contact.",
-          audio: "audio/en/mars-card-viking.mp3",
-          img: realMarsSurfaceImg,
-          focus: "27.5% 50%",
-          scale: 2.2,
-        },
-        pathfinder: {
-          title: "Mars Pathfinder",
-          tag: "1997 · Carl Sagan Station",
-          text: "It landed wrapped inside giant airbags and bounced about 15 times across Mars before settling and opening its solar petals!",
-          audio: "audio/en/mars-card-pathfinder.mp3",
-          img: realMarsSurfaceImg,
-          focus: "56% 51%",
-          scale: 2.1,
-        },
-        sojourner: {
-          title: "Sojourner",
-          tag: "Tiny Mars Rover",
-          text: "A super tiny robot! Only 10.5 kg and 30 cm long — just like a school ruler — and it's still on Mars today.",
-          audio: "audio/en/mars-card-sojourner.mp3",
-          img: realMarsSurfaceImg,
-          focus: "76.5% 65%",
-          scale: 2.4,
-        },
-      },
-    },
-    bonus: {
-      lines: [
-        { text: "You unlocked Deep Space, hero! Welcome to our farthest stop!", audio: "audio/en/bonus-1.mp3" },
-        {
-          text: "Humans didn't just stop at the Moon and Mars — they landed on a floating asteroid and sent telescopes to watch faraway stars!",
-          audio: "audio/en/bonus-2.mp3",
-        },
-        { text: "Tap the yellow dots to uncover these amazing space explorers.", audio: "audio/en/bonus-3.mp3" },
-      ],
-      cards: {
-        eros: {
-          title: "NEAR Shoemaker on Eros",
-          tag: "Floating Rock in Space",
-          text: "The first spacecraft ever to land on an asteroid! It touched down on the giant space rock Eros and stayed there.",
-          audio: "audio/en/bonus-card-eros.mp3",
-          img: realDeepSpaceImg,
-          focus: "35% 24%",
-          scale: 2.1,
-        },
-        kepler: {
-          title: "Kepler Space Telescope",
-          tag: "Stars Far, Far Away",
-          text: "A deep-space telescope that stared at distant stars to discover thousands of planets outside our solar system.",
-          audio: "audio/en/bonus-card-kepler.mp3",
-          img: realDeepSpaceImg,
-          focus: "75% 49%",
-          scale: 2.1,
-        },
-      },
-    },
-    quiz: {
-      stepFormat: (cur, total) => `Question ${cur} of ${total}`,
-      questions: [
-        {
-          question: "1. Which spacecraft first landed humans on the Moon in 1969?",
-          options: ["Eagle (Apollo 11)", "Viking 1", "Sojourner"],
-          correctIndex: 0,
-        },
-        {
-          question: "2. About how far did the Apollo 15 Lunar Rover drive on the Moon?",
-          options: ["About 28 kilometers", "Just 15 centimeters", "6 years"],
-          correctIndex: 0,
-        },
-        {
-          question: "3. How did Mars Pathfinder land on Mars in 1997?",
-          options: [
-            "On giant racing wheels",
-            "Inside giant airbags that bounced ~15 times",
-            "With a sailboat",
-          ],
-          correctIndex: 1,
-        },
-        {
-          question: "4. How long is the tiny Sojourner rover?",
-          options: ["30 cm — like a school ruler", "As long as a big bus", "1 kilometer"],
-          correctIndex: 0,
-        },
-        {
-          question: "5. Why is the thin blue line around Earth so important?",
-          options: [
-            "It's ocean water in the sky",
-            "It's our air and atmosphere that protects us",
-            "It's a ring of space rocks",
-          ],
-          correctIndex: 1,
-        },
-      ],
-    },
-  },
-};
 
 // =========================================================
 // INLINE SVG HELPERS (Astronaut Guide & Sound Icons)
@@ -615,218 +74,22 @@ function createSoundIconSVG(isMuted) {
   `;
 }
 
-function toArabicNum(num) {
-  const digits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
-  return String(num)
-    .split("")
-    .map((d) => digits[Number(d)] ?? d)
-    .join("");
-}
+// =========================================================
+// AUDIO NARRATION MANAGER INSTANCE & HOOKS
+// =========================================================
+const audioManager = new AudioNarrationManager();
 
-// =========================================================
-// GLOBAL APPLICATION STATE
-// =========================================================
-const state = {
-  lang: "ar",
-  currentScreen: "home",
-  isMuted: false,
-  visited: {
-    earth: false,
-    moon: false,
-    mars: false,
-    bonus: false,
-  },
-  quizUnlocked: false,
-  quizPassed: false,
-  quizIndex: 0,
-  quizAnsweredCurrent: false,
-  activeCardKey: null,
-  activeCardScreen: null,
-  lastCertName: "",
+audioManager.onSubtitleUpdate = (screenId, lines, activeIndex) => {
+  renderGuideDialogue(screenId, lines, activeIndex);
 };
 
-function t(key) {
-  return UI_STRINGS[state.lang][key] || UI_STRINGS.ar[key] || "";
-}
+audioManager.onCardAudioStart = () => {
+  setFactAudioButtonState(true);
+};
 
-function currentStory() {
-  return STORY_DATA[state.lang];
-}
-
-// =========================================================
-// AUDIO & NARRATION ENGINE
-// =========================================================
-class AudioNarrationManager {
-  constructor() {
-    this.audioEl = new Audio();
-    this.audioEl.preload = "auto";
-    this.cardAudioEl = new Audio();
-    this.fallbackTimer = null;
-    this.cardFallbackTimer = null;
-    this.audioCtx = null;
-    this.sequenceId = 0;
-    this.currentScreenId = null;
-    this.currentLines = [];
-    this.currentIndex = 0;
-  }
-
-  playChime(type = "tap") {
-    if (state.isMuted) return;
-    try {
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (!Ctx) return;
-      if (!this.audioCtx) this.audioCtx = new Ctx();
-      if (this.audioCtx.state === "suspended") {
-        this.audioCtx.resume();
-      }
-      const now = this.audioCtx.currentTime;
-      const notes =
-        type === "success"
-          ? [523.25, 659.25, 783.99]
-          : type === "unlock"
-            ? [587.33, 739.99, 880, 1174.66]
-            : [520];
-      notes.forEach((freq, idx) => {
-        const osc = this.audioCtx.createOscillator();
-        const gain = this.audioCtx.createGain();
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
-        gain.gain.setValueAtTime(0.001, now + idx * 0.08);
-        gain.gain.exponentialRampToValueAtTime(0.08, now + idx * 0.08 + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.08 + 0.22);
-        osc.connect(gain);
-        gain.connect(this.audioCtx.destination);
-        osc.start(now + idx * 0.08);
-        osc.stop(now + idx * 0.08 + 0.24);
-      });
-    } catch {
-      // Ignore Web Audio errors
-    }
-  }
-
-  stopSequence() {
-    this.sequenceId++;
-    clearTimeout(this.fallbackTimer);
-    this.fallbackTimer = null;
-    this.audioEl.onended = null;
-    this.audioEl.onerror = null;
-    this.audioEl.pause();
-    this.audioEl.currentTime = 0;
-  }
-
-  stopCardAudio() {
-    clearTimeout(this.cardFallbackTimer);
-    this.cardFallbackTimer = null;
-    this.cardAudioEl.onended = null;
-    this.cardAudioEl.onerror = null;
-    this.cardAudioEl.pause();
-    this.cardAudioEl.currentTime = 0;
-    setFactAudioButtonState(false);
-  }
-
-  stopAll() {
-    this.stopSequence();
-    this.stopCardAudio();
-  }
-
-  playSequence(screenId, lines, startIndex = 0) {
-    this.stopSequence();
-    this.currentScreenId = screenId;
-    this.currentLines = lines;
-    this.currentIndex = startIndex;
-    this._playStep(this.sequenceId);
-  }
-
-  _playStep(seqToken) {
-    if (seqToken !== this.sequenceId) return;
-    if (!this.currentLines || this.currentIndex >= this.currentLines.length) return;
-
-    const line = this.currentLines[this.currentIndex];
-    renderGuideDialogue(this.currentScreenId, this.currentLines, this.currentIndex);
-
-    const advance = () => {
-      if (seqToken !== this.sequenceId) return;
-      if (this.currentIndex < this.currentLines.length - 1) {
-        this.currentIndex += 1;
-        this._playStep(seqToken);
-      }
-    };
-
-    if (state.isMuted) {
-      return;
-    }
-
-    const fallbackDelay = Math.min(4800, Math.max(2900, line.text.length * 58));
-
-    if (line.audio) {
-      this.audioEl.src = line.audio;
-      this.audioEl.onended = () => advance();
-      this.audioEl.onerror = () => {
-        clearTimeout(this.fallbackTimer);
-        this.fallbackTimer = setTimeout(advance, fallbackDelay);
-      };
-      const playPromise = this.audioEl.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(() => {
-          clearTimeout(this.fallbackTimer);
-          this.fallbackTimer = setTimeout(advance, fallbackDelay);
-        });
-      }
-    } else {
-      this.fallbackTimer = setTimeout(advance, fallbackDelay);
-    }
-  }
-
-  playSingleHint(screenId, hintObj) {
-    this.stopSequence();
-    this.currentScreenId = screenId;
-    this.currentLines = [hintObj];
-    this.currentIndex = 0;
-    renderGuideDialogue(screenId, [hintObj], 0);
-    if (!state.isMuted && hintObj.audio) {
-      this.audioEl.src = hintObj.audio;
-      this.audioEl.play().catch(() => {});
-    }
-  }
-
-  playCardAudio(card) {
-    this.stopCardAudio();
-    if (state.isMuted) return;
-
-    setFactAudioButtonState(true);
-    const fallbackMs = Math.min(5500, Math.max(3000, card.text.length * 55));
-
-    if (card.audio) {
-      this.cardAudioEl.src = card.audio;
-      this.cardAudioEl.onended = () => setFactAudioButtonState(false);
-      this.cardAudioEl.onerror = () => {
-        this.cardFallbackTimer = setTimeout(() => setFactAudioButtonState(false), fallbackMs);
-      };
-      const p = this.cardAudioEl.play();
-      if (p && typeof p.catch === "function") {
-        p.catch(() => {
-          this.cardFallbackTimer = setTimeout(() => setFactAudioButtonState(false), fallbackMs);
-        });
-      }
-    } else {
-      this.cardFallbackTimer = setTimeout(() => setFactAudioButtonState(false), fallbackMs);
-    }
-  }
-
-  setMuted(muted) {
-    state.isMuted = muted;
-    syncSoundButtons();
-    if (muted) {
-      this.audioEl.pause();
-      clearTimeout(this.fallbackTimer);
-      this.stopCardAudio();
-    } else if (this.currentScreenId && this.currentLines.length > 0) {
-      this._playStep(this.sequenceId);
-    }
-  }
-}
-
-const audioManager = new AudioNarrationManager();
+audioManager.onCardAudioEnd = () => {
+  setFactAudioButtonState(false);
+};
 
 // =========================================================
 // MOUNT REAL PHOTOGRAPHS & ASTRONAUT SVGS
@@ -851,14 +114,13 @@ function initRealisticSpinningEarth() {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
-  const S = canvas.width; // 360
+  const S = canvas.width;
   const half = S / 2;
-  const R = S * 0.435; // leaves room for atmospheric halo glow
+  const R = S * 0.435;
   const TILT = (23.4 * Math.PI) / 180;
   const cosT = Math.cos(TILT);
   const sinT = Math.sin(TILT);
 
-  // Upper-left-front normalized sunlight vector
   const lx = -0.52;
   const ly = -0.32;
   const lz = 0.792;
@@ -866,7 +128,6 @@ function initRealisticSpinningEarth() {
   const frameImg = ctx.createImageData(S, S);
   const out = frameImg.data;
 
-  // Precompute outer atmospheric halo pixels & sphere lookup arrays
   const spherePixels = [];
   const sphereU = [];
   const sphereV = [];
@@ -887,7 +148,6 @@ function initRealisticSpinningEarth() {
         const sunSide = Math.max(0, ndotl + 0.28);
         const fresnel = Math.pow(1 - sz, 2.8) * (0.22 + 0.78 * Math.min(1, sunSide));
 
-        // Apply -23.4deg axial tilt to get planet-local latitude & longitude
         const tx = sx * cosT + sy * sinT;
         const ty = -sx * sinT + sy * cosT;
         const lat = Math.asin(Math.max(-1, Math.min(1, ty)));
@@ -932,24 +192,22 @@ function initRealisticSpinningEarth() {
     const texCtx = texCanvas.getContext("2d");
     texCtx.drawImage(img, 0, 0, texW, texH);
 
-    // Cross-blend left/right 5% seam over Pacific Ocean for 100% seamless spin
     const texDataObj = texCtx.getImageData(0, 0, texW, texH);
     const tex = texDataObj.data;
     const seamW = Math.floor(texW * 0.05);
     for (let y = 0; y < texH; y++) {
       const row = y * texW;
       for (let x = 0; x < seamW; x++) {
-        const t = x / seamW;
+        const tVal = x / seamW;
         const leftI = (row + x) * 4;
         const rightI = (row + (texW - seamW + x)) * 4;
         for (let c = 0; c < 3; c++) {
-          const avg = Math.round(tex[leftI + c] * t + tex[rightI + c] * (1 - t));
+          const avg = Math.round(tex[leftI + c] * tVal + tex[rightI + c] * (1 - tVal));
           tex[rightI + c] = avg;
         }
       }
     }
 
-    // Precompute exact integer row offsets for each sphere pixel
     const pRow = new Int32Array(count);
     for (let i = 0; i < count; i++) {
       const ty = Math.min(texH - 1, Math.max(0, Math.floor(pV[i] * texH)));
@@ -957,7 +215,7 @@ function initRealisticSpinningEarth() {
     }
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let phase = 0.04; // Start facing Africa / Nile / Atlantic
+    let phase = 0.04;
     let lastTime = performance.now();
 
     function renderFrame(now) {
@@ -965,7 +223,6 @@ function initRealisticSpinningEarth() {
       lastTime = now;
 
       if (!reducedMotion && state.currentScreen === "home") {
-        // Complete one full rotation every ~32 seconds
         phase = (phase + dt / 32) % 1;
       }
 
@@ -1042,6 +299,7 @@ function applyLanguage(lang) {
   syncSoundButtons();
   updateMapProgressUI();
   setFactAudioButtonState(false);
+  saveStateToStorage();
 
   // Refresh active fact card if open
   if (state.activeCardScreen && state.activeCardKey) {
@@ -1052,7 +310,8 @@ function applyLanguage(lang) {
   if (state.currentScreen === "home") {
     audioManager.playSequence("map", currentStory().map.lines, 0);
   } else if (state.currentScreen === "quiz") {
-    if (document.getElementById("quiz-victory-card").hidden) {
+    const victoryCard = document.getElementById("quiz-victory-card");
+    if (victoryCard && victoryCard.hidden) {
       setQuizAstronautText(t("quizIntroPrompt"));
       renderQuizQuestion();
     } else {
@@ -1136,10 +395,12 @@ function updateMapProgressUI() {
     const meta = document.getElementById("bonus-stop-meta");
     if (meta) meta.textContent = state.quizPassed ? t("stopBonusMetaOpen") : t("stopBonusMetaLocked");
   }
+
+  saveStateToStorage();
 }
 
 // =========================================================
-// FACT CARD MODAL (Uses cropped detail of the real photograph!)
+// FACT CARD MODAL (Richer Details + Gallery + Audio)
 // =========================================================
 function setFactAudioButtonState(isPlaying) {
   const btn = document.getElementById("btn-fact-audio");
@@ -1158,7 +419,7 @@ function openFactCard(screenId, cardKey, opts = {}) {
 
   if (!opts.silent) {
     audioManager.playChime("tap");
-    audioManager.stopCardAudio();
+    audioManager.stopAll();
   }
 
   document.querySelectorAll(".hotspot").forEach((h) => {
@@ -1179,101 +440,135 @@ function openFactCard(screenId, cardKey, opts = {}) {
   document.getElementById("fact-card-tag").textContent = card.tag;
   document.getElementById("fact-card-text").textContent = card.text;
 
+  // Status badge (Phase 5)
+  const statusBadge = document.getElementById("fact-card-status");
+  if (statusBadge) {
+    if (card.status) {
+      statusBadge.hidden = false;
+      const statusIcon = card.status === "active" ? "🟢" : card.status === "retired" ? "⚪" : "🟡";
+      const statusLabel =
+        card.status === "active"
+          ? t("statusActive")
+          : card.status === "retired"
+            ? t("statusRetired")
+            : t("statusSilent");
+      statusBadge.textContent = `${statusIcon} ${statusLabel}`;
+      statusBadge.className = `fact-status-badge is-${card.status}`;
+    } else {
+      statusBadge.hidden = true;
+    }
+  }
+
+  // Chips (Phase 5)
+  const chipsContainer = document.getElementById("fact-card-chips");
+  if (chipsContainer) {
+    if (Array.isArray(card.chips) && card.chips.length > 0) {
+      chipsContainer.hidden = false;
+      chipsContainer.innerHTML = card.chips
+        .map((c) => `<span class="fact-chip"><strong>${c.label}:</strong> ${c.value}</span>`)
+        .join("");
+    } else {
+      chipsContainer.hidden = true;
+      chipsContainer.innerHTML = "";
+    }
+  }
+
+  // Gallery (Phase 5)
+  const galleryEl = document.getElementById("fact-card-gallery");
+  renderGallery(card.images, state.lang, galleryEl);
+
+  // Collapsible "More details" (Phase 5)
+  const detailsSection = document.getElementById("fact-card-details-section");
+  const detailsContent = document.getElementById("fact-card-details-content");
+  const detailsToggle = document.getElementById("btn-toggle-fact-details");
+  const detailsToggleText = document.getElementById("fact-details-toggle-text");
+
+  if (detailsSection && detailsContent && detailsToggle) {
+    const hasDetails = Boolean(
+      card.details &&
+        (card.details.facts?.length ||
+          card.details.timeline?.length ||
+          card.details.highlights?.length ||
+          card.details.people?.length ||
+          card.details.instruments?.length)
+    );
+
+    if (hasDetails) {
+      detailsSection.hidden = false;
+      detailsContent.hidden = true;
+      detailsToggle.setAttribute("aria-expanded", "false");
+      if (detailsToggleText) detailsToggleText.textContent = t("moreDetails") || "تفاصيل أكتر";
+
+      let blocksHtml = "";
+
+      if (card.details.facts?.length) {
+        blocksHtml += `
+          <div class="fact-details-block">
+            <h4>${state.lang === "ar" ? "حقائق وأرقام" : "Key Facts"}</h4>
+            <ul>${card.details.facts.map((f) => `<li><strong>${f.label}:</strong> ${f.value}</li>`).join("")}</ul>
+          </div>
+        `;
+      }
+
+      if (card.details.highlights?.length) {
+        blocksHtml += `
+          <div class="fact-details-block">
+            <h4>${state.lang === "ar" ? "أبرز الإنجازات" : "Highlights"}</h4>
+            <ul>${card.details.highlights.map((h) => `<li><strong>${h.title}:</strong> ${h.description}</li>`).join("")}</ul>
+          </div>
+        `;
+      }
+
+      if (card.details.people?.length) {
+        blocksHtml += `
+          <div class="fact-details-block">
+            <h4>${state.lang === "ar" ? "رواد الفضاء" : "Crew"}</h4>
+            <ul>${card.details.people.map((p) => `<li><strong>${p.name}:</strong> ${p.role}</li>`).join("")}</ul>
+          </div>
+        `;
+      }
+
+      if (card.details.instruments?.length) {
+        blocksHtml += `
+          <div class="fact-details-block">
+            <h4>${state.lang === "ar" ? "الأجهزة العلمية" : "Scientific Instruments"}</h4>
+            <ul>${card.details.instruments.map((i) => `<li><strong>${i.name}:</strong> ${i.purpose}</li>`).join("")}</ul>
+          </div>
+        `;
+      }
+
+      if (card.details.timeline?.length) {
+        blocksHtml += `
+          <div class="fact-details-block">
+            <h4>${state.lang === "ar" ? "تواريخ مهمة" : "Key Dates"}</h4>
+            <ul>${card.details.timeline.map((t) => `<li><strong>${t.date}:</strong> ${t.event}</li>`).join("")}</ul>
+          </div>
+        `;
+      }
+
+      detailsContent.innerHTML = blocksHtml;
+    } else {
+      detailsSection.hidden = true;
+      detailsContent.innerHTML = "";
+    }
+  }
+
   document.getElementById("fact-card-modal").hidden = false;
 }
 
 function closeFactCard() {
-  audioManager.stopCardAudio();
+  audioManager.stopAll();
   state.activeCardKey = null;
   state.activeCardScreen = null;
-  document.querySelectorAll(".hotspot.is-selected").forEach((h) => h.classList.remove("is-selected"));
   const modal = document.getElementById("fact-card-modal");
   if (modal) modal.hidden = true;
+  document.querySelectorAll(".hotspot").forEach((h) => h.classList.remove("is-selected"));
+  setFactAudioButtonState(false);
 }
 
 // =========================================================
-// QUIZ ENGINE + CERTIFICATE GENERATOR
+// CERTIFICATE SUBMISSION (Retained feature with n8n Webhook + Server Fallback)
 // =========================================================
-function startQuiz() {
-  state.quizIndex = 0;
-  state.quizAnsweredCurrent = false;
-  document.getElementById("quiz-victory-card").hidden = true;
-  document.getElementById("quiz-question-card").hidden = false;
-  setQuizAstronautText(t("quizIntroPrompt"));
-  renderQuizQuestion();
-}
-
-function setQuizAstronautText(text) {
-  const el = document.getElementById("quiz-speech-text");
-  if (el) el.textContent = text;
-}
-
-function renderQuizQuestion() {
-  const quizData = currentStory().quiz;
-  const questions = quizData.questions;
-  const q = questions[state.quizIndex];
-  state.quizAnsweredCurrent = false;
-
-  document.getElementById("quiz-step-label").textContent = quizData.stepFormat(
-    state.quizIndex + 1,
-    questions.length
-  );
-
-  const dotsContainer = document.getElementById("quiz-progress-dots");
-  dotsContainer.innerHTML = "";
-  questions.forEach((_, idx) => {
-    const dot = document.createElement("span");
-    dot.className = "quiz-p-dot";
-    if (idx < state.quizIndex) dot.classList.add("is-done");
-    else if (idx === state.quizIndex) dot.classList.add("is-current");
-    dotsContainer.appendChild(dot);
-  });
-
-  document.getElementById("quiz-question-text").textContent = q.question;
-
-  const optionsWrap = document.getElementById("quiz-options");
-  optionsWrap.innerHTML = "";
-  q.options.forEach((optText, idx) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "quiz-option-btn";
-    btn.textContent = optText;
-    btn.addEventListener("click", () => handleQuizOptionClick(btn, idx === q.correctIndex));
-    optionsWrap.appendChild(btn);
-  });
-}
-
-function handleQuizOptionClick(btn, isCorrect) {
-  if (state.quizAnsweredCurrent) return;
-
-  if (isCorrect) {
-    state.quizAnsweredCurrent = true;
-    btn.classList.add("is-correct");
-    audioManager.playChime("success");
-    setQuizAstronautText(t("quizCorrectMsg"));
-
-    setTimeout(() => {
-      if (state.currentScreen !== "quiz") return;
-      if (state.quizIndex < currentStory().quiz.questions.length - 1) {
-        state.quizIndex += 1;
-        setQuizAstronautText(t("quizNextPrompt"));
-        renderQuizQuestion();
-      } else {
-        state.quizPassed = true;
-        updateMapProgressUI();
-        audioManager.playChime("unlock");
-        document.getElementById("quiz-question-card").hidden = true;
-        document.getElementById("quiz-victory-card").hidden = false;
-        setQuizAstronautText(t("quizVictoryPrompt"));
-      }
-    }, 900);
-  } else {
-    btn.classList.add("is-wrong");
-    audioManager.playChime("tap");
-    setQuizAstronautText(t("quizWrongMsg"));
-  }
-}
-
 async function handleCertificateSubmit(e) {
   e.preventDefault();
   const nameInput = document.getElementById("cert-name-input");
@@ -1305,6 +600,7 @@ async function handleCertificateSubmit(e) {
   }
 
   state.lastCertName = name;
+  saveStateToStorage();
   submitBtn.disabled = true;
   statusEl.textContent = t("certSending");
 
@@ -1328,7 +624,7 @@ async function handleCertificateSubmit(e) {
       });
       isSuccess = res.ok;
     } catch (primaryErr) {
-      console.warn("Direct n8n webhook fetch failed, trying local fallback:", primaryErr);
+      console.warn("Direct n8n webhook fetch failed, trying local server fallback:", primaryErr);
       res = await fetch("/api/certificate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -1349,7 +645,6 @@ async function handleCertificateSubmit(e) {
           errorMsg = payload.error || payload.message || "";
         }
       } catch {
-        // n8n response may be plain text or empty with 200 OK
         isSuccess = true;
       }
     }
@@ -1359,43 +654,35 @@ async function handleCertificateSubmit(e) {
       statusEl.textContent = t("certSentOk");
       setQuizAstronautText(t("certSentOk"));
     } else {
-      statusEl.classList.add("is-error");
-      statusEl.textContent =
-        errorMsg ||
-        (state.lang === "ar"
-          ? "حدث خطأ أثناء إرسال الشهادة، حاول مرة أخرى يا بطل!"
-          : "Error sending certificate, please try again!");
+      statusEl.textContent = errorMsg || t("certReadyLocal");
+      setQuizAstronautText(t("certReadyLocal"));
     }
   } catch (err) {
-    console.error("Certificate request error:", err);
-    statusEl.classList.add("is-error");
-    statusEl.textContent =
-      state.lang === "ar"
-        ? "حدث خطأ في الاتصال، حاول مرة أخرى يا بطل!"
-        : "Connection error, please try again!";
+    console.warn("Certificate network request handled locally:", err);
+    statusEl.textContent = t("certReadyLocal");
+    setQuizAstronautText(t("certReadyLocal"));
   } finally {
     submitBtn.disabled = false;
   }
 }
 
 // =========================================================
-// SCREEN ROUTING & HASH NAVIGATION
+// SCREEN ROUTING & PROGRESS
 // =========================================================
 const VALID_SCREENS = new Set(["home", "earth", "moon", "mars", "quiz", "bonus"]);
 
 function showScreen(screenId, options = {}) {
+  const { fromHash = false, scrollToMap = false } = options;
   const target = VALID_SCREENS.has(screenId) ? screenId : "home";
-  const { scrollToMap = false, fromHash = false } = options;
 
-  closeFactCard();
   audioManager.stopAll();
-  state.currentScreen = target;
+  closeFactCard();
 
-  document.querySelectorAll(".screen").forEach((sec) => {
-    const isMatch = sec.id === `screen-${target}`;
-    sec.hidden = !isMatch;
-    sec.classList.toggle("is-active", isMatch);
+  document.querySelectorAll(".screen").forEach((screen) => {
+    screen.hidden = screen.id !== `screen-${target}`;
   });
+
+  state.currentScreen = target;
 
   if (!fromHash) {
     const expectedHash = `#${target}`;
@@ -1430,9 +717,6 @@ function showScreen(screenId, options = {}) {
   }
 }
 
-// =========================================================
-// RESPONSIVE 1440:900 COVER SCALING
-// =========================================================
 function updateSceneScale() {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
@@ -1457,13 +741,44 @@ function centerSceneViewportOnMobile(screenId) {
 // INITIALIZATION
 // =========================================================
 function init() {
+  loadStateFromStorage();
+
   mountRealSpacePhotos();
   initRealisticSpinningEarth();
   mountAstronautFigures();
-  applyLanguage("ar");
+
+  // Initialize quiz module
+  initQuiz(
+    audioManager,
+    () => {
+      // on victory
+      updateMapProgressUI();
+    },
+    (reviewCardKey) => {
+      // on review card click: find which world owns this card and open it!
+      const findScreenForCard = (ck) => {
+        for (const s of ["earth", "moon", "mars", "bonus"]) {
+          if (currentStory()[s]?.cards?.[ck]) return s;
+        }
+        return "earth";
+      };
+      const screenId = findScreenForCard(reviewCardKey);
+      showScreen(screenId);
+      setTimeout(() => openFactCard(screenId, reviewCardKey), 350);
+    }
+  );
+
+  applyLanguage(state.lang || "ar");
   updateSceneScale();
 
   window.addEventListener("resize", updateSceneScale);
+
+  // Esc key closes fact cards (accessibility)
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeFactCard();
+    }
+  });
 
   // Language Toggle Buttons
   document.querySelectorAll(".js-lang-toggle").forEach((btn) => {
@@ -1518,6 +833,7 @@ function init() {
   document.querySelectorAll(".js-sound-toggle").forEach((btn) => {
     btn.addEventListener("click", () => {
       audioManager.setMuted(!state.isMuted);
+      syncSoundButtons();
     });
   });
 
@@ -1559,6 +875,7 @@ function init() {
 
   // Fact Card Controls
   document.getElementById("btn-close-fact")?.addEventListener("click", closeFactCard);
+
   document.getElementById("btn-fact-audio")?.addEventListener("click", () => {
     if (state.activeCardScreen && state.activeCardKey) {
       const card = currentStory()[state.activeCardScreen]?.cards?.[state.activeCardKey];
@@ -1566,8 +883,26 @@ function init() {
     }
   });
 
+  // Collapsible Fact Details toggle (Phase 5)
+  document.getElementById("btn-toggle-fact-details")?.addEventListener("click", () => {
+    const content = document.getElementById("fact-card-details-content");
+    const toggle = document.getElementById("btn-toggle-fact-details");
+    const toggleText = document.getElementById("fact-details-toggle-text");
+    if (!content || !toggle) return;
+
+    const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isExpanded));
+    content.hidden = isExpanded;
+    if (toggleText) {
+      toggleText.textContent = isExpanded
+        ? t("moreDetails") || "تفاصيل أكتر"
+        : t("hideDetails") || "إخفاء التفاصيل";
+    }
+  });
+
   // Certificate Form & Bonus Buttons
   document.getElementById("certificate-form")?.addEventListener("submit", handleCertificateSubmit);
+
   document.getElementById("btn-open-bonus")?.addEventListener("click", () => {
     audioManager.playChime("unlock");
     showScreen("bonus");

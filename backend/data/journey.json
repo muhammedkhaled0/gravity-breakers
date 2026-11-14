@@ -1,0 +1,197 @@
+{
+  "map": {
+    "lines": [
+      {
+        "text": {
+          "ar": "أهلًا يا بطل! أنا رائد الفضاء اللي هيحكيلك الحكاية.",
+          "en": "Hello, hero! I'm the astronaut who will tell you the story."
+        },
+        "audio": {
+          "ar": "/audio/ar/map-1.mp3",
+          "en": null
+        }
+      },
+      {
+        "text": {
+          "ar": "هنبدأ من الأرض، ونطير للقمر، وبعدين للمريخ.",
+          "en": "We'll start on Earth, fly to the Moon, and then travel to Mars."
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        }
+      },
+      {
+        "text": {
+          "ar": "وهناك هنلاقي حاجات الناس سابوها من سنين!",
+          "en": "There we'll find real spacecraft humans left behind years ago!"
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        }
+      },
+      {
+        "text": {
+          "ar": "جاهز؟ دوس على «يلا نطير!»",
+          "en": "Ready? Tap «Let's Fly!»"
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        }
+      }
+    ],
+    "lockedQuiz": {
+      "text": {
+        "ar": "الاختبار بيفتح لما نخلّص القمر والمريخ.",
+        "en": "The quiz unlocks after we explore the Moon and Mars."
+      },
+      "audio": {
+        "ar": null,
+        "en": null
+      }
+    },
+    "lockedBonus": {
+      "text": {
+        "ar": "دي مفاجأة! بتتفتح في آخر الرحلة.",
+        "en": "That's a surprise! It unlocks at the end of the journey."
+      },
+      "audio": {
+        "ar": null,
+        "en": null
+      }
+    }
+  },
+  "earth": {
+    "lines": [
+      {
+        "text": {
+          "ar": "تعالوا يا أصحابي أحكيلكم حكاية.",
+          "en": "Come along, friends, let me tell you a story."
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        }
+      },
+      {
+        "text": {
+          "ar": "حكاية أطول رحلة في الدنيا!",
+          "en": "The story of the longest journey in the world!"
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        }
+      },
+      {
+        "text": {
+          "ar": "رحلة من الأرض، للقمر، للمريخ، لصخرة كبيرة سابحة في الفضاء، ولنجوم بعيدة أوي أوي!",
+          "en": "A journey from Earth, to the Moon, to Mars, to a giant rock floating in space, and to stars far, far away!"
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        }
+      },
+      {
+        "text": {
+          "ar": "والحكاية دي مش خيال، دي حصلت بجد. جاهزين؟",
+          "en": "And this story isn't pretend — it really happened. Ready?"
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        }
+      },
+      {
+        "text": {
+          "ar": "خمسة... أربعة... تلاتة... اتنين... واحد... انطلااااق!",
+          "en": "Five... four... three... two... one... Blast off!"
+        },
+        "audio": {
+          "ar": "/audio/ar/earth-5.mp3",
+          "en": null
+        }
+      }
+    ],
+    "cards": {
+      "air": {
+        "cardKey": "air",
+        "world": "earth",
+        "title": {
+          "ar": "الخط الأزرق",
+          "en": "The Blue Line"
+        },
+        "tag": {
+          "ar": "الغلاف الجوي للأرض",
+          "en": "Earth's Atmosphere"
+        },
+        "kidText": {
+          "ar": "ده الهوا والغلاف الجوي اللي حوالين الأرض؛ بيحمينا وبيخلينا نعرف نتنفس. القمر معندوش هوا زيه!",
+          "en": "That thin blue glow is the air around Earth! It protects us and lets us breathe. The Moon has none."
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        },
+        "hero": {
+          "src": "images/earth-orbit.jpg",
+          "focus": "48% 24%",
+          "scale": 1.7
+        }
+      },
+      "earth": {
+        "cardKey": "earth",
+        "world": "earth",
+        "title": {
+          "ar": "كوكب الأرض",
+          "en": "Planet Earth"
+        },
+        "tag": {
+          "ar": "بيتنا الكبير",
+          "en": "Our Home World"
+        },
+        "kidText": {
+          "ar": "الأرض شكلها أزرق من الفضاء عشان معظم سطحها مية. ده بيتنا اللي بننطلق منه لأطول رحلة في الدنيا!",
+          "en": "Earth looks bright blue from space because most of its surface is water. This is where our big trip begins!"
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        },
+        "hero": {
+          "src": "images/earth-globe.jpg",
+          "focus": "50% 50%",
+          "scale": 1.15
+        }
+      },
+      "moon": {
+        "cardKey": "moon",
+        "world": "earth",
+        "title": {
+          "ar": "القمر",
+          "en": "The Moon"
+        },
+        "tag": {
+          "ar": "أول محطة في رحلتنا",
+          "en": "Our First Stop"
+        },
+        "kidText": {
+          "ar": "ده القمر اللي بنشوفه في السما بالليل! هو أول محطة هنروحها، وهناك هبطت مركبة «النسر» سنة ١٩٦٩.",
+          "en": "That's our Moon floating in the dark sky! It's our very first stop, where Eagle landed back in 1969."
+        },
+        "audio": {
+          "ar": null,
+          "en": null
+        },
+        "hero": {
+          "src": "images/earth-orbit.jpg",
+          "focus": "19.8% 14.5%",
+          "scale": 3.4
+        }
+      }
+    }
+  }
+}

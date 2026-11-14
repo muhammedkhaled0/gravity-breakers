@@ -1,0 +1,190 @@
+{
+  "passScore": 0.6,
+  "questions": [
+    {
+      "id": "q-first-landing",
+      "world": "moon",
+      "question": {
+        "ar": "إيه أول مركبة هبطت ببشر على القمر سنة ١٩٦٩؟",
+        "en": "Which spacecraft first landed humans on the Moon in 1969?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "ar": "النسر (أبولو ١١)",
+            "en": "Eagle (Apollo 11)"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "ar": "فايكنج ١",
+            "en": "Viking 1"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "ar": "سوجورنر",
+            "en": "Sojourner"
+          }
+        }
+      ],
+      "correctId": "a",
+      "explanation": {
+        "ar": "مركبة النسر (أبولو ١١) هي أول مركبة هبطت برواد فضاء على سطح القمر في ٢٠ يوليو ١٩٦٩!",
+        "en": "Eagle (Apollo 11) was the first spacecraft to land humans on the Moon on July 20, 1969!"
+      },
+      "learnMoreCard": "eagle"
+    },
+    {
+      "id": "q-rover-distance",
+      "world": "moon",
+      "question": {
+        "ar": "العربية القمرية (أبولو ١٥) مشيت قد إيه على القمر؟",
+        "en": "About how far did the Apollo 15 Lunar Rover drive on the Moon?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "ar": "حوالي ٢٨ كيلومتر",
+            "en": "About 28 kilometers"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "ar": "١٥ سنتيمتر بس",
+            "en": "Just 15 centimeters"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "ar": "٦ سنين",
+            "en": "6 years"
+          }
+        }
+      ],
+      "correctId": "a",
+      "explanation": {
+        "ar": "العربية القمرية مشيت حوالي ٢٨ كيلومتر، ولسه راكنة على سطح القمر لحد النهارده!",
+        "en": "The Lunar Rover traveled about 28 kilometers and is still parked on the Moon today!"
+      },
+      "learnMoreCard": "rover"
+    },
+    {
+      "id": "q-pathfinder-landing",
+      "world": "mars",
+      "question": {
+        "ar": "إزاي مركبة «باثفايندر» هبطت على المريخ سنة ١٩٩٧؟",
+        "en": "How did Mars Pathfinder land on Mars in 1997?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "ar": "بعجل كبير زي العربية",
+            "en": "On giant racing wheels"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "ar": "جوا وسائد هوائية عملاقة اتنططت ١٥ مرة",
+            "en": "Inside giant airbags that bounced ~15 times"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "ar": "بشراع في البحر",
+            "en": "With a sailboat"
+          }
+        }
+      ],
+      "correctId": "b",
+      "explanation": {
+        "ar": "باثفايندر كانت متغلفة بوسائد هوائية كبيرة اتنططت ١٥ مرة قبل ما تفتح بأمان!",
+        "en": "Pathfinder was cushioned by giant airbags that bounced about 15 times before settling safely!"
+      },
+      "learnMoreCard": "pathfinder"
+    },
+    {
+      "id": "q-sojourner-size",
+      "world": "mars",
+      "question": {
+        "ar": "طول الروبوت الصغير «سوجورنر» أد إيه؟",
+        "en": "How long is the tiny Sojourner rover?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "ar": "٣٠ سنتيمتر قد مسطرة المدرسة",
+            "en": "30 cm — like a school ruler"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "ar": "طول أتوبيس كبير",
+            "en": "As long as a big bus"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "ar": "كيلومتر كامل",
+            "en": "1 kilometer"
+          }
+        }
+      ],
+      "correctId": "a",
+      "explanation": {
+        "ar": "سوجورنر روبوت صغنن طوله ٣٠ سم بس ووزنه ١٠٫٥ كجم، ومسجل كأول متجول على المريخ!",
+        "en": "Sojourner was a tiny 30 cm rover weighing just 10.5 kg, the first rover on Mars!"
+      },
+      "learnMoreCard": "sojourner"
+    },
+    {
+      "id": "q-atmosphere-line",
+      "world": "earth",
+      "question": {
+        "ar": "ليه الخط الأزرق اللي حوالين الأرض مهم لينا؟",
+        "en": "Why is the thin blue line around Earth so important?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "ar": "عشان ده لون المية في السما",
+            "en": "It's ocean water in the sky"
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "ar": "ده الهوا والغلاف الجوي اللي بيحمينا",
+            "en": "It's our air and atmosphere that protects us"
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "ar": "دي صخور سابحة في الفضاء",
+            "en": "It's a ring of space rocks"
+          }
+        }
+      ],
+      "correctId": "b",
+      "explanation": {
+        "ar": "الغلاف الجوي للأرض هو الهوا اللي بنتنفسه والدرع اللي بيحمينا من إشعاع الفضاء!",
+        "en": "Earth's atmosphere is the air we breathe and the shield protecting us from space radiation!"
+      },
+      "learnMoreCard": "air"
+    }
+  ]
+}

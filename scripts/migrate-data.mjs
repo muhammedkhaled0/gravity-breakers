@@ -1,0 +1,1325 @@
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dataDir = path.resolve(__dirname, "../backend/data");
+
+console.log("Migrating moon.json and mars.json to schemaVersion 2...");
+
+// ==========================================
+// 1. MIGRATE MOON.JSON
+// ==========================================
+const oldMoon = JSON.parse(fs.readFileSync(path.join(dataDir, "moon.json"), "utf8"));
+
+const moonWorld = {
+  id: "moon",
+  name: {
+    ar: "القمر",
+    en: "The Moon",
+  },
+  overview: {
+    ar: "نظرة شاملة على مهام وكالة ناسا التاريخية لاستكشاف القمر، مع التركيز على مركبات الهبوط القمرية، وحزم التجارب العلمية السطحية، والعربة القمرية المتجولة التي مكنت البشرية من خطو أولى خطواتها على سطح القمر.",
+    en: "A comprehensive overview of NASA's historic lunar missions, focusing on the Apollo Lunar Modules, surface scientific experiment packages (EASEP & ALSEP), and the Lunar Roving Vehicle (LRV) that enabled humanity's first steps on the Moon.",
+  },
+  coverImage: "",
+  narration: [
+    {
+      text: {
+        ar: "وصلنا القمر! بصوا حوالينا... السما سودة والأرض منورة فوقنا.",
+        en: "We made it to the Moon! Look around — pitch-black sky and bright Earth above us.",
+      },
+      audio: {
+        ar: "/audio/ar/moon-1.mp3",
+        en: "/audio/en/moon-1.mp3",
+      },
+    },
+    {
+      text: {
+        ar: "هنا مفيش هوا ولا ريح، عشان كده آثار الخطوات والعجل لسه موجودة لحد النهارده!",
+        en: "There's no wind or air here, so astronaut footprints and tire tracks are still here today!",
+      },
+      audio: {
+        ar: "/audio/ar/moon-2.mp3",
+        en: "/audio/en/moon-2.mp3",
+      },
+    },
+    {
+      text: {
+        ar: "دوسوا على النقط الصفراء عشان نشوف التلات مركبات اللي سابهم البشر على القمر.",
+        en: "Tap the glowing yellow dots to discover 3 real spacecraft humans left on the Moon.",
+      },
+      audio: {
+        ar: "/audio/ar/moon-3.mp3",
+        en: "/audio/en/moon-3.mp3",
+      },
+    },
+  ],
+  machines: [
+    // 1. Eagle
+    {
+      id: "apollo-11-eagle-easep",
+      world: "moon",
+      name: {
+        ar: "مركبة هبوط أبولو 11 (إيغل) وحزمة EASEP",
+        en: "Apollo 11 Lunar Module (Eagle) & EASEP",
+      },
+      cosparId: "1969-059C",
+      alternateNames: ["Apollo 11 LM/EASEP", "LM-5", "Eagle"],
+      type: "lander",
+      status: "silent",
+      location: {
+        lat: 0.67416,
+        lon: 23.47314,
+      },
+      coordinatesText: "0.67416° N, 23.47314° E",
+      card: {
+        cardKey: "eagle",
+        title: {
+          ar: "النسر",
+          en: "Eagle",
+        },
+        tag: {
+          ar: "أبولو ١١ · ١٩٦٩",
+          en: "Apollo 11 · 1969",
+        },
+        kidText: {
+          ar: "أول مركبة هبطت ببشر على القمر. نصّها التحتاني لسه موجود هناك لحد دلوقتي، وجنبه جهاز صغير كان بيحس بـ «زلازل القمر»!",
+          en: "The first craft to land humans on the Moon! Its lower half is still parked there, right beside a small device that sensed moonquakes.",
+        },
+        audio: {
+          ar: "/audio/ar/moon-card-eagle.mp3",
+          en: "/audio/en/moon-card-eagle.mp3",
+        },
+        hero: {
+          src: "images/moon-surface.jpg",
+          focus: "28% 45%",
+          scale: 2.1,
+        },
+      },
+      chips: [
+        {
+          icon: "calendar",
+          label: { ar: "تاريخ الهبوط", en: "Landed" },
+          value: { ar: "٢٠ يوليو ١٩٦٩", en: "July 20, 1969" },
+        },
+        {
+          icon: "weight",
+          label: { ar: "الكتلة الإجمالية", en: "Mass" },
+          value: { ar: "١٥,١٠٣ كجم", en: "15,103 kg" },
+        },
+        {
+          icon: "clock",
+          label: { ar: "المدة على السطح", en: "Surface Time" },
+          value: { ar: "٢١ ساعة و٣٦ دقيقة", en: "21 hrs 36 mins" },
+        },
+        {
+          icon: "gem",
+          label: { ar: "عينات الصخور", en: "Samples" },
+          value: { ar: "٢١٫٥٥ كجم", en: "21.55 kg" },
+        },
+      ],
+      images: [],
+      summary: {
+        ar: "أول مركبة فضائية مأهولة تهبط على سطح القمر في 20 يوليو 1969، حاملة القائد نيل أرمسترونغ وطيار الوحدة القمرية باز ألدرين إلى بحر السكون، برفقة حزمة تجارب أبولو العلمية المبكرة (EASEP).",
+        en: "The first crewed spacecraft to land on the Moon on July 20, 1969, carrying Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin to the Sea of Tranquility, along with the Early Apollo Scientific Experiment Package (EASEP).",
+      },
+      facts: [
+        {
+          id: "launch-vehicle",
+          label: { ar: "صاروخ الإطلاق", en: "Launch Vehicle" },
+          value: { ar: "ساتورن 5 (Saturn V)", en: "Saturn V" },
+        },
+        {
+          id: "launch-site",
+          label: { ar: "موقع الإطلاق", en: "Launch Site" },
+          value: { ar: "كيب كانافيرال، الولايات المتحدة", en: "Cape Canaveral, United States" },
+        },
+        {
+          id: "landing-site",
+          label: { ar: "موقع الهبوط", en: "Landing Site" },
+          value: { ar: "بحر السكون (Mare Tranquillitatis)", en: "Mare Tranquillitatis (Sea of Tranquility)" },
+        },
+        {
+          id: "total-mass",
+          label: { ar: "الكتلة الإجمالية", en: "Total Mass" },
+          value: { ar: "١٥,١٠٣ كجم", en: "15,103 kg" },
+          numeric: { value: 15103, unit: "kg" },
+        },
+        {
+          id: "samples-collected",
+          label: { ar: "العينات المجمعة", en: "Samples Collected" },
+          value: { ar: "٢١٫٥٥ كجم", en: "21.55 kg" },
+          numeric: { value: 21.55, unit: "kg" },
+        },
+      ],
+      timeline: [
+        {
+          date: "1969-07-16",
+          event: { ar: "انطلاق صاروخ ساتورن 5 من كيب كانافيرال", en: "Launch of Saturn V from Cape Canaveral" },
+        },
+        {
+          date: "1969-07-20",
+          event: { ar: "هبوط مركبة إيغل التاريخي على سطح القمر في بحر السكون", en: "Historic landing of Lunar Module Eagle on Mare Tranquillitatis" },
+        },
+        {
+          date: "1969-07-21",
+          event: { ar: "صعود طاقم أرمسترونغ وألدرين والالتحام بوحدة القيادة", en: "Ascent stage liftoff and rendezvous with Command Module" },
+        },
+        {
+          date: "1969-08-27",
+          event: { ar: "توقف حزمة EASEP بعد انتهاء اليومين القمريين", en: "EASEP scientific package end of operations after 2 lunar days" },
+        },
+      ],
+      highlights: [
+        {
+          title: { ar: "أول هبوط تاريخي وسير على القمر", en: "Historic First Landing & Moonwalk" },
+          description: {
+            ar: "هبطت المركبة 'إيغل' في 20 يوليو 1969. وبعد ساعات، خطا نيل أرمسترونغ على تربة القمر مطلقاً عبارته الشهيرة، وتبعه باز ألدرين بعد 19 دقيقة. قطع الرائدان مسافة تقارب 250 متراً، وجمعا 21.55 كجم من صخور وعينات القمر.",
+            en: "Eagle landed at 20:17:40 UT on July 20, 1969. Neil Armstrong stepped onto the lunar soil, followed by Buzz Aldrin 19 minutes later. They traversed ~250 meters and collected 21.55 kg of lunar samples.",
+          },
+        },
+        {
+          title: { ar: "نشر حزمة EASEP العلمية", en: "Deployment of EASEP Scientific Package" },
+          description: {
+            ar: "تضمنت مقياس الزلازل السلبي وعاكس الليزر الرجعي الذي مكن العلماء على الأرض من قياس المسافة بين الأرض والقمر بدقة فائقة.",
+            en: "Included the Passive Seismic Experiment and Laser Ranging Retroreflector which enabled ultra-precise Earth-Moon distance measurements.",
+          },
+        },
+      ],
+      people: [
+        {
+          name: { ar: "نيل أرمسترونغ", en: "Neil A. Armstrong" },
+          role: { ar: "قائد المهمة (أول إنسان يمشي على سطح القمر)", en: "Commander (First human to walk on the Moon)" },
+        },
+        {
+          name: { ar: "إدوين 'باز' ألدرين", en: "Edwin E. 'Buzz' Aldrin, Jr." },
+          role: { ar: "طيار الوحدة القمرية", en: "Lunar Module Pilot" },
+        },
+        {
+          name: { ar: "مايكل كولينز", en: "Michael Collins" },
+          role: { ar: "طيار وحدة القيادة (في المدار القمري)", en: "Command Module Pilot (Orbiting CSM)" },
+        },
+      ],
+      payload: {
+        name: { ar: "حزمة تجارب أبولو العلمية المبكرة (EASEP)", en: "Early Apollo Scientific Experiment Package (EASEP)" },
+        description: {
+          ar: "حزمة تجارب علمية أولى عملت بالطاقة الشمسية على القمر.",
+          en: "Early solar-powered scientific experiment package deployed on the Moon.",
+        },
+      },
+      instruments: [
+        {
+          name: { ar: "مقياس الزلازل السلبي", en: "Passive Seismic Experiment Package (PSEP)" },
+          purpose: { ar: "قياس النشاط الزلزالي القمري والخصائص الفيزيائية لباطن القمر", en: "Measured lunar seismic activity and physical properties of the interior" },
+        },
+        {
+          name: { ar: "عاكس الليزر الرجعي (LRRR)", en: "Laser Ranging Retroreflector (LRRR)" },
+          purpose: { ar: "عكس أشعة الليزر الأرضية وقياس المسافة بدقة السنتيمتر", en: "Reflected Earth-based laser beams to measure Earth-Moon distance" },
+        },
+      ],
+      quizFacts: [
+        {
+          id: "eagle-landing-date",
+          fact: { ar: "هبطت مركبة النسر على القمر في ٢٠ يوليو ١٩٦٩.", en: "Eagle landed on the Moon on July 20, 1969." },
+        },
+        {
+          id: "eagle-astronauts",
+          fact: { ar: "نيل أرمسترونغ وباز ألدرين هما أول من مشيا على القمر.", en: "Neil Armstrong and Buzz Aldrin were the first humans to walk on the Moon." },
+        },
+      ],
+      sources: ["https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-059C"],
+      needsReview: false,
+    },
+
+    // 2. Intrepid
+    {
+      id: "apollo-12-intrepid-alsep",
+      world: "moon",
+      name: {
+        ar: "مركبة هبوط أبولو 12 (إنتريبيد) وحزمة ALSEP",
+        en: "Apollo 12 Lunar Module (Intrepid) & ALSEP",
+      },
+      cosparId: "1969-099C",
+      alternateNames: ["Apollo 12 LM/ALSEP", "LM-6", "Intrepid"],
+      type: "lander",
+      status: "silent",
+      location: {
+        lat: -3.0128,
+        lon: -23.4219,
+      },
+      coordinatesText: "3.0128° S, 23.4219° W",
+      card: {
+        cardKey: "intrepid",
+        title: {
+          ar: "إنتربيد وسيرفيور ٣",
+          en: "Intrepid & Surveyor 3",
+        },
+        tag: {
+          ar: "أبولو ١٢ · ١٩٦٩",
+          en: "Apollo 12 · 1969",
+        },
+        kidText: {
+          ar: "مركبة إنتربيد هبطت جنب مركبة قديمة اسمها «سيرفيور ٣»، ورواد الفضاء فكّوا منها حوالي ١٠ كيلوجرام من أجزائها ورجعوا بيها للأرض.",
+          en: "Intrepid landed right next to the older Surveyor 3 probe, and astronauts brought back about 10 kg of its parts to study on Earth.",
+        },
+        audio: {
+          ar: "/audio/ar/moon-card-intrepid.mp3",
+          en: "/audio/en/moon-card-intrepid.mp3",
+        },
+        hero: {
+          src: "images/moon-surface.jpg",
+          focus: "53.5% 41%",
+          scale: 2.8,
+        },
+      },
+      chips: [
+        {
+          icon: "calendar",
+          label: { ar: "تاريخ الهبوط", en: "Landed" },
+          value: { ar: "١٩ نوفمبر ١٩٦٩", en: "Nov 19, 1969" },
+        },
+        {
+          icon: "target",
+          label: { ar: "دقة الهبوط", en: "Precision" },
+          value: { ar: "١٦٠ متراً من سيرفيور ٣", en: "160m from Surveyor 3" },
+        },
+        {
+          icon: "clock",
+          label: { ar: "المدة على السطح", en: "Surface Time" },
+          value: { ar: "٣١ ساعة و٣١ دقيقة", en: "31 hrs 31 mins" },
+        },
+        {
+          icon: "gem",
+          label: { ar: "عينات الصخور", en: "Samples" },
+          value: { ar: "٣٤٫٣٥ كجم", en: "34.35 kg" },
+        },
+      ],
+      images: [],
+      summary: {
+        ar: "ثاني مهمة هبوط مأهولة على القمر، تميزت بهبوط فائق الدقة على بُعد 160 متراً فقط من المسبار الآلي سيرفيور 3 غير المأهول في محيط العواصف، ونشر أول حزمة علمية ALSEP تعمل بمولد نووي.",
+        en: "The second crewed lunar landing mission, famous for its pinpoint precision landing just 160 meters from the robotic Surveyor 3 probe in Oceanus Procellarum, and deployment of the first nuclear-powered ALSEP station.",
+      },
+      facts: [
+        {
+          id: "launch-vehicle",
+          label: { ar: "صاروخ الإطلاق", en: "Launch Vehicle" },
+          value: { ar: "ساتورن 5 (Saturn V)", en: "Saturn V" },
+        },
+        {
+          id: "landing-site",
+          label: { ar: "موقع الهبوط", en: "Landing Site" },
+          value: { ar: "محيط العواصف (Oceanus Procellarum)", en: "Oceanus Procellarum (Ocean of Storms)" },
+        },
+        {
+          id: "total-mass",
+          label: { ar: "الكتلة الإجمالية", en: "Total Mass" },
+          value: { ar: "١٥,٢٣٥ كجم", en: "15,235 kg" },
+          numeric: { value: 15235, unit: "kg" },
+        },
+        {
+          id: "samples-collected",
+          label: { ar: "العينات المجمعة", en: "Samples Collected" },
+          value: { ar: "٣٤٫٣٥ كجم", en: "34.35 kg" },
+          numeric: { value: 34.35, unit: "kg" },
+        },
+      ],
+      timeline: [
+        {
+          date: "1969-11-14",
+          event: { ar: "إطلاق أبولو 12 بنجاح رغم التعرض لصاعقة برق أثناء الصعود", en: "Launch of Apollo 12, recovering after being struck by lightning during ascent" },
+        },
+        {
+          date: "1969-11-19",
+          event: { ar: "الهبوط الدقيق لمركبة إنتريبيد في محيط العواصف", en: "Pinpoint landing of Intrepid in Ocean of Storms" },
+        },
+        {
+          date: "1969-11-20",
+          event: { ar: "زيارة المسبار سيرفيور 3 واسترجاع كاميرته وأجزاء منه للأرض", en: "Astronauts walk to Surveyor 3 and retrieve its camera and tubing" },
+        },
+        {
+          date: "1977-09-30",
+          event: { ar: "إيقاف تشغيل حزمة ALSEP بعد نحو 8 سنوات من العمل المتواصل", en: "ALSEP station shut down after nearly 8 years of continuous operation" },
+        },
+      ],
+      highlights: [
+        {
+          title: { ar: "الهبوط الفائق الدقة", en: "Pinpoint Precision Landing" },
+          description: {
+            ar: "استطاع الرائد بيت كونراد الهبوط على بعد 160 متراً فقط من سيرفيور 3، مما أثبت إمكانية الهبوط في مواقع قمرية محددة بدقة.",
+            en: "Pete Conrad achieved pinpoint landing within walking distance (160m) of Surveyor 3, proving targeted landing capability.",
+          },
+        },
+        {
+          title: { ar: "فحص أجهزة سيرفيور 3 بعد سنوات على القمر", en: "Surveyor 3 Hardware Inspection" },
+          description: {
+            ar: "استرجع الرواد حوالي 10 كجم من أجزاء سيرفيور 3 لدراسة تأثير البيئة القمرية والإشعاع على المواد المصنوعة بشرياً.",
+            en: "Astronauts removed ~10 kg of Surveyor parts to analyze how long-term lunar environment affected materials.",
+          },
+        },
+      ],
+      people: [
+        {
+          name: { ar: "تشارلز 'بيت' كونراد", en: "Charles P. 'Pete' Conrad, Jr." },
+          role: { ar: "قائد المهمة", en: "Commander" },
+        },
+        {
+          name: { ar: "آلان بين", en: "Alan L. Bean" },
+          role: { ar: "طيار الوحدة القمرية", en: "Lunar Module Pilot" },
+        },
+        {
+          name: { ar: "ريتشارد غوردون", en: "Richard F. Gordon, Jr." },
+          role: { ar: "طيار وحدة القيادة", en: "Command Module Pilot" },
+        },
+      ],
+      payload: {
+        name: { ar: "حزمة تجارب أبولو 12 (ALSEP)", en: "Apollo 12 ALSEP & SNAP-27 RTG" },
+        description: {
+          ar: "حزمة أجهزة علمية متطورة عملت بمولد نووي حراري لمدة 8 سنوات.",
+          en: "Advanced geophysical station powered by SNAP-27 nuclear RTG operating for 8 years.",
+        },
+      },
+      instruments: [
+        {
+          name: { ar: "مقياس الزلازل السلبي", en: "Passive Seismometer" },
+          purpose: { ar: "رصد الزلازل القمرية الطبيعية والاصطدامات", en: "Monitored natural and impact moonquakes" },
+        },
+        {
+          name: { ar: "مقياس المغناطيسية السطحي القمري (LSM)", en: "Lunar Surface Magnetometer (LSM)" },
+          purpose: { ar: "قياس المجال المغناطيسي المحلي على سطح القمر", en: "Measured local and global lunar magnetic fields" },
+        },
+      ],
+      quizFacts: [
+        {
+          id: "intrepid-surveyor-parts",
+          fact: { ar: "رواد أبولو ١٢ زاروا مسبار سيرفيور ٣ وفكوا منه أجزاء ورجعوا بيها للأرض.", en: "Apollo 12 astronauts visited Surveyor 3 and brought pieces of it back to Earth." },
+        },
+      ],
+      sources: ["https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-099C"],
+      needsReview: false,
+    },
+
+    // 3. Rover / Falcon
+    {
+      id: "apollo-15-falcon-lrv",
+      world: "moon",
+      name: {
+        ar: "مركبة هبوط أبولو 15 (فالكون) والعربة القمرية المتجولة (LRV)",
+        en: "Apollo 15 Lunar Module (Falcon) & Lunar Roving Vehicle (LRV)",
+      },
+      cosparId: "1971-063C",
+      alternateNames: ["Apollo 15 LM/LRV", "LM-10", "Falcon", "Lunar Roving Vehicle 1"],
+      type: "rover",
+      status: "silent",
+      location: {
+        lat: 26.13239,
+        lon: 3.6333,
+      },
+      coordinatesText: "26.13239° N, 3.63330° E",
+      card: {
+        cardKey: "rover",
+        title: {
+          ar: "العربية القمرية",
+          en: "Lunar Rover",
+        },
+        tag: {
+          ar: "فالكون · أبولو ١٥ · ١٩٧١",
+          en: "Falcon · Apollo 15 · 1971",
+        },
+        kidText: {
+          ar: "أول عربية اتساقت على القمر! مشيت حوالي ٢٨ كيلومتر، ولسه راكنة هناك على سطح القمر لحد النهارده.",
+          en: "The very first car driven on the Moon! It traveled about 28 kilometers and is still parked there today.",
+        },
+        audio: {
+          ar: "/audio/ar/moon-card-rover.mp3",
+          en: "/audio/en/moon-card-rover.mp3",
+        },
+        hero: {
+          src: "images/moon-surface.jpg",
+          focus: "78% 50%",
+          scale: 2.2,
+        },
+      },
+      chips: [
+        {
+          icon: "car",
+          label: { ar: "مسافة التجوال", en: "Distance" },
+          value: { ar: "٢٧٫٩ كم (~٢٨ كم)", en: "27.9 km (~28 km)" },
+        },
+        {
+          icon: "calendar",
+          label: { ar: "تاريخ الهبوط", en: "Landed" },
+          value: { ar: "٣٠ يوليو ١٩٧١", en: "July 30, 1971" },
+        },
+        {
+          icon: "clock",
+          label: { ar: "المدة على السطح", en: "Surface Time" },
+          value: { ar: "٦٦ ساعة و٥٥ دقيقة", en: "66 hrs 55 mins" },
+        },
+        {
+          icon: "gem",
+          label: { ar: "عينات الصخور", en: "Samples" },
+          value: { ar: "٧٧٫٣١ كجم", en: "77.31 kg" },
+        },
+      ],
+      images: [],
+      summary: {
+        ar: "أول مهمة من الفئة المتقدمة 'J-missions' التي ركزت على العلوم الموسعة، وشهدت أول استخدام للعربة القمرية المتجولة (LRV-1) التي ضاعفت نطاق استكشاف الرواد لسطح القمر.",
+        en: "The first advanced 'J-mission' dedicated to intensive lunar science, introducing the Lunar Roving Vehicle (LRV-1) which drastically expanded the astronauts' exploration range across the Hadley-Apennine region.",
+      },
+      facts: [
+        {
+          id: "launch-vehicle",
+          label: { ar: "صاروخ الإطلاق", en: "Launch Vehicle" },
+          value: { ar: "ساتورن 5 (Saturn V)", en: "Saturn V" },
+        },
+        {
+          id: "landing-site",
+          label: { ar: "موقع الهبوط", en: "Landing Site" },
+          value: { ar: "هادلي-أبينين (بحر الأمطار)", en: "Hadley-Apennine (Mare Imbrium)" },
+        },
+        {
+          id: "distance-traveled",
+          label: { ar: "المسافة المقطوعة بالعربة", en: "Distance Traveled" },
+          value: { ar: "٢٧٫٩ كم", en: "27.9 km" },
+          numeric: { value: 27.9, unit: "km" },
+        },
+        {
+          id: "total-mass",
+          label: { ar: "الكتلة الإجمالية", en: "Total Mass" },
+          value: { ar: "١٦,٤٣٠ كجم", en: "16,430 kg" },
+          numeric: { value: 16430, unit: "kg" },
+        },
+        {
+          id: "samples-collected",
+          label: { ar: "العينات المجمعة", en: "Samples Collected" },
+          value: { ar: "٧٧٫٣١ كجم", en: "77.31 kg" },
+          numeric: { value: 77.31, unit: "kg" },
+        },
+      ],
+      timeline: [
+        {
+          date: "1971-07-26",
+          event: { ar: "انطلاق مهمة أبولو 15 المتقدمة من فلوريدا", en: "Launch of Apollo 15 from Florida" },
+        },
+        {
+          date: "1971-07-30",
+          event: { ar: "هبوط فالكون عند سهل هادلي وجبال أبينين القمرية", en: "Falcon touches down at Hadley-Apennine" },
+        },
+        {
+          date: "1971-07-31",
+          event: { ar: "إنزال أول عربة قمرية وبدء أول رحلة قيادة على سطح القمر", en: "Deployment of first Lunar Roving Vehicle and first drive on the Moon" },
+        },
+        {
+          date: "1971-08-02",
+          event: { ar: "تجربة سقوط المطرقة والريشة الشهيرة لديفيد سكوت في الفراغ القمري", en: "David Scott performs famous hammer and feather drop experiment in vacuum" },
+        },
+      ],
+      highlights: [
+        {
+          title: { ar: "أول قيادة لمركبة على جرم فضائي", en: "First Vehicle Driven on another World" },
+          description: {
+            ar: "قطعت العربة القمرية 27.9 كيلومتر بسرعة وصلت إلى 12 كم/ساعة، مما سمح بزيارة أخدود هادلي وجمع صخرة التكوين الشهيرة (Genesis Rock).",
+            en: "The rover covered 27.9 km at speeds up to 12 km/h, reaching Hadley Rille and collecting the ancient 'Genesis Rock'.",
+          },
+        },
+        {
+          title: { ar: "تجربة غاليليو للمطرقة والريشة", en: "Galileo Hammer-Feather Experiment" },
+          description: {
+            ar: "أسقط ديفيد سكوت مطرقة جيولوجية وريشة صقر في نفس اللحظة ليثبت أنه في انعدام الهواء يسقط الجسمان بنفس السرعة.",
+            en: "Commander Scott dropped a hammer and feather simultaneously, proving Galileo's law in the lunar vacuum.",
+          },
+        },
+      ],
+      people: [
+        {
+          name: { ar: "ديفيد سكوت", en: "David R. Scott" },
+          role: { ar: "قائد المهمة", en: "Commander" },
+        },
+        {
+          name: { ar: "جيمس إروين", en: "James B. Irwin" },
+          role: { ar: "طيار الوحدة القمرية", en: "Lunar Module Pilot" },
+        },
+        {
+          name: { ar: "ألفريد وردن", en: "Alfred M. Worden" },
+          role: { ar: "طيار وحدة القيادة", en: "Command Module Pilot" },
+        },
+      ],
+      payload: {
+        name: { ar: "العربة القمرية LRV وتجارب ALSEP الموسعة", en: "Lunar Roving Vehicle & Expanded ALSEP" },
+        description: {
+          ar: "مركبة كهربائية بأربع عجلات مستقلة وتجارب التدفق الحراري لباطن القمر.",
+          en: "Electric 4-wheel rover with independent drive motors and heat flow experiments.",
+        },
+      },
+      instruments: [
+        {
+          name: { ar: "العربة القمرية (LRV-1)", en: "Lunar Roving Vehicle (LRV-1)" },
+          purpose: { ar: "نقل الرواد ومعدات الحفر وجمع الصخور عبر مسافات طويلة", en: "Transported astronauts, drilling gear, and lunar samples across kilometers" },
+        },
+        {
+          name: { ar: "تجربة التدفق الحراري (HFE)", en: "Heat Flow Experiment (HFE)" },
+          purpose: { ar: "قياس معدل فقدان الحرارة من باطن القمر عبر ثقوب محفورة بعمق 3 أمتار", en: "Measured heat loss rate from lunar interior via drilled boreholes" },
+        },
+      ],
+      quizFacts: [
+        {
+          id: "rover-distance-28km",
+          fact: { ar: "العربية القمرية في أبولو ١٥ مشيت حوالي ٢٨ كيلومتر على سطح القمر.", en: "The Apollo 15 Lunar Rover drove about 28 kilometers across the Moon." },
+        },
+      ],
+      sources: ["https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063C"],
+      needsReview: false,
+    },
+  ],
+  storyCards: [],
+};
+
+const finalMoon = {
+  schemaVersion: 2,
+  worlds: [moonWorld],
+};
+
+fs.writeFileSync(path.join(dataDir, "moon.json"), JSON.stringify(finalMoon, null, 2), "utf8");
+console.log("Successfully wrote moon.json (schemaVersion: 2)");
+
+// ==========================================
+// 2. MIGRATE MARS.JSON
+// ==========================================
+const marsWorld = {
+  id: "mars",
+  name: {
+    ar: "المريخ",
+    en: "Mars",
+  },
+  overview: {
+    ar: "الكوكب الأحمر، الجار الذي ألهم البشر لقرون وأرسلت إليه وكالة ناسا مركبات هبوط وروبوتات متجولة غيرت فهمنا لوجود المياه وإمكانية الحياة.",
+    en: "The Red Planet, humanity's dusty neighbor that inspired generations and hosted historic NASA landers and rovers proving ancient water once flowed.",
+  },
+  coverImage: "",
+  narration: [
+    {
+      text: {
+        ar: "أهلًا بيكم على المريخ... جارنا الأحمر!",
+        en: "Welcome to Mars — our dusty red neighbor!",
+      },
+      audio: {
+        ar: "/audio/ar/mars-1.mp3",
+        en: "/audio/en/mars-1.mp3",
+      },
+    },
+    {
+      text: {
+        ar: "التراب هنا لونه أحمر، والناس بعتوا مركبات وروبوتات وصلت لحد هنا وبعتت صور للأرض.",
+        en: "The soil here is rusty red, and humans sent real landers and clever rovers all the way here.",
+      },
+      audio: {
+        ar: "/audio/ar/mars-2.mp3",
+        en: "/audio/en/mars-2.mp3",
+      },
+    },
+    {
+      text: {
+        ar: "دوسوا على النقط الصفراء عشان تشوفوا فايكنج ١، باثفايندر، والروبوت الصغنن سوجورنر!",
+        en: "Tap the yellow dots to meet Viking 1, Pathfinder, and tiny Sojourner!",
+      },
+      audio: {
+        ar: "/audio/ar/mars-3.mp3",
+        en: "/audio/en/mars-3.mp3",
+      },
+    },
+  ],
+  machines: [
+    // 1. Viking 1
+    {
+      id: "viking-1",
+      world: "mars",
+      name: {
+        ar: "فايكنغ 1",
+        en: "Viking 1",
+      },
+      cosparId: "1975-075C",
+      alternateNames: ["Viking Lander 1", "Thomas Mutch Memorial Station"],
+      type: "lander",
+      status: "silent",
+      location: {
+        lat: 22.483,
+        lon: -47.94,
+      },
+      coordinatesText: "22.483° N, 47.94° W",
+      card: {
+        cardKey: "viking",
+        title: {
+          ar: "فايكنج ١",
+          en: "Viking 1",
+        },
+        tag: {
+          ar: "أول هبوط ناجح على المريخ · ١٩٧٦",
+          en: "First Successful Mars Landing · 1976",
+        },
+        kidText: {
+          ar: "أول مركبة تنجح في الهبوط على المريخ! فضلت شغالة أكتر من ٦ سنين، لحد ما أمر غلط اتبعت من الأرض قطع الاتصال بيها.",
+          en: "The first craft to land and work successfully on Mars! It operated for over 6 years until a wrong command from Earth cut contact.",
+        },
+        audio: {
+          ar: "/audio/ar/mars-card-viking.mp3",
+          en: "/audio/en/mars-card-viking.mp3",
+        },
+        hero: {
+          src: "images/mars-surface.jpg",
+          focus: "27.5% 50%",
+          scale: 2.2,
+        },
+      },
+      chips: [
+        {
+          icon: "calendar",
+          label: { ar: "تاريخ الهبوط", en: "Landed" },
+          value: { ar: "٢٠ يوليو ١٩٧٦", en: "July 20, 1976" },
+        },
+        {
+          icon: "clock",
+          label: { ar: "مدة العمل", en: "Active Duration" },
+          value: { ar: "أكثر من ٦ سنوات (حتى ١٩٨٢)", en: "Over 6 years (to 1982)" },
+        },
+        {
+          icon: "weight",
+          label: { ar: "كتلة مركبة الهبوط", en: "Lander Mass" },
+          value: { ar: "٩٧٨ كجم (٢,١٥٦ رطل)", en: "978 kg (2,156 lbs)" },
+        },
+        {
+          icon: "thermometer",
+          label: { ar: "حرارة السطح", en: "Surface Temp" },
+          value: { ar: "من -٨٦ إلى -٣٣ درجة مئوية", en: "-86°C to -33°C" },
+        },
+      ],
+      images: [],
+      summary: {
+        ar: "على مدار التاريخ، كان المريخ مرئياً ولكن لم يكن من الممكن الوصول إليه — حتى 20 يوليو 1976، عندما هبطت مركبة فايكنغ 1 التابعة لناسا بنجاح وبدأت في إرسال الصور الأولى من سطح الكوكب الأحمر، محققة أول هبوط ناجح حقاً على المريخ.",
+        en: "Throughout history, Mars had been in sight, but never within reach — until July 20, 1976, when NASA's Viking 1 lander touched down safely and began transmitting the first images from the surface of the Red Planet.",
+      },
+      facts: [
+        {
+          id: "lander-mass",
+          label: { ar: "كتلة مركبة الهبوط", en: "Lander Mass" },
+          value: { ar: "٩٧٨ كجم", en: "978 kg" },
+          numeric: { value: 978, unit: "kg" },
+        },
+        {
+          id: "orbiter-mass",
+          label: { ar: "كتلة المركبة المدارية", en: "Orbiter Mass" },
+          value: { ar: "٢,٣٣٩ كجم", en: "2,339 kg" },
+          numeric: { value: 2339, unit: "kg" },
+        },
+        {
+          id: "landing-site",
+          label: { ar: "موقع الهبوط", en: "Landing Site" },
+          value: { ar: "سهل خريسي بلانيتيا", en: "Chryse Planitia" },
+        },
+        {
+          id: "photos-sent",
+          label: { ar: "الصور المرسلة", en: "Photos Transmitted" },
+          value: { ar: "٤,٥٠٠ صورة سطحية وأكثر من ٥٢,٠٠٠ صورة مدارية", en: "4,500 surface photos and 52,663 orbital images" },
+        },
+      ],
+      timeline: [
+        {
+          date: "1975-08-20",
+          event: { ar: "إطلاق مركبة فايكنغ 1 نحو المريخ", en: "Launch of Viking 1 towards Mars" },
+        },
+        {
+          date: "1976-06-19",
+          event: { ar: "دخول المركبة المدارية في مدار حول المريخ", en: "Spacecraft enters orbit around Mars" },
+        },
+        {
+          date: "1976-07-20",
+          event: { ar: "هبوط مركبة فايكنغ 1 بسلام على سهل خريسي بلانيتيا", en: "Safe landing of Viking 1 on Chryse Planitia slopes" },
+        },
+        {
+          date: "1976-07-28",
+          event: { ar: "الذراع الآلية تجمع أول عينات تربة للمختبر الحيوي", en: "Robot arm scoops first soil samples into biology lab" },
+        },
+        {
+          date: "1982-11-11",
+          event: { ar: "توقف مركبة الهبوط بعد تلقيها أمراً خاطئاً من الأرض", en: "Lander ceases operations after receiving a faulty command from Earth" },
+        },
+      ],
+      highlights: [
+        {
+          title: { ar: "أول هبوط ناجح وصور ملونة من المريخ", en: "First Successful Mars Landing & Surface Photos" },
+          description: {
+            ar: "التقطت فايكنغ 1 أول صور ملونة عالية الدقة وبانوراما 300 درجة لسهل خريسي بلانيتيا الأحمر.",
+            en: "Viking 1 returned the first high-resolution color photographs and a 300-degree panorama of Chryse Planitia.",
+          },
+        },
+        {
+          title: { ar: "أول تجارب حيوية وكيميائية للتربة", en: "First Biological and Chemical Soil Analysis" },
+          description: {
+            ar: "حللت الذراع الآلية عينات من تربة المريخ ووجدت وفرة غير معتادة في الكبريت وقاست درجات حرارة السطح والرياح.",
+            en: "Analyzed Martian soil revealing rich sulfur content and monitored weather conditions for over six years.",
+          },
+        },
+      ],
+      people: [],
+      instruments: [
+        {
+          name: { ar: "الذراع الآلية ومطياف الكتلة", en: "Surface Sampler Arm & GCMS" },
+          purpose: { ar: "جمع عينات التربة وتحليل المركبات الكيميائية والعضوية", en: "Sampled Martian soil for organic molecules and chemical composition" },
+        },
+      ],
+      quizFacts: [
+        {
+          id: "viking-landing-1976",
+          fact: { ar: "فايكنج ١ كانت أول مركبة تنجح في الهبوط والعمل على المريخ سنة ١٩٧٦.", en: "Viking 1 was the first craft to successfully land and operate on Mars in 1976." },
+        },
+      ],
+      sources: ["https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-075C"],
+      needsReview: false,
+    },
+
+    // 2. Spirit (split from mars-exploration-rovers)
+    {
+      id: "spirit",
+      world: "mars",
+      name: {
+        ar: "مركبة استكشاف المريخ: سبيريت (MER-A)",
+        en: "Mars Exploration Rover: Spirit (MER-A)",
+      },
+      cosparId: "2003-027A",
+      alternateNames: ["MER-A", "Spirit Rover"],
+      type: "rover",
+      status: "silent",
+      location: {
+        lat: -14.5684,
+        lon: 175.4726,
+      },
+      coordinatesText: "14.5684° S, 175.4726° E",
+      card: null,
+      chips: [
+        {
+          icon: "car",
+          label: { ar: "مسافة التجوال", en: "Distance" },
+          value: { ar: "٧٫٧ كم (٤٫٨ ميل)", en: "7.7 km (4.8 mi)" },
+        },
+        {
+          icon: "calendar",
+          label: { ar: "تاريخ الهبوط", en: "Landed" },
+          value: { ar: "٤ يناير ٢٠٠٤", en: "Jan 4, 2004" },
+        },
+        {
+          icon: "map-pin",
+          label: { ar: "موقع الهبوط", en: "Landing Site" },
+          value: { ar: "فوهة غوسيف", en: "Gusev Crater" },
+        },
+      ],
+      images: [],
+      summary: {
+        ar: "مركبة استكشاف روبوتية هبطت في فوهة غوسيف بالمريخ في يناير 2004، واستمرت في العمل لأكثر من 6 سنوات متجاوزة مهمتها المقررة بثلاثين ضعفاً، ووجدت أدلة قوية على ينابيع حارة قديمة.",
+        en: "A robotic geologist rover that touched down in Gusev Crater on Mars in January 2004, operating for over 6 years (30 times its planned mission) and uncovering evidence of past hydrothermal activity.",
+      },
+      facts: [
+        {
+          id: "landing-site",
+          label: { ar: "موقع الهبوط", en: "Landing Site" },
+          value: { ar: "فوهة غوسيف (بحيرة قديمة محتملة)", en: "Gusev Crater (a possible former lake)" },
+        },
+        {
+          id: "distance-traveled",
+          label: { ar: "المسافة المقطوعة", en: "Distance Traveled" },
+          value: { ar: "٧٫٧ كم", en: "7.7 km" },
+          numeric: { value: 7.7, unit: "km" },
+        },
+      ],
+      timeline: [
+        {
+          date: "2003-06-10",
+          event: { ar: "إطلاق سبيريت من كيب كانافيرال", en: "Launch of Spirit from Cape Canaveral" },
+        },
+        {
+          date: "2004-01-04",
+          event: { ar: "الهبوط في فوهة غوسيف بالمريخ", en: "Landing in Gusev Crater on Mars" },
+        },
+        {
+          date: "2010-03-22",
+          event: { ar: "آخر اتصال بمركبة سبيريت بعد أن علقت في رمال ناعمة", en: "Final communication from Spirit after getting stuck in soft soil" },
+        },
+      ],
+      highlights: [
+        {
+          title: { ar: "اكتشاف السيليكا النقية والينابيع الحارة", en: "Discovery of Pure Silica & Hydrothermal Springs" },
+          description: {
+            ar: "كشفت عجلات سبيريت أثناء حفرها بالرمال عن وجود سيليكا نقية بنسبة 90%، وهي دليل قاطع على بيئة ينابيع مياه حارة سابقة.",
+            en: "While dragging a stuck wheel, Spirit churned up 90% pure silica deposits, proving ancient hot spring activity on Mars.",
+          },
+        },
+      ],
+      people: [],
+      instruments: [
+        {
+          name: { ar: "كاميرا البانوراما ومطياف موسباور", en: "Pancam & Mössbauer Spectrometer" },
+          purpose: { ar: "تصوير السطح وتحليل التركيب المعدني للحديد في صخور المريخ", en: "High-resolution imaging and mineralogical analysis of iron-bearing rocks" },
+        },
+      ],
+      quizFacts: [],
+      sources: ["https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-027A"],
+      needsReview: false,
+    },
+
+    // 3. Opportunity (split from mars-exploration-rovers)
+    {
+      id: "opportunity",
+      world: "mars",
+      name: {
+        ar: "مركبة استكشاف المريخ: أبورتيونيتي (MER-B)",
+        en: "Mars Exploration Rover: Opportunity (MER-B)",
+      },
+      cosparId: "2003-032A",
+      alternateNames: ["MER-B", "Opportunity Rover", "Oppy"],
+      type: "rover",
+      status: "silent",
+      location: {
+        lat: -1.9462,
+        lon: 354.4734,
+      },
+      coordinatesText: "1.9462° S, 354.4734° E",
+      card: null,
+      chips: [
+        {
+          icon: "car",
+          label: { ar: "مسافة التجوال القياسية", en: "Distance Record" },
+          value: { ar: "٤٥٫١٦ كم (٢٨٫٠٦ ميل)", en: "45.16 km (28.06 mi)" },
+        },
+        {
+          icon: "calendar",
+          label: { ar: "تاريخ الهبوط", en: "Landed" },
+          value: { ar: "٢٥ يناير ٢٠٠٤", en: "Jan 25, 2004" },
+        },
+        {
+          icon: "clock",
+          label: { ar: "مدة العمل", en: "Active Duration" },
+          value: { ar: "نحو ١٥ سنة (حتى ٢٠١٨)", en: "Nearly 15 years (to 2018)" },
+        },
+        {
+          icon: "map-pin",
+          label: { ar: "موقع الهبوط", en: "Landing Site" },
+          value: { ar: "مريدياني بلانوم", en: "Meridiani Planum" },
+        },
+      ],
+      images: [],
+      summary: {
+        ar: "الروبوت الأسطوري الذي هبط في مريدياني بلانوم وعمل لما يقرب من 15 عاماً قاطعاً أكثر من 45 كيلومتراً، مؤكداً وجود بيئة مائية قديمة ملائمة للحياة.",
+        en: "The legendary rover that touched down on Meridiani Planum, operating for nearly 15 years and driving over 45 kilometers to confirm persistent liquid water once existed on ancient Mars.",
+      },
+      facts: [
+        {
+          id: "landing-site",
+          label: { ar: "موقع الهبوط", en: "Landing Site" },
+          value: { ar: "مريدياني بلانوم", en: "Meridiani Planum" },
+        },
+        {
+          id: "distance-traveled",
+          label: { ar: "المسافة المقطوعة", en: "Distance Traveled" },
+          value: { ar: "٤٥٫١٦ كم", en: "45.16 km" },
+          numeric: { value: 45.16, unit: "km" },
+        },
+        {
+          id: "distance-record-note",
+          label: { ar: "الرقم القياسي للتجوال", en: "Roving Distance Record" },
+          value: {
+            ar: "احتفظت بالرقم القياسي لمسافة التجوال خارج الأرض (45.16 كم) حتى تجاوزتها بيرسيفيرانس في أكتوبر 2026",
+            en: "Held off-Earth distance record (45.16 km) until passed by Perseverance in October 2026",
+          },
+        },
+      ],
+      timeline: [
+        {
+          date: "2003-07-07",
+          event: { ar: "إطلاق أبورتيونيتي نحو المريخ", en: "Launch of Opportunity towards Mars" },
+        },
+        {
+          date: "2004-01-25",
+          event: { ar: "الهبوط في فوهة إيغل على سهل مريدياني بلانوم", en: "Hole-in-one landing in Eagle Crater on Meridiani Planum" },
+        },
+        {
+          date: "2015-03-24",
+          event: { ar: "إكمال مسافة ماراثون كامل (42.195 كم) على سطح المريخ", en: "Completes first off-Earth marathon distance (42.195 km)" },
+        },
+        {
+          date: "2018-06-10",
+          event: { ar: "عاصفة ترابية كوكبية تحجب الشمس وتنهي الاتصال بالمركبة", en: "Global dust storm blocks solar panels, ending communications" },
+        },
+      ],
+      highlights: [
+        {
+          title: { ar: "إثبات وجود مياه سائلة قديمة", en: "Confirming Ancient Liquid Water" },
+          description: {
+            ar: "اكتشفت كريات الهيماتيت الدقيقة (العنب البري للمريخ) وطبقات صخرية رسوبية تشكلت في مياه جارية.",
+            en: "Discovered hematite spherules ('blueberries') and sedimentary rock layers formed in flowing acidic water.",
+          },
+        },
+      ],
+      people: [],
+      instruments: [
+        {
+          name: { ar: "أداة حك الصخور ومطياف ألفا", en: "Rock Abrasion Tool (RAT) & APXS" },
+          purpose: { ar: "كشط أسطح الصخور المريخية وتحليل عناصرها الداخلية", en: "Grinded rock surfaces to examine unweathered interior compositions" },
+        },
+      ],
+      quizFacts: [],
+      sources: ["https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-032A"],
+      needsReview: false,
+    },
+  ],
+  storyCards: [
+    {
+      cardKey: "pathfinder",
+      world: "mars",
+      title: {
+        ar: "باثفايندر",
+        en: "Mars Pathfinder",
+      },
+      tag: {
+        ar: "١٩٩٧ · محطة كارل ساجان",
+        en: "1997 · Carl Sagan Station",
+      },
+      kidText: {
+        ar: "هبطت على المريخ جوا وسائد هوائية عملاقة، واتنططت على السطح حوالي ١٥ مرة لحد ما وقفت وفتحت!",
+        en: "It landed wrapped inside giant airbags and bounced about 15 times across Mars before settling and opening its solar petals!",
+      },
+      audio: {
+        ar: "/audio/ar/mars-card-pathfinder.mp3",
+        en: "/audio/en/mars-card-pathfinder.mp3",
+      },
+      hero: {
+        src: "images/mars-surface.jpg",
+        focus: "56% 51%",
+        scale: 2.1,
+      },
+    },
+    {
+      cardKey: "sojourner",
+      world: "mars",
+      title: {
+        ar: "سوجورنر",
+        en: "Sojourner",
+      },
+      tag: {
+        ar: "روبوت المريخ الصغير",
+        en: "Tiny Mars Rover",
+      },
+      kidText: {
+        ar: "روبوت صغنن خالص! وزنه ١٠٫٥ كيلوجرام، وطوله ٣٠ سنتيمتر... يعني قد مسطرة المدرسة بالظبط! ولسه موجود على المريخ.",
+        en: "A super tiny robot! Only 10.5 kg and 30 cm long — just like a school ruler — and it's still on Mars today.",
+      },
+      audio: {
+        ar: "/audio/ar/mars-card-sojourner.mp3",
+        en: "/audio/en/mars-card-sojourner.mp3",
+      },
+      hero: {
+        src: "images/mars-surface.jpg",
+        focus: "76.5% 65%",
+        scale: 2.4,
+      },
+    },
+  ],
+};
+
+const deepspaceWorld = {
+  id: "deepspace",
+  name: {
+    ar: "الفضاء البعيد",
+    en: "Deep Space",
+  },
+  overview: {
+    ar: "أبعد محطات رحلتنا: من الكويكبات الصخرية السابحة في النظام الشمسي إلى النجوم السحيقة التي تحيط بها عوالم وكواكب خارج مجموعتنا الشمسية.",
+    en: "Our farthest frontier: from rocky asteroids roaming the solar system to distant stars circled by alien worlds outside our solar system.",
+  },
+  coverImage: "",
+  narration: [
+    {
+      text: {
+        ar: "مبروك يا بطل! وصلنا لأبعد حتة في رحلتنا: الفضاء البعيد!",
+        en: "You unlocked Deep Space, hero! Welcome to our farthest stop!",
+      },
+      audio: {
+        ar: "/audio/ar/bonus-1.mp3",
+        en: "/audio/en/bonus-1.mp3",
+      },
+    },
+    {
+      text: {
+        ar: "البشر مسبوش مركبات على القمر والمريخ بس... دول وصلوا لصخرة كبيرة سابحة في الفضاء، وبعتوا تلسكوب يبص على نجوم بعيدة أوي أوي!",
+        en: "Humans didn't just stop at the Moon and Mars — they landed on a floating asteroid and sent telescopes to watch faraway stars!",
+      },
+      audio: {
+        ar: "/audio/ar/bonus-2.mp3",
+        en: "/audio/en/bonus-2.mp3",
+      },
+    },
+    {
+      text: {
+        ar: "دوس على النقط الصفراء عشان تعرف حكايتهم.",
+        en: "Tap the yellow dots to uncover these amazing space explorers.",
+      },
+      audio: {
+        ar: "/audio/ar/bonus-3.mp3",
+        en: "/audio/en/bonus-3.mp3",
+      },
+    },
+  ],
+  machines: [
+    // 1. Kepler / K2
+    {
+      id: "kepler-k2",
+      world: "deepspace",
+      name: {
+        ar: "تلسكوب كيبلر الفضائي / K2",
+        en: "Kepler Space Telescope / K2",
+      },
+      cosparId: "2009-011A",
+      alternateNames: ["Kepler", "Discovery 10", "K2"],
+      type: "telescope",
+      status: "retired",
+      location: null,
+      coordinatesText: null,
+      card: {
+        cardKey: "kepler",
+        title: {
+          ar: "تلسكوب كيبلر الفضائي",
+          en: "Kepler Space Telescope",
+        },
+        tag: {
+          ar: "نجوم بعيدة أوي أوي",
+          en: "Stars Far, Far Away",
+        },
+        kidText: {
+          ar: "تلسكوب طار في الفضاء وبص على نجوم بعيدة أوي أوي عشان يدور على كواكب تانية برا مجموعتنا الشمسية، ولسه سابح في الفضاء.",
+          en: "A deep-space telescope that stared at distant stars to discover thousands of planets outside our solar system.",
+        },
+        audio: {
+          ar: "/audio/ar/bonus-card-kepler.mp3",
+          en: "/audio/en/bonus-card-kepler.mp3",
+        },
+        hero: {
+          src: "images/deep-space.jpg",
+          focus: "75% 49%",
+          scale: 2.1,
+        },
+      },
+      chips: [
+        {
+          icon: "telescope",
+          label: { ar: "الكواكب المكتشفة", en: "Exoplanets" },
+          value: { ar: "أكثر من ٢,٦٠٠ كوكب", en: "2,600+ confirmed planets" },
+        },
+        {
+          icon: "calendar",
+          label: { ar: "تاريخ الإطلاق", en: "Launched" },
+          value: { ar: "٦ مارس ٢٠٠٩", en: "March 6, 2009" },
+        },
+        {
+          icon: "clock",
+          label: { ar: "مدة المهمة", en: "Mission Life" },
+          value: { ar: "٩ سنوات و٧ أشهر", en: "9 yrs 7 mos" },
+        },
+        {
+          icon: "eye",
+          label: { ar: "النجوم الممسوحة", en: "Stars Surveyed" },
+          value: { ar: "أكثر من ٥٠٠,٠٠٠ نجم", en: "500,000+ stars" },
+        },
+      ],
+      images: [],
+      summary: {
+        ar: "تلسكوب كيبلر الفضائي هو أول مهمة لناسا للبحث عن الكواكب الخارجية، أثبت على مدار تسع سنوات في الفضاء العميق أن مجرتنا تحتوي على كواكب أكثر من النجوم.",
+        en: "NASA's pioneering planet-hunting space telescope that surveyed the Milky Way for nine years, proving our galaxy hosts more planets than stars.",
+      },
+      facts: [
+        {
+          id: "detection-method",
+          label: { ar: "طريقة الرصد", en: "Detection Method" },
+          value: {
+            ar: "قياس الضوء أثناء العبور (رصد انخفاض سطوع النجم)",
+            en: "Transit photometry (measuring dips in stellar brightness)",
+          },
+        },
+        {
+          id: "aperture-mirror",
+          label: { ar: "قطر المرآة", en: "Mirror Diameter" },
+          value: { ar: "١٫٤ متر (٤ أقدام و٧ بوصات)", en: "1.4 meters (4 ft 7 in)" },
+          numeric: { value: 1.4, unit: "m" },
+        },
+        {
+          id: "surveyed-stars",
+          label: { ar: "إجمالي النجوم الممسوحة", en: "Stars Surveyed" },
+          value: { ar: "أكثر من ٥٠٠,٠٠٠ نجم", en: "500,000+ stars" },
+          numeric: { value: 500000, unit: "stars" },
+        },
+      ],
+      timeline: [
+        {
+          date: "2009-03-06",
+          event: { ar: "إطلاق تلسكوب كيبلر الفضائي من كيب كانافيرال", en: "Launch of Kepler space telescope from Cape Canaveral" },
+        },
+        {
+          date: "2010-01-04",
+          event: { ar: "الإعلان عن اكتشاف أول 5 كواكب خارجية", en: "Announcement of first five exoplanet discoveries" },
+        },
+        {
+          date: "2013-05-11",
+          event: { ar: "فقدان عجلة التوجيه الثانية وإعادة تصميم المهمة باسم K2", en: "Reaction wheel loss leads to innovative K2 mission redesign" },
+        },
+        {
+          date: "2018-10-30",
+          event: { ar: "تقاعد التلسكوب بسلام بعد نفاد وقود التوجيه", en: "Spacecraft officially retired after running out of thruster fuel" },
+        },
+      ],
+      highlights: [
+        {
+          title: { ar: "إثبات وفرة الكواكب في المجرة", en: "Proving Exoplanet Abundance" },
+          description: {
+            ar: "أثبت كيبلر أن ما بين 20% و50% من النجوم تدور حولها كواكب صخرية بحجم الأرض داخل النطاق الصالح للحياة.",
+            en: "Demonstrated that 20% to 50% of visible stars likely host Earth-sized rocky planets in habitable zones.",
+          },
+        },
+      ],
+      people: [],
+      instruments: [
+        {
+          name: { ar: "تلسكوب بقطر 1 متر ومصفوفة حساسات CCD", en: "Photometer with 95-megapixel CCD array" },
+          purpose: { ar: "مراقبة سطوع مئات آلاف النجوم بدقة متناهية لكشف عبور الكواكب", en: "Ultra-precise stellar brightness monitoring to detect planet transits" },
+        },
+      ],
+      quizFacts: [
+        {
+          id: "kepler-exoplanets",
+          fact: { ar: "تلسكوب كيبلر اكتشف آلاف الكواكب خارج مجموعتنا الشمسية.", en: "Kepler discovered thousands of planets orbiting faraway stars." },
+        },
+      ],
+      sources: ["https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2009-011A"],
+      needsReview: false,
+    },
+
+    // 2. Dawn
+    {
+      id: "dawn",
+      world: "deepspace",
+      name: {
+        ar: "مركبة داون الفضائية",
+        en: "Dawn Spacecraft",
+      },
+      cosparId: "2007-043A",
+      alternateNames: ["Discovery 9", "Dawn"],
+      type: "orbiter",
+      status: "silent",
+      location: null,
+      coordinatesText: null,
+      card: null,
+      chips: [
+        {
+          icon: "orbit",
+          label: { ar: "الأهداف الفلكية", en: "Targets" },
+          value: { ar: "الكويكب فيستا والكوكب القزم سيريس", en: "Asteroid Vesta & Dwarf Planet Ceres" },
+        },
+        {
+          icon: "calendar",
+          label: { ar: "تاريخ الإطلاق", en: "Launched" },
+          value: { ar: "٢٧ سبتمبر ٢٠٠٧", en: "Sep 27, 2007" },
+        },
+        {
+          icon: "zap",
+          label: { ar: "نظام الدفع", en: "Propulsion" },
+          value: { ar: "دفع أيوني كهربائي متطور", en: "Advanced Ion Propulsion" },
+        },
+      ],
+      images: [],
+      summary: {
+        ar: "أول مركبة فضائية تدور حول جسمين مختلفين خارج الأرض في حزام الكويكبات الرئيسي: الكويكب العملاق فيستا والكوكب القزم الجليدي سيريس.",
+        en: "NASA's historic mission that became the first spacecraft to orbit two different extraterrestrial bodies: giant asteroid Vesta and icy dwarf planet Ceres.",
+      },
+      facts: [
+        {
+          id: "region",
+          label: { ar: "المنطقة الفضائية", en: "Region" },
+          value: { ar: "حزام الكويكبات الرئيسي بين المريخ والمشتري", en: "Main asteroid belt between Mars and Jupiter" },
+        },
+        {
+          id: "propulsion",
+          label: { ar: "نوع المحرك", en: "Propulsion" },
+          value: { ar: "محركات دفع أيونية بالزينون", en: "Xenon ion thrusters" },
+        },
+      ],
+      timeline: [
+        {
+          date: "2007-09-27",
+          event: { ar: "إطلاق مركبة داون نحو حزام الكويكبات", en: "Launch of Dawn towards asteroid belt" },
+        },
+        {
+          date: "2011-07-16",
+          event: { ar: "دخول المدار حول الكويكب العملاق فيستا", en: "Enters orbit around giant asteroid Vesta" },
+        },
+        {
+          date: "2015-03-06",
+          event: { ar: "دخول المدار حول الكوكب القزم سيريس", en: "Historic orbit insertion around dwarf planet Ceres" },
+        },
+        {
+          date: "2018-11-01",
+          event: { ar: "نفاد وقود الهيدرازين ونهاية المهمة في مدار مستقر حول سيريس", en: "Hydrazine depletion concludes mission in stable Ceres orbit" },
+        },
+      ],
+      highlights: [
+        {
+          title: { ar: "استكشاف البقع اللامعة على سيريس", en: "Bright Faculae Spots on Ceres" },
+          description: {
+            ar: "كشفت داون عن بقع ملحية لامعة وبقايا محيط مائي جوفي تحت قشرة الكوكب القزم سيريس.",
+            en: "Revealed dazzling sodium carbonate salt spots and past subsurface oceanic brine on Ceres.",
+          },
+        },
+      ],
+      people: [],
+      instruments: [
+        {
+          name: { ar: "كاميرا التأطير ومطياف أشعة غاما", en: "Framing Camera & GRaND" },
+          purpose: { ar: "رسم خرائط طبوغرافية وتحليل العناصر السطحية لسيريس وفيستا", en: "High-resolution topography and elemental mapping of asteroids" },
+        },
+      ],
+      quizFacts: [],
+      sources: ["https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-043A"],
+      needsReview: false,
+    },
+  ],
+  storyCards: [
+    {
+      cardKey: "eros",
+      world: "deepspace",
+      title: {
+        ar: "نير شوميكر على إيروس",
+        en: "NEAR Shoemaker on Eros",
+      },
+      tag: {
+        ar: "صخرة كبيرة سابحة في الفضاء",
+        en: "Floating Rock in Space",
+      },
+      kidText: {
+        ar: "أول مركبة تهبط على كويكب! هبطت على صخرة كبيرة سابحة في الفضاء اسمها «إيروس»، وفضلت مستقرة فوقها.",
+        en: "The first spacecraft ever to land on an asteroid! It touched down on the giant space rock Eros and stayed there.",
+      },
+      audio: {
+        ar: "/audio/ar/bonus-card-eros.mp3",
+        en: "/audio/en/bonus-card-eros.mp3",
+      },
+      hero: {
+        src: "images/deep-space.jpg",
+        focus: "35% 24%",
+        scale: 2.1,
+      },
+    },
+  ],
+};
+
+const finalMars = {
+  schemaVersion: 2,
+  worlds: [marsWorld, deepspaceWorld],
+};
+
+fs.writeFileSync(path.join(dataDir, "mars.json"), JSON.stringify(finalMars, null, 2), "utf8");
+console.log("Successfully wrote mars.json (schemaVersion: 2)");

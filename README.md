@@ -8,26 +8,37 @@
 
 ```text
 gravity-breakers/
-├── frontend/               # الواجهة الأمامية التفاعلية (HTML + CSS + JS)
+├── frontend/               # الواجهة الأمامية التفاعلية (HTML + CSS + JS Modules)
 │   ├── index.html          # التطبيق الرئيسي بنظام Hash Routing
-│   ├── style.css           # التصميم وتنسيقات الفضاء ودعم RTL / LTR
-│   ├── script.js           # منطق اللعبة والكرة الأرضية ثلاثية الأبعاد والصوتيات والاختبار
-│   ├── audio/              # ملفات التعليق الصوتي (عربي في audio/ وإنجليزي في audio/en/)
-│   ├── images/             # صور المشاهد الفضائية والمركبات
-│   ├── public/             # الأصول الثابتة المجهزة لـ Vite
-│   ├── package.json        # أدوات تشغيل وتطوير الواجهة (Vite)
-│   └── vite.config.ts      # إعدادات Vite
+│   ├── style.css           # التصميم وتنسيقات الفضاء ودعم RTL / LTR والبطاقات الغنية
+│   ├── script.js           # منطق اللعبة والكرة الأرضية ثلاثية الأبعاد والتنقل
+│   ├── src/                # وحدات منطق التطبيق
+│   │   ├── data/loader.js  # محمل بيانات JSON وإنشاء كائنات القصة
+│   │   ├── state.js        # حالة التطبيق والترجمة وحفظ التقدم
+│   │   ├── audio.js        # مشغل الصوت والسرد والترجمة البديلة
+│   │   ├── quiz.js         # الاختبار العشوائي ذو الـ 5 أسئلة وحساب النتيجة
+│   │   └── gallery.js      # معرض الصور عند توفرها
+│   ├── public/             # الأصول الثابتة والصور والصوتيات
+│   │   ├── images/         # صور المشاهد الفضائية الحقيقية
+│   │   └── audio/          # التسجيلات الصوتية (ar/ و en/)
+│   └── package.json        # أدوات تشغيل وتطوير الواجهة (Vite)
 │
-├── backend/                # الخادم وقواعد البيانات والخدمات السحابية
-│   ├── data/               # بيانات استكشاف الفضاء (moon.json, mars.json)
-│   ├── server.ts           # خادم Express لخدمة الواجهة وتتبع طلبات الشهادات
-│   ├── package.json        # اعتماديات الخادم (Express, TSX, dotenv)
-│   └── .env.example        # متغيرات البيئة الخاصة بالخادم والبريد
+├── backend/                # الخادم وخدمات البيانات
+│   ├── data/               # البيانات الموحدة للاستكشاف والواجهة والاختبار
+│   │   ├── ui.json         # نصوص الواجهة ثنائية اللغة
+│   │   ├── journey.json    # خريطة الرحلة ومحطة الأرض
+│   │   ├── moon.json       # مركبات القمر (أبولو 11 و12 و15)
+│   │   ├── mars.json       # مركبات المريخ والفضاء البعيد
+│   │   └── quiz.json       # اختبار أبطال الفضاء (5 أسئلة)
+│   ├── server.ts           # خادم Express لخدمة الشهادات
+│   └── package.json        # اعتماديات الخادم (Express, TSX, dotenv)
 │
-├── Ai/                     # أدوات الذكاء الاصطناعي والمخرجات الإبداعية
-│   ├── generated-assets/   # الصور الأصلية المولدة بالذكاء الاصطناعي
-│   └── metadata.json       # إعدادات ووصف المشروع في AI Studio
+├── scripts/                # سكربتات فحص البيانات وربط الصوتيات
+│   ├── validate-data.mjs   # فحص دقة المخطط وتطابق النصوص واللغات
+│   ├── attach-audio.mjs    # فحص ومطابقة ملفات الصوت مع البيانات
+│   └── migrate-data.mjs    # سكربت ترحيل البيانات إلى المخطط الموحد v2
 │
+├── DATA_REVIEW.md          # توثيق التدقيق العلمي وترجمة النصوص
 └── README.md               # الدليل العام للمشروع
 ```
 
@@ -54,7 +65,7 @@ gravity-breakers/
 
 ## 🎙️ تسمية ملفات الصوت (Expected Audio Filenames)
 
-يتم وضع التسجيلات العربية في `frontend/audio/` والتسجيلات الإنجليزية المقابلة في `frontend/audio/en/`:
+يتم وضع التسجيلات العربية في `frontend/public/audio/ar/` والتسجيلات الإنجليزية المقابلة في `frontend/public/audio/en/`:
 
 - **خريطة الرحلة والتمهيد:** `map-1.mp3`, `map-2.mp3`, `map-3.mp3`, `map-4.mp3`
 - **التنبيهات المقفلة:** `locked-quiz.mp3`, `locked-bonus.mp3`
@@ -69,18 +80,28 @@ gravity-breakers/
 
 ## 💻 طريقة التشغيل (How to Run)
 
-### 1. تشغيل الواجهة الأمامية (Frontend):
+### 1. تثبيت الاعتماديات:
 ```bash
-cd frontend
-npm install
-npm run dev
+npm run install:all
 ```
-أو يمكن فتح `index.html` مباشرة عبر أي خادم ويب ثابت (مثل `npx serve` أو Live Server).
 
-### 2. تشغيل الخادم الخلفي (Backend):
+### 2. فحص سلامة البيانات:
 ```bash
-cd backend
-npm install
+npm run data:check
+```
+
+### 3. تشغيل الواجهة الأمامية (Frontend):
+```bash
 npm run dev
 ```
-يعمل الخادم على المنفذ `http://localhost:3000`.
+
+### 4. تشغيل الخادم الخلفي (Backend):
+```bash
+npm run dev:backend
+```
+
+### 5. بناء المشروع للإنتاج (Production Build):
+```bash
+npm run build
+npm run preview
+```

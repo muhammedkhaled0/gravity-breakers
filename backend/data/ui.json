@@ -1,0 +1,286 @@
+{
+  "pageTitle": {
+    "ar": "أطول رحلة في الدنيا",
+    "en": "The Longest Journey in the World"
+  },
+  "langToggleLabel": {
+    "ar": "English",
+    "en": "عربي"
+  },
+  "introTitle": {
+    "ar": "أطول رحلة في الدنيا",
+    "en": "The Longest Journey in the World"
+  },
+  "introSubtitle": {
+    "ar": "رحلة حقيقية من الأرض للقمر للمريخ، ورائد فضاء هيحكيلك الحكاية",
+    "en": "A true journey from Earth to the Moon and Mars, narrated by your astronaut guide"
+  },
+  "introCta": {
+    "ar": "دوس على الأرض عشان نبدأ!",
+    "en": "Tap Earth to Start!"
+  },
+  "scrollMapHint": {
+    "ar": "انزل لتحت عشان تشوف الخريطة",
+    "en": "Scroll down to see the map"
+  },
+  "mapTitle": {
+    "ar": "خريطة الرحلة",
+    "en": "Journey Map"
+  },
+  "mapSubtitle": {
+    "ar": "اختار محطتك، ورائد الفضاء هيحكيلك الحكاية",
+    "en": "Pick your stop, and the astronaut will tell you the true story"
+  },
+  "mapFly": {
+    "ar": "يلا نطير!",
+    "en": "Let's Fly!"
+  },
+  "stopEarthName": {
+    "ar": "الأرض",
+    "en": "Earth"
+  },
+  "stopEarthMeta": {
+    "ar": "البداية",
+    "en": "Start"
+  },
+  "stopMoonName": {
+    "ar": "القمر",
+    "en": "The Moon"
+  },
+  "stopMoonMeta": {
+    "ar": "٣ مركبات",
+    "en": "3 Spacecraft"
+  },
+  "stopMarsName": {
+    "ar": "المريخ",
+    "en": "Mars"
+  },
+  "stopMarsMeta": {
+    "ar": "مركبتين",
+    "en": "2 Landers & Rover"
+  },
+  "stopQuizName": {
+    "ar": "اختبار",
+    "en": "Quiz"
+  },
+  "stopQuizMetaLocked": {
+    "ar": "بعد المريخ",
+    "en": "After Mars"
+  },
+  "stopQuizMetaOpen": {
+    "ar": "جاهز دلوقتي!",
+    "en": "Ready Now!"
+  },
+  "stopBonusName": {
+    "ar": "الفضاء البعيد",
+    "en": "Deep Space"
+  },
+  "stopBonusMetaLocked": {
+    "ar": "مفاجأة!",
+    "en": "Surprise!"
+  },
+  "stopBonusMetaOpen": {
+    "ar": "مفتوح!",
+    "en": "Unlocked!"
+  },
+  "quizSvgWord": {
+    "ar": "اختبار",
+    "en": "Quiz"
+  },
+  "quizSvgQ": {
+    "ar": "؟",
+    "en": "?"
+  },
+  "btnMap": {
+    "ar": "الخريطة",
+    "en": "Map"
+  },
+  "soundOnHome": {
+    "ar": "الصوت شغال",
+    "en": "Sound On"
+  },
+  "soundOffHome": {
+    "ar": "الصوت مقفول",
+    "en": "Muted"
+  },
+  "soundOnShort": {
+    "ar": "الصوت",
+    "en": "Sound"
+  },
+  "soundOffShort": {
+    "ar": "مقفول",
+    "en": "Muted"
+  },
+  "earthTitle": {
+    "ar": "الأرض",
+    "en": "Earth"
+  },
+  "earthSubtitle": {
+    "ar": "شوف بيتنا من الفضاء، قبل ما نطير",
+    "en": "See our home from space before we launch"
+  },
+  "earthNext": {
+    "ar": "يلا للقمر!",
+    "en": "Off to the Moon!"
+  },
+  "moonTitle": {
+    "ar": "القمر",
+    "en": "The Moon"
+  },
+  "moonSubtitle": {
+    "ar": "أول محطة · ٣ مركبات",
+    "en": "First Stop · 3 Spacecraft"
+  },
+  "moonNext": {
+    "ar": "يلا للمريخ!",
+    "en": "Off to Mars!"
+  },
+  "marsTitle": {
+    "ar": "المريخ",
+    "en": "Mars"
+  },
+  "marsSubtitle": {
+    "ar": "الجار الأحمر · مركبتين وروبوت",
+    "en": "The Red Neighbor · 2 Landers & a Rover"
+  },
+  "marsNext": {
+    "ar": "يلا للاختبار!",
+    "en": "Take the Quiz!"
+  },
+  "bonusTitle": {
+    "ar": "الفضاء البعيد",
+    "en": "Deep Space"
+  },
+  "bonusSubtitle": {
+    "ar": "آخر محطة · صخرة سابحة ونجوم بعيدة",
+    "en": "Final Stop · Floating Asteroid & Distant Stars"
+  },
+  "bonusBackMap": {
+    "ar": "ارجع للخريطة",
+    "en": "Back to Map"
+  },
+  "factListen": {
+    "ar": "اسمعها من الرائد",
+    "en": "Hear from the Astronaut"
+  },
+  "factListening": {
+    "ar": "الرائد بيحكي...",
+    "en": "Astronaut Speaking..."
+  },
+  "quizHeaderTitle": {
+    "ar": "اختبار أبطال الفضاء",
+    "en": "Space Explorer Quiz"
+  },
+  "quizHeaderSubtitle": {
+    "ar": "جاوب عشان تستلم شهادتك وتفتح الفضاء البعيد!",
+    "en": "Answer to earn your certificate and unlock Deep Space!"
+  },
+  "quizIntroPrompt": {
+    "ar": "جاهز يا بطل؟ اختار الإجابة الصح!",
+    "en": "Ready, hero? Pick the right answer!"
+  },
+  "quizCorrectMsg": {
+    "ar": "برافو عليك يا بطل! إجابة صح مية في المية!",
+    "en": "Awesome job! That answer is 100% right!"
+  },
+  "quizNextPrompt": {
+    "ar": "شاطر! يلا نشوف السؤال اللي بعده.",
+    "en": "Great work! Let's try the next question."
+  },
+  "quizWrongMsg": {
+    "ar": "قرّبت! فكّر شوية وجرب اختيار تاني.",
+    "en": "Almost! Think for a second and try another choice."
+  },
+  "quizVictoryPrompt": {
+    "ar": "أحسنت يا بطل الفضاء! اكتب اسمك وإيميلك عشان تستلم شهادتك!",
+    "en": "Amazing! Enter your name and email to get your Space Explorer Certificate!"
+  },
+  "victoryTitle": {
+    "ar": "مبروك يا بطل الفضاء!",
+    "en": "Congratulations, Space Hero!"
+  },
+  "victoryDesc": {
+    "ar": "اكتب اسمك وبريدك الإلكتروني عشان نصمم شهادتك ونبعتهالك على الإيميل!",
+    "en": "Enter your name and email below so we can send your certificate to your email!"
+  },
+  "certNameLabel": {
+    "ar": "اسمك الجميل",
+    "en": "Your Name"
+  },
+  "certNamePlaceholder": {
+    "ar": "مثال: علي محمد",
+    "en": "e.g. Maya Ahmed"
+  },
+  "certEmailLabel": {
+    "ar": "البريد الإلكتروني",
+    "en": "Email Address"
+  },
+  "certEmailPlaceholder": {
+    "ar": "name@example.com",
+    "en": "name@example.com"
+  },
+  "certSubmitBtn": {
+    "ar": "ابعتلي الشهادة على الإيميل!",
+    "en": "Send My Certificate!"
+  },
+  "certSending": {
+    "ar": "بنبعت بياناتك...",
+    "en": "Sending your request..."
+  },
+  "certSentOk": {
+    "ar": "تم الإرسال! راجع بريدك الإلكتروني عشان تستلم الشهادة!",
+    "en": "All set! Check your email for your certificate!"
+  },
+  "certReadyLocal": {
+    "ar": "تم استلام اسمك وإيميلك بنجاح! راجع بريدك الإلكتروني عشان تستلم الشهادة.",
+    "en": "Thanks, hero! Check your email for your certificate!"
+  },
+  "openBonusBtn": {
+    "ar": "افتح الفضاء البعيد!",
+    "en": "Unlock Deep Space!"
+  },
+  "moreDetails": {
+    "ar": "تفاصيل أكتر",
+    "en": "More details"
+  },
+  "hideDetails": {
+    "ar": "إخفاء التفاصيل",
+    "en": "Hide details"
+  },
+  "statusSilent": {
+    "ar": "صامت",
+    "en": "Silent"
+  },
+  "statusActive": {
+    "ar": "نشط",
+    "en": "Active"
+  },
+  "statusRetired": {
+    "ar": "متقاعد",
+    "en": "Retired"
+  },
+  "quizScore": {
+    "ar": "نتيجتك في الاختبار: {score} من {total}",
+    "en": "Quiz score: {score} of {total}"
+  },
+  "quizPassedMsg": {
+    "ar": "ممتاز! عديت الاختبار بنجاح!",
+    "en": "Awesome! You passed the quiz!"
+  },
+  "quizRetryMsg": {
+    "ar": "تقدر تراجع الكروت وتجرب تاني!",
+    "en": "Review the cards and try again!"
+  },
+  "quizReviewBtn": {
+    "ar": "راجع معلومات الكروت",
+    "en": "Review fact cards"
+  },
+  "quizTryAgainBtn": {
+    "ar": "جرب الاختبار تاني",
+    "en": "Try quiz again"
+  },
+  "startOver": {
+    "ar": "ابدأ من الأول",
+    "en": "Start over"
+  }
+}

@@ -1,252 +1,1070 @@
 {
-  "nasa_space_missions": {
-    "total_missions": 4,
-    "source": "NASA Science Official Pages",
-    "missions": [
-      {
-        "id": "viking-1",
-        "name": {
-          "ar": "فايكنغ 1",
-          "en": "Viking 1"
-        },
-        "target": {
-          "ar": "المريخ",
-          "en": "Mars"
-        },
-        "overview": {
-          "ar": "على مدار التاريخ، كان المريخ مرئياً ولكن لم يكن من الممكن الوصول إليه — حتى 20 يوليو 1976، عندما هبطت مركبة فايكنغ 1 التابعة لناسا بنجاح وبدأت في إرسال الصور الأولى من سطح الكوكب الأحمر. حققت فايكنغ 1 أول هبوط ناجح حقاً على المريخ وجمعت أدلة حول إمكانية وجود حياة.",
-          "en": "Throughout history, Mars had been in sight, but never within reach — until July 20, 1976, when NASA’s Viking 1 lander touched down safely and began transmitting the first images from the surface of the Red Planet. Viking 1 made the first truly successful landing on Mars and collected evidence on the possibility of life."
-        },
-        "spacecraft_components": {
-          "orbiter_mass": "5,157 pounds (2,339 kilograms)",
-          "lander_mass": "2,156 pounds (978 kilograms)",
-          "design_notes": {
-            "ar": "تصميم المداري استوحى الكثير من حافلات مركبات مارينر؛ بينما شابه مركبة الهبوط نسخة أكبر من مركبة سيرفاير القمري للهبوط.",
-            "en": "Orbiter design borrowed heavily from Mariner spacecraft buses; lander resembled a larger version of the Surveyor lunar lander."
-          }
-        },
-        "key_dates": [
-          {
-            "date": "1975-08-20",
-            "event": {
-              "ar": "الإطلاق",
-              "en": "Launch"
-            }
-          },
-          {
-            "date": "1976-06-19",
-            "event": {
-              "ar": "دخلو المركبة في مدار حول المريخ (المدار الأولي 1,500 × 50,300 كم؛ المدار التشغيلي 1,500 × 32,800 كم)",
-              "en": "Spacecraft entered orbit around Mars (initial orbit 1,500 x 50,300 km; operational orbit 1,500 x 32,800 km)"
-            }
-          },
-          {
-            "date": "1976-07-20",
-            "event": {
-              "ar": "انفصال مركبة الهبوط الساعة 08:32 بالتوقيت العالمي وهبوطها بسلام على المنحدرات الغربية لسهل خريسي بلانيتيا (22.483° شمالاً، 47.94° غرباً) الساعة 11:53:06 بالتوقيت العالمي، على بعد حوالي 17 ميلاً (28 كم) من الهدف",
-              "en": "Lander separated at 08:32 UT and touched down safely on the western slopes of Chryse Planitia (22.483° N, 47.94° W) at 11:53:06 UT, about 17 miles (28 km) from target"
-            }
-          },
-          {
-            "date": "1976-07-28",
-            "event": {
-              "ar": "قامت الذراع الآلية لمركبة الهبوط بأخذ عينات أولية من التربة ووضعها في المختبر البيولوجي (مقياس الطيف الكتلي كروماتوغرافيا الغاز)",
-              "en": "Lander robot arm scooped up first soil samples into the biological laboratory (gas chromatograph mass spectrometer)"
-            }
-          },
-          {
-            "date": "1980-08-07",
-            "event": {
-              "ar": "إيقاف تشغيل المركبة المدارية في مدارها الـ 1,489 بعد نفاد وقود التحكم في توجيهها",
-              "en": "Orbiter shut down on its 1,489th orbit after running out of attitude-control propellant"
-            }
-          },
-          {
-            "date": "1982-01",
-            "event": {
-              "ar": "إعادة تسمية مركبة الهبوط لتصبح 'محطة توماس موتش التذكارية'",
-              "en": "Lander renamed Thomas Mutch Memorial Station"
-            }
-          },
-          {
-            "date": "1982-11-11",
-            "event": {
-              "ar": "توقف مركبة الهبوط عن العمل بعد تلقيها أُمراً خاطئاً من الأرض",
-              "en": "Lander stopped operating after receiving a faulty command from Earth"
-            }
-          }
-        ],
-        "mission_phases": [
-          "Primary Mission (ended November 1976)",
-          "Extended Mission (November 1976 – May 1978)",
-          "Continuation Mission (May 1978 – July 1979)",
-          "Orbiter Survey Mission (July 1979 – July 1980)",
-          "Viking Monitor Mission (daily/weekly weather reports)"
-        ],
-        "scientific_findings_and_stats": {
-          "combined_viking_images": "52,663 orbiter images mapping ~97% of Mars surface at 300m resolution; 4,500 surface photos from both landers",
-          "panorama": "Captured high-resolution 3-color images and a 300-degree panorama of Chryse Planitia",
-          "surface_temperatures": "-123°F (-86°C) before dawn to -27°F (-33°C) in the afternoon",
-          "soil_analysis": "Abundance of sulfur unlike Earth or Moon materials; gas chromatograph test for organic compounds (>10–100 ppb) gave negative results despite weak positive biological readings",
-          "instrument_note": "Lander seismometer was inoperable"
-        },
-        "reference": "Siddiqi, Asif A. Beyond Earth: A Chronicle of Deep Space Exploration, 1958-2016. NASA History Program Office, 2018."
+  "schemaVersion": 2,
+  "worlds": [
+    {
+      "id": "mars",
+      "name": {
+        "ar": "المريخ",
+        "en": "Mars"
       },
-      {
-        "id": "mars-exploration-rovers",
-        "name": {
-          "ar": "مركبات استكشاف المريخ: سبيريت وأبورتيونيتي",
-          "en": "Mars Exploration Rovers: Spirit and Opportunity"
-        },
-        "target": {
-          "ar": "المريخ",
-          "en": "Mars"
-        },
-        "overview": {
-          "ar": "كانت مركبتا سبيريت وأبورتيونيتي التابعتان لناسا روبوتين توأمين متطابقين ساعدا في إعادة صياغة فهمنا للتاريخ المبكر للمريخ، حيث أكدتا من خلال سجل الصخور أن المياه السائلة كانت موجودة لفترات طويلة على السطح في العصور القديمة.",
-          "en": "NASA’s Spirit and Opportunity rovers were identical twin robots that helped rewrite our understanding of the early history of Mars, confirming through the rock record that liquid water was long-standing on the surface in ancient times."
-        },
-        "rovers": [
-          {
-            "name": {
-              "ar": "سبيريت",
-              "en": "Spirit"
-            },
-            "landing_site": {
-              "ar": "فوهة غوسيف (بحيرة محتملة سابقة داخل فوهة اصطدام عملاقة)",
-              "en": "Gusev Crater (a possible former lake in a giant impact crater)"
-            },
-            "distance_traveled": "4.8 miles (7.7 kilometers)"
-          },
-          {
-            "name": {
-              "ar": "أبورتيونيتي",
-              "en": "Opportunity"
-            },
-            "landing_site": {
-              "ar": "مريدياني بلانوم (منطقة توحي رواسبها المعدنية بتاريخ رطب للمريخ)",
-              "en": "Meridiani Planum (an area with mineral deposits suggesting a wet history)"
-            },
-            "distance_traveled": "28.06 miles (45.16 kilometers)",
-            "status_note": {
-              "ar": "توقفت عن الاتصال في يونيو 2018؛ واحتفظت برقم قياسي لمسافة التجوال خارج الأرض حتى 11 أكتوبر 2026 عندما تجاوزتها مركبة بيرسيفيرانس بقطعها 28.10 ميلاً (45.22 كم).",
-              "en": "Fell silent in June 2018; held the off-Earth roving distance record until October 11, 2026, when NASA's Perseverance rover surpassed it at 28.10 miles (45.22 km)."
-            }
-          }
-        ],
-        "scientific_contributions": [
-          "Contributed uniquely to the four overarching goals of the Mars Exploration Program",
-          "Confirmed ancient long-standing surface water on Mars via geological and mineralogical analysis"
-        ]
+      "overview": {
+        "ar": "الكوكب الأحمر، الجار الذي ألهم البشر لقرون وأرسلت إليه وكالة ناسا مركبات هبوط وروبوتات متجولة غيرت فهمنا لوجود المياه وإمكانية الحياة.",
+        "en": "The Red Planet, humanity's dusty neighbor that inspired generations and hosted historic NASA landers and rovers proving ancient water once flowed."
       },
-      {
-        "id": "dawn",
-        "name": {
-          "ar": "مركبة داون",
-          "en": "Dawn"
-        },
-        "targets": [
-          {
-            "ar": "الكويكب العملاق فيستا",
-            "en": "Giant asteroid Vesta"
+      "coverImage": "",
+      "narration": [
+        {
+          "text": {
+            "ar": "أهلًا بيكم على المريخ... جارنا الأحمر!",
+            "en": "Welcome to Mars — our dusty red neighbor!"
           },
-          {
-            "ar": "الكوكب القزم سيريس",
-            "en": "Dwarf planet Ceres"
+          "audio": {
+            "ar": null,
+            "en": null
           }
-        ],
-        "region": {
-          "ar": "حزام الكويكبات الرئيسي بين المريخ والمشتري",
-          "en": "Main asteroid belt between Mars and Jupiter"
         },
-        "overview": {
-          "ar": "كانت داون أول مركبة فضائية بين كواكب حقاً تابعة لناسا، وتميزت بإقامات مدارية ممتدة في جسمين فلكيين مختلفين تماماً في حزام الكويكبات الرئيسي: الكويكب العملاق فيستا والكوكب القزم سيريس.",
-          "en": "Dawn was NASA’s first truly interplanetary spaceship, featuring extended orbital stays at two very different extraterrestrial bodies in the main asteroid belt: giant asteroid Vesta and dwarf planet Ceres."
+        {
+          "text": {
+            "ar": "التراب هنا لونه أحمر، والناس بعتوا مركبات وروبوتات وصلت لحد هنا وبعتت صور للأرض.",
+            "en": "The soil here is rusty red, and humans sent real landers and clever rovers all the way here."
+          },
+          "audio": {
+            "ar": null,
+            "en": null
+          }
         },
-        "key_research_highlights": [
-          "Fluid flow in Ceres due to core heating",
-          "Evidence that Ceres may have had long-standing energy to fuel habitability",
-          "Hidden secrets about the interiors of Vesta and comparisons with the Moon",
-          "Observations of crescent Ceres and gullies on giant asteroid Vesta"
-        ]
+        {
+          "text": {
+            "ar": "دوسوا على النقط الصفراء عشان تشوفوا فايكنج ١، باثفايندر، والروبوت الصغنن سوجورنر!",
+            "en": "Tap the yellow dots to meet Viking 1, Pathfinder, and tiny Sojourner!"
+          },
+          "audio": {
+            "ar": null,
+            "en": null
+          }
+        }
+      ],
+      "machines": [
+        {
+          "id": "viking-1",
+          "world": "mars",
+          "name": {
+            "ar": "فايكنغ 1",
+            "en": "Viking 1"
+          },
+          "cosparId": "1975-075C",
+          "alternateNames": [
+            "Viking Lander 1",
+            "Thomas Mutch Memorial Station"
+          ],
+          "type": "lander",
+          "status": "silent",
+          "location": {
+            "lat": 22.483,
+            "lon": -47.94
+          },
+          "coordinatesText": "22.483° N, 47.94° W",
+          "card": {
+            "cardKey": "viking",
+            "title": {
+              "ar": "فايكنج ١",
+              "en": "Viking 1"
+            },
+            "tag": {
+              "ar": "أول هبوط ناجح على المريخ · ١٩٧٦",
+              "en": "First Successful Mars Landing · 1976"
+            },
+            "kidText": {
+              "ar": "أول مركبة تنجح في الهبوط على المريخ! فضلت شغالة أكتر من ٦ سنين، لحد ما أمر غلط اتبعت من الأرض قطع الاتصال بيها.",
+              "en": "The first craft to land and work successfully on Mars! It operated for over 6 years until a wrong command from Earth cut contact."
+            },
+            "audio": {
+              "ar": "/audio/ar/mars-card-viking.mp3",
+              "en": null
+            },
+            "hero": {
+              "src": "images/mars-surface.jpg",
+              "focus": "27.5% 50%",
+              "scale": 2.2
+            }
+          },
+          "chips": [
+            {
+              "icon": "calendar",
+              "label": {
+                "ar": "تاريخ الهبوط",
+                "en": "Landed"
+              },
+              "value": {
+                "ar": "٢٠ يوليو ١٩٧٦",
+                "en": "July 20, 1976"
+              }
+            },
+            {
+              "icon": "clock",
+              "label": {
+                "ar": "مدة العمل",
+                "en": "Active Duration"
+              },
+              "value": {
+                "ar": "أكثر من ٦ سنوات (حتى ١٩٨٢)",
+                "en": "Over 6 years (to 1982)"
+              }
+            },
+            {
+              "icon": "weight",
+              "label": {
+                "ar": "كتلة مركبة الهبوط",
+                "en": "Lander Mass"
+              },
+              "value": {
+                "ar": "٩٧٨ كجم (٢,١٥٦ رطل)",
+                "en": "978 kg (2,156 lbs)"
+              }
+            },
+            {
+              "icon": "thermometer",
+              "label": {
+                "ar": "حرارة السطح",
+                "en": "Surface Temp"
+              },
+              "value": {
+                "ar": "من -٨٦ إلى -٣٣ درجة مئوية",
+                "en": "-86°C to -33°C"
+              }
+            }
+          ],
+          "images": [],
+          "summary": {
+            "ar": "على مدار التاريخ، كان المريخ مرئياً ولكن لم يكن من الممكن الوصول إليه — حتى 20 يوليو 1976، عندما هبطت مركبة فايكنغ 1 التابعة لناسا بنجاح وبدأت في إرسال الصور الأولى من سطح الكوكب الأحمر، محققة أول هبوط ناجح حقاً على المريخ.",
+            "en": "Throughout history, Mars had been in sight, but never within reach — until July 20, 1976, when NASA's Viking 1 lander touched down safely and began transmitting the first images from the surface of the Red Planet."
+          },
+          "facts": [
+            {
+              "id": "lander-mass",
+              "label": {
+                "ar": "كتلة مركبة الهبوط",
+                "en": "Lander Mass"
+              },
+              "value": {
+                "ar": "٩٧٨ كجم",
+                "en": "978 kg"
+              },
+              "numeric": {
+                "value": 978,
+                "unit": "kg"
+              }
+            },
+            {
+              "id": "orbiter-mass",
+              "label": {
+                "ar": "كتلة المركبة المدارية",
+                "en": "Orbiter Mass"
+              },
+              "value": {
+                "ar": "٢,٣٣٩ كجم",
+                "en": "2,339 kg"
+              },
+              "numeric": {
+                "value": 2339,
+                "unit": "kg"
+              }
+            },
+            {
+              "id": "landing-site",
+              "label": {
+                "ar": "موقع الهبوط",
+                "en": "Landing Site"
+              },
+              "value": {
+                "ar": "سهل خريسي بلانيتيا",
+                "en": "Chryse Planitia"
+              }
+            },
+            {
+              "id": "photos-sent",
+              "label": {
+                "ar": "الصور المرسلة",
+                "en": "Photos Transmitted"
+              },
+              "value": {
+                "ar": "٤,٥٠٠ صورة سطحية وأكثر من ٥٢,٠٠٠ صورة مدارية",
+                "en": "4,500 surface photos and 52,663 orbital images"
+              }
+            }
+          ],
+          "timeline": [
+            {
+              "date": "1975-08-20",
+              "event": {
+                "ar": "إطلاق مركبة فايكنغ 1 نحو المريخ",
+                "en": "Launch of Viking 1 towards Mars"
+              }
+            },
+            {
+              "date": "1976-06-19",
+              "event": {
+                "ar": "دخول المركبة المدارية في مدار حول المريخ",
+                "en": "Spacecraft enters orbit around Mars"
+              }
+            },
+            {
+              "date": "1976-07-20",
+              "event": {
+                "ar": "هبوط مركبة فايكنغ 1 بسلام على سهل خريسي بلانيتيا",
+                "en": "Safe landing of Viking 1 on Chryse Planitia slopes"
+              }
+            },
+            {
+              "date": "1976-07-28",
+              "event": {
+                "ar": "الذراع الآلية تجمع أول عينات تربة للمختبر الحيوي",
+                "en": "Robot arm scoops first soil samples into biology lab"
+              }
+            },
+            {
+              "date": "1982-11-11",
+              "event": {
+                "ar": "توقف مركبة الهبوط بعد تلقيها أمراً خاطئاً من الأرض",
+                "en": "Lander ceases operations after receiving a faulty command from Earth"
+              }
+            }
+          ],
+          "highlights": [
+            {
+              "title": {
+                "ar": "أول هبوط ناجح وصور ملونة من المريخ",
+                "en": "First Successful Mars Landing & Surface Photos"
+              },
+              "description": {
+                "ar": "التقطت فايكنغ 1 أول صور ملونة عالية الدقة وبانوراما 300 درجة لسهل خريسي بلانيتيا الأحمر.",
+                "en": "Viking 1 returned the first high-resolution color photographs and a 300-degree panorama of Chryse Planitia."
+              }
+            },
+            {
+              "title": {
+                "ar": "أول تجارب حيوية وكيميائية للتربة",
+                "en": "First Biological and Chemical Soil Analysis"
+              },
+              "description": {
+                "ar": "حللت الذراع الآلية عينات من تربة المريخ ووجدت وفرة غير معتادة في الكبريت وقاست درجات حرارة السطح والرياح.",
+                "en": "Analyzed Martian soil revealing rich sulfur content and monitored weather conditions for over six years."
+              }
+            }
+          ],
+          "people": [],
+          "instruments": [
+            {
+              "name": {
+                "ar": "الذراع الآلية ومطياف الكتلة",
+                "en": "Surface Sampler Arm & GCMS"
+              },
+              "purpose": {
+                "ar": "جمع عينات التربة وتحليل المركبات الكيميائية والعضوية",
+                "en": "Sampled Martian soil for organic molecules and chemical composition"
+              }
+            }
+          ],
+          "quizFacts": [
+            {
+              "id": "viking-landing-1976",
+              "fact": {
+                "ar": "فايكنج ١ كانت أول مركبة تنجح في الهبوط والعمل على المريخ سنة ١٩٧٦.",
+                "en": "Viking 1 was the first craft to successfully land and operate on Mars in 1976."
+              }
+            }
+          ],
+          "sources": [
+            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-075C"
+          ],
+          "needsReview": false
+        },
+        {
+          "id": "spirit",
+          "world": "mars",
+          "name": {
+            "ar": "مركبة استكشاف المريخ: سبيريت (MER-A)",
+            "en": "Mars Exploration Rover: Spirit (MER-A)"
+          },
+          "cosparId": "2003-027A",
+          "alternateNames": [
+            "MER-A",
+            "Spirit Rover"
+          ],
+          "type": "rover",
+          "status": "silent",
+          "location": {
+            "lat": -14.5684,
+            "lon": 175.4726
+          },
+          "coordinatesText": "14.5684° S, 175.4726° E",
+          "card": null,
+          "chips": [
+            {
+              "icon": "car",
+              "label": {
+                "ar": "مسافة التجوال",
+                "en": "Distance"
+              },
+              "value": {
+                "ar": "٧٫٧ كم (٤٫٨ ميل)",
+                "en": "7.7 km (4.8 mi)"
+              }
+            },
+            {
+              "icon": "calendar",
+              "label": {
+                "ar": "تاريخ الهبوط",
+                "en": "Landed"
+              },
+              "value": {
+                "ar": "٤ يناير ٢٠٠٤",
+                "en": "Jan 4, 2004"
+              }
+            },
+            {
+              "icon": "map-pin",
+              "label": {
+                "ar": "موقع الهبوط",
+                "en": "Landing Site"
+              },
+              "value": {
+                "ar": "فوهة غوسيف",
+                "en": "Gusev Crater"
+              }
+            }
+          ],
+          "images": [],
+          "summary": {
+            "ar": "مركبة استكشاف روبوتية هبطت في فوهة غوسيف بالمريخ في يناير 2004، واستمرت في العمل لأكثر من 6 سنوات متجاوزة مهمتها المقررة بثلاثين ضعفاً، ووجدت أدلة قوية على ينابيع حارة قديمة.",
+            "en": "A robotic geologist rover that touched down in Gusev Crater on Mars in January 2004, operating for over 6 years (30 times its planned mission) and uncovering evidence of past hydrothermal activity."
+          },
+          "facts": [
+            {
+              "id": "landing-site",
+              "label": {
+                "ar": "موقع الهبوط",
+                "en": "Landing Site"
+              },
+              "value": {
+                "ar": "فوهة غوسيف (بحيرة قديمة محتملة)",
+                "en": "Gusev Crater (a possible former lake)"
+              }
+            },
+            {
+              "id": "distance-traveled",
+              "label": {
+                "ar": "المسافة المقطوعة",
+                "en": "Distance Traveled"
+              },
+              "value": {
+                "ar": "٧٫٧ كم",
+                "en": "7.7 km"
+              },
+              "numeric": {
+                "value": 7.7,
+                "unit": "km"
+              }
+            }
+          ],
+          "timeline": [
+            {
+              "date": "2003-06-10",
+              "event": {
+                "ar": "إطلاق سبيريت من كيب كانافيرال",
+                "en": "Launch of Spirit from Cape Canaveral"
+              }
+            },
+            {
+              "date": "2004-01-04",
+              "event": {
+                "ar": "الهبوط في فوهة غوسيف بالمريخ",
+                "en": "Landing in Gusev Crater on Mars"
+              }
+            },
+            {
+              "date": "2010-03-22",
+              "event": {
+                "ar": "آخر اتصال بمركبة سبيريت بعد أن علقت في رمال ناعمة",
+                "en": "Final communication from Spirit after getting stuck in soft soil"
+              }
+            }
+          ],
+          "highlights": [
+            {
+              "title": {
+                "ar": "اكتشاف السيليكا النقية والينابيع الحارة",
+                "en": "Discovery of Pure Silica & Hydrothermal Springs"
+              },
+              "description": {
+                "ar": "كشفت عجلات سبيريت أثناء حفرها بالرمال عن وجود سيليكا نقية بنسبة 90%، وهي دليل قاطع على بيئة ينابيع مياه حارة سابقة.",
+                "en": "While dragging a stuck wheel, Spirit churned up 90% pure silica deposits, proving ancient hot spring activity on Mars."
+              }
+            }
+          ],
+          "people": [],
+          "instruments": [
+            {
+              "name": {
+                "ar": "كاميرا البانوراما ومطياف موسباور",
+                "en": "Pancam & Mössbauer Spectrometer"
+              },
+              "purpose": {
+                "ar": "تصوير السطح وتحليل التركيب المعدني للحديد في صخور المريخ",
+                "en": "High-resolution imaging and mineralogical analysis of iron-bearing rocks"
+              }
+            }
+          ],
+          "quizFacts": [],
+          "sources": [
+            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-027A"
+          ],
+          "needsReview": false
+        },
+        {
+          "id": "opportunity",
+          "world": "mars",
+          "name": {
+            "ar": "مركبة استكشاف المريخ: أبورتيونيتي (MER-B)",
+            "en": "Mars Exploration Rover: Opportunity (MER-B)"
+          },
+          "cosparId": "2003-032A",
+          "alternateNames": [
+            "MER-B",
+            "Opportunity Rover",
+            "Oppy"
+          ],
+          "type": "rover",
+          "status": "silent",
+          "location": {
+            "lat": -1.9462,
+            "lon": 354.4734
+          },
+          "coordinatesText": "1.9462° S, 354.4734° E",
+          "card": null,
+          "chips": [
+            {
+              "icon": "car",
+              "label": {
+                "ar": "مسافة التجوال القياسية",
+                "en": "Distance Record"
+              },
+              "value": {
+                "ar": "٤٥٫١٦ كم (٢٨٫٠٦ ميل)",
+                "en": "45.16 km (28.06 mi)"
+              }
+            },
+            {
+              "icon": "calendar",
+              "label": {
+                "ar": "تاريخ الهبوط",
+                "en": "Landed"
+              },
+              "value": {
+                "ar": "٢٥ يناير ٢٠٠٤",
+                "en": "Jan 25, 2004"
+              }
+            },
+            {
+              "icon": "clock",
+              "label": {
+                "ar": "مدة العمل",
+                "en": "Active Duration"
+              },
+              "value": {
+                "ar": "نحو ١٥ سنة (حتى ٢٠١٨)",
+                "en": "Nearly 15 years (to 2018)"
+              }
+            },
+            {
+              "icon": "map-pin",
+              "label": {
+                "ar": "موقع الهبوط",
+                "en": "Landing Site"
+              },
+              "value": {
+                "ar": "مريدياني بلانوم",
+                "en": "Meridiani Planum"
+              }
+            }
+          ],
+          "images": [],
+          "summary": {
+            "ar": "الروبوت الأسطوري الذي هبط في مريدياني بلانوم وعمل لما يقرب من 15 عاماً قاطعاً أكثر من 45 كيلومتراً، مؤكداً وجود بيئة مائية قديمة ملائمة للحياة.",
+            "en": "The legendary rover that touched down on Meridiani Planum, operating for nearly 15 years and driving over 45 kilometers to confirm persistent liquid water once existed on ancient Mars."
+          },
+          "facts": [
+            {
+              "id": "landing-site",
+              "label": {
+                "ar": "موقع الهبوط",
+                "en": "Landing Site"
+              },
+              "value": {
+                "ar": "مريدياني بلانوم",
+                "en": "Meridiani Planum"
+              }
+            },
+            {
+              "id": "distance-traveled",
+              "label": {
+                "ar": "المسافة المقطوعة",
+                "en": "Distance Traveled"
+              },
+              "value": {
+                "ar": "٤٥٫١٦ كم",
+                "en": "45.16 km"
+              },
+              "numeric": {
+                "value": 45.16,
+                "unit": "km"
+              }
+            },
+            {
+              "id": "distance-record-note",
+              "label": {
+                "ar": "الرقم القياسي للتجوال",
+                "en": "Roving Distance Record"
+              },
+              "value": {
+                "ar": "احتفظت بالرقم القياسي لمسافة التجوال خارج الأرض (45.16 كم) حتى تجاوزتها بيرسيفيرانس في أكتوبر 2026",
+                "en": "Held off-Earth distance record (45.16 km) until passed by Perseverance in October 2026"
+              }
+            }
+          ],
+          "timeline": [
+            {
+              "date": "2003-07-07",
+              "event": {
+                "ar": "إطلاق أبورتيونيتي نحو المريخ",
+                "en": "Launch of Opportunity towards Mars"
+              }
+            },
+            {
+              "date": "2004-01-25",
+              "event": {
+                "ar": "الهبوط في فوهة إيغل على سهل مريدياني بلانوم",
+                "en": "Hole-in-one landing in Eagle Crater on Meridiani Planum"
+              }
+            },
+            {
+              "date": "2015-03-24",
+              "event": {
+                "ar": "إكمال مسافة ماراثون كامل (42.195 كم) على سطح المريخ",
+                "en": "Completes first off-Earth marathon distance (42.195 km)"
+              }
+            },
+            {
+              "date": "2018-06-10",
+              "event": {
+                "ar": "عاصفة ترابية كوكبية تحجب الشمس وتنهي الاتصال بالمركبة",
+                "en": "Global dust storm blocks solar panels, ending communications"
+              }
+            }
+          ],
+          "highlights": [
+            {
+              "title": {
+                "ar": "إثبات وجود مياه سائلة قديمة",
+                "en": "Confirming Ancient Liquid Water"
+              },
+              "description": {
+                "ar": "اكتشفت كريات الهيماتيت الدقيقة (العنب البري للمريخ) وطبقات صخرية رسوبية تشكلت في مياه جارية.",
+                "en": "Discovered hematite spherules ('blueberries') and sedimentary rock layers formed in flowing acidic water."
+              }
+            }
+          ],
+          "people": [],
+          "instruments": [
+            {
+              "name": {
+                "ar": "أداة حك الصخور ومطياف ألفا",
+                "en": "Rock Abrasion Tool (RAT) & APXS"
+              },
+              "purpose": {
+                "ar": "كشط أسطح الصخور المريخية وتحليل عناصرها الداخلية",
+                "en": "Grinded rock surfaces to examine unweathered interior compositions"
+              }
+            }
+          ],
+          "quizFacts": [],
+          "sources": [
+            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-032A"
+          ],
+          "needsReview": false
+        }
+      ],
+      "storyCards": [
+        {
+          "cardKey": "pathfinder",
+          "world": "mars",
+          "title": {
+            "ar": "باثفايندر",
+            "en": "Mars Pathfinder"
+          },
+          "tag": {
+            "ar": "١٩٩٧ · محطة كارل ساجان",
+            "en": "1997 · Carl Sagan Station"
+          },
+          "kidText": {
+            "ar": "هبطت على المريخ جوا وسائد هوائية عملاقة، واتنططت على السطح حوالي ١٥ مرة لحد ما وقفت وفتحت!",
+            "en": "It landed wrapped inside giant airbags and bounced about 15 times across Mars before settling and opening its solar petals!"
+          },
+          "audio": {
+            "ar": "/audio/ar/mars-card-pathfinder.mp3",
+            "en": null
+          },
+          "hero": {
+            "src": "images/mars-surface.jpg",
+            "focus": "56% 51%",
+            "scale": 2.1
+          }
+        },
+        {
+          "cardKey": "sojourner",
+          "world": "mars",
+          "title": {
+            "ar": "سوجورنر",
+            "en": "Sojourner"
+          },
+          "tag": {
+            "ar": "روبوت المريخ الصغير",
+            "en": "Tiny Mars Rover"
+          },
+          "kidText": {
+            "ar": "روبوت صغنن خالص! وزنه ١٠٫٥ كيلوجرام، وطوله ٣٠ سنتيمتر... يعني قد مسطرة المدرسة بالظبط! ولسه موجود على المريخ.",
+            "en": "A super tiny robot! Only 10.5 kg and 30 cm long — just like a school ruler — and it's still on Mars today."
+          },
+          "audio": {
+            "ar": "/audio/ar/mars-card-sojourner.mp3",
+            "en": null
+          },
+          "hero": {
+            "src": "images/mars-surface.jpg",
+            "focus": "76.5% 65%",
+            "scale": 2.4
+          }
+        }
+      ]
+    },
+    {
+      "id": "deepspace",
+      "name": {
+        "ar": "الفضاء البعيد",
+        "en": "Deep Space"
       },
-      {
-        "id": "kepler-k2",
-        "name": {
-          "ar": "تلسكوب كيبلر / K2",
-          "en": "Kepler / K2"
-        },
-        "target": {
-          "ar": "الكواكب الخارجية في مجرة درب التبانة",
-          "en": "Exoplanets in the Milky Way galaxy"
-        },
-        "overview": {
-          "ar": "تلسكوب كيبلر الفضائي هو أول مهمة لناسا للبحث عن الكواكب، وقد تم تخصيصه لمسح جزء من مجرة درب التبانة بحثاً عن كواكب بحجم الأرض تدور حول نجوم خارج نظامنا الشمسي. على مدار تسع سنوات في الفضاء العُميق عبر مهمته الأصلية ومهمة K2 الممتدة، أثبت أن مجرتنا تحتوي على كواكب أكثر من النجوم.",
-          "en": "The Kepler space telescope was NASA’s first planet-hunting mission, designed to survey a portion of the Milky Way for Earth-sized planets orbiting stars outside our solar system. Over nine years in deep space across its primary mission and K2 extended mission, it proved there are more planets than stars in our galaxy."
-        },
-        "key_dates": [
-          {
-            "date": "2009-03-06",
-            "event": {
-              "ar": "إطلاق تلسكوب كيبلر الفضائي",
-              "en": "Launch of Kepler space telescope"
-            }
+      "overview": {
+        "ar": "أبعد محطات رحلتنا: من الكويكبات الصخرية السابحة في النظام الشمسي إلى النجوم السحيقة التي تحيط بها عوالم وكواكب خارج مجموعتنا الشمسية.",
+        "en": "Our farthest frontier: from rocky asteroids roaming the solar system to distant stars circled by alien worlds outside our solar system."
+      },
+      "coverImage": "",
+      "narration": [
+        {
+          "text": {
+            "ar": "مبروك يا بطل! وصلنا لأبعد حتة في رحلتنا: الفضاء البعيد!",
+            "en": "You unlocked Deep Space, hero! Welcome to our farthest stop!"
           },
-          {
-            "date": "2010-01",
-            "event": {
-              "ar": "الإعلان عن أول خمسة كواكب خارجية مكتشفة (Kepler 4b, 5b, 6b, 7b, 8b)",
-              "en": "Announcement of first five discovered exoplanets (Kepler 4b, 5b, 6b, 7b, and 8b)"
-            }
-          },
-          {
-            "date": "2010-04",
-            "event": {
-              "ar": "اكتشاف Kepler-9، وهو أول نظام كوكبي مؤكد يضم أكثر من كوكب يعبر أمام نفس النجم",
-              "en": "Discovery of Kepler-9, the first confirmed planetary system with multiple planets transiting the same star"
-            }
-          },
-          {
-            "date": "2011-02",
-            "event": {
-              "ar": "الإعلان عن نظام Kepler-11، وهو نظام يتكون من ستة كواكب يدور حول نجم قزم أصفر على بعد حوالي 2000 سنة ضوئية",
-              "en": "Announcement of Kepler-11, a six-planet system orbiting a yellow dwarf star ~2,000 light-years away"
-            }
-          },
-          {
-            "date": "2013-05",
-            "event": {
-              "ar": "فقدان عجلة التفاعل الثانية من أصل أربع عجلات، مما أنهى وضع التوجيه الأصلي وأدى إلى إعادة تصميم مهمة K2",
-              "en": "Loss of second of four reaction wheels, ending original pointing mode and leading to the K2 redesign"
-            }
-          },
-          {
-            "date": "2018-10-30",
-            "event": {
-              "ar": "تقاعد المركبة الفضائية بعد إكمال 19 حملة رصد في مهمة K2",
-              "en": "Spacecraft retired after completing 19 observation campaigns in K2"
-            }
+          "audio": {
+            "ar": "/audio/ar/bonus-1.mp3",
+            "en": null
           }
-        ],
-        "spacecraft_specifications": {
-          "instrument": "3-foot (1-meter) diameter aperture telescope with image sensor array and largest digital camera outfitted for space at launch",
-          "mirror_diameter": "4 feet, 7 inches (1.4 meters)",
-          "detection_method": "Transit photometry (measuring tiny dips in stellar brightness when a planet crosses in front of its star)",
-          "initial_target_field": "150,000 stars in the constellation Cygnus (designed to monitor ~100,000 main-sequence stars for 3.5 years)"
         },
-        "k2_extended_mission": {
-          "pointing_solution": "Used solar photon pressure balanced against the remaining reaction wheels to maintain stability along the ecliptic plane",
-          "campaigns_completed": "19 campaigns (exceeding the initial estimate of 10 campaigns)",
-          "total_stars_surveyed": "More than 500,000 stars",
-          "additional_research": "Solar system objects, exploded stars (supernovae), stellar properties, Milky Way history, and distant supermassive black holes"
+        {
+          "text": {
+            "ar": "البشر مسبوش مركبات على القمر والمريخ بس... دول وصلوا لصخرة كبيرة سابحة في الفضاء، وبعتوا تلسكوب يبص على نجوم بعيدة أوي أوي!",
+            "en": "Humans didn't just stop at the Moon and Mars — they landed on a floating asteroid and sent telescopes to watch faraway stars!"
+          },
+          "audio": {
+            "ar": null,
+            "en": null
+          }
         },
-        "major_discoveries": [
-          "20% to 50% of visible stars in the night sky are likely to host small, possibly rocky, Earth-sized planets within their habitable zones",
-          "Most common exoplanet size discovered is between Earth and Neptune (a class absent in our solar system)",
-          "Discovery of densely packed multi-planet systems orbiting very close to their parent stars",
-          "Laid the foundation for follow-up missions including TESS (launched April 2018) and the James Webb Space Telescope"
-        ]
-      }
-    ]
-  }
+        {
+          "text": {
+            "ar": "دوس على النقط الصفراء عشان تعرف حكايتهم.",
+            "en": "Tap the yellow dots to uncover these amazing space explorers."
+          },
+          "audio": {
+            "ar": null,
+            "en": null
+          }
+        }
+      ],
+      "machines": [
+        {
+          "id": "kepler-k2",
+          "world": "deepspace",
+          "name": {
+            "ar": "تلسكوب كيبلر الفضائي / K2",
+            "en": "Kepler Space Telescope / K2"
+          },
+          "cosparId": "2009-011A",
+          "alternateNames": [
+            "Kepler",
+            "Discovery 10",
+            "K2"
+          ],
+          "type": "telescope",
+          "status": "retired",
+          "location": null,
+          "coordinatesText": null,
+          "card": {
+            "cardKey": "kepler",
+            "title": {
+              "ar": "تلسكوب كيبلر الفضائي",
+              "en": "Kepler Space Telescope"
+            },
+            "tag": {
+              "ar": "نجوم بعيدة أوي أوي",
+              "en": "Stars Far, Far Away"
+            },
+            "kidText": {
+              "ar": "تلسكوب طار في الفضاء وبص على نجوم بعيدة أوي أوي عشان يدور على كواكب تانية برا مجموعتنا الشمسية، ولسه سابح في الفضاء.",
+              "en": "A deep-space telescope that stared at distant stars to discover thousands of planets outside our solar system."
+            },
+            "audio": {
+              "ar": "/audio/ar/bonus-card-kepler.mp3",
+              "en": null
+            },
+            "hero": {
+              "src": "images/deep-space.jpg",
+              "focus": "75% 49%",
+              "scale": 2.1
+            }
+          },
+          "chips": [
+            {
+              "icon": "telescope",
+              "label": {
+                "ar": "الكواكب المكتشفة",
+                "en": "Exoplanets"
+              },
+              "value": {
+                "ar": "أكثر من ٢,٦٠٠ كوكب",
+                "en": "2,600+ confirmed planets"
+              }
+            },
+            {
+              "icon": "calendar",
+              "label": {
+                "ar": "تاريخ الإطلاق",
+                "en": "Launched"
+              },
+              "value": {
+                "ar": "٦ مارس ٢٠٠٩",
+                "en": "March 6, 2009"
+              }
+            },
+            {
+              "icon": "clock",
+              "label": {
+                "ar": "مدة المهمة",
+                "en": "Mission Life"
+              },
+              "value": {
+                "ar": "٩ سنوات و٧ أشهر",
+                "en": "9 yrs 7 mos"
+              }
+            },
+            {
+              "icon": "eye",
+              "label": {
+                "ar": "النجوم الممسوحة",
+                "en": "Stars Surveyed"
+              },
+              "value": {
+                "ar": "أكثر من ٥٠٠,٠٠٠ نجم",
+                "en": "500,000+ stars"
+              }
+            }
+          ],
+          "images": [],
+          "summary": {
+            "ar": "تلسكوب كيبلر الفضائي هو أول مهمة لناسا للبحث عن الكواكب الخارجية، أثبت على مدار تسع سنوات في الفضاء العميق أن مجرتنا تحتوي على كواكب أكثر من النجوم.",
+            "en": "NASA's pioneering planet-hunting space telescope that surveyed the Milky Way for nine years, proving our galaxy hosts more planets than stars."
+          },
+          "facts": [
+            {
+              "id": "detection-method",
+              "label": {
+                "ar": "طريقة الرصد",
+                "en": "Detection Method"
+              },
+              "value": {
+                "ar": "قياس الضوء أثناء العبور (رصد انخفاض سطوع النجم)",
+                "en": "Transit photometry (measuring dips in stellar brightness)"
+              }
+            },
+            {
+              "id": "aperture-mirror",
+              "label": {
+                "ar": "قطر المرآة",
+                "en": "Mirror Diameter"
+              },
+              "value": {
+                "ar": "١٫٤ متر (٤ أقدام و٧ بوصات)",
+                "en": "1.4 meters (4 ft 7 in)"
+              },
+              "numeric": {
+                "value": 1.4,
+                "unit": "m"
+              }
+            },
+            {
+              "id": "surveyed-stars",
+              "label": {
+                "ar": "إجمالي النجوم الممسوحة",
+                "en": "Stars Surveyed"
+              },
+              "value": {
+                "ar": "أكثر من ٥٠٠,٠٠٠ نجم",
+                "en": "500,000+ stars"
+              },
+              "numeric": {
+                "value": 500000,
+                "unit": "stars"
+              }
+            }
+          ],
+          "timeline": [
+            {
+              "date": "2009-03-06",
+              "event": {
+                "ar": "إطلاق تلسكوب كيبلر الفضائي من كيب كانافيرال",
+                "en": "Launch of Kepler space telescope from Cape Canaveral"
+              }
+            },
+            {
+              "date": "2010-01-04",
+              "event": {
+                "ar": "الإعلان عن اكتشاف أول 5 كواكب خارجية",
+                "en": "Announcement of first five exoplanet discoveries"
+              }
+            },
+            {
+              "date": "2013-05-11",
+              "event": {
+                "ar": "فقدان عجلة التوجيه الثانية وإعادة تصميم المهمة باسم K2",
+                "en": "Reaction wheel loss leads to innovative K2 mission redesign"
+              }
+            },
+            {
+              "date": "2018-10-30",
+              "event": {
+                "ar": "تقاعد التلسكوب بسلام بعد نفاد وقود التوجيه",
+                "en": "Spacecraft officially retired after running out of thruster fuel"
+              }
+            }
+          ],
+          "highlights": [
+            {
+              "title": {
+                "ar": "إثبات وفرة الكواكب في المجرة",
+                "en": "Proving Exoplanet Abundance"
+              },
+              "description": {
+                "ar": "أثبت كيبلر أن ما بين 20% و50% من النجوم تدور حولها كواكب صخرية بحجم الأرض داخل النطاق الصالح للحياة.",
+                "en": "Demonstrated that 20% to 50% of visible stars likely host Earth-sized rocky planets in habitable zones."
+              }
+            }
+          ],
+          "people": [],
+          "instruments": [
+            {
+              "name": {
+                "ar": "تلسكوب بقطر 1 متر ومصفوفة حساسات CCD",
+                "en": "Photometer with 95-megapixel CCD array"
+              },
+              "purpose": {
+                "ar": "مراقبة سطوع مئات آلاف النجوم بدقة متناهية لكشف عبور الكواكب",
+                "en": "Ultra-precise stellar brightness monitoring to detect planet transits"
+              }
+            }
+          ],
+          "quizFacts": [
+            {
+              "id": "kepler-exoplanets",
+              "fact": {
+                "ar": "تلسكوب كيبلر اكتشف آلاف الكواكب خارج مجموعتنا الشمسية.",
+                "en": "Kepler discovered thousands of planets orbiting faraway stars."
+              }
+            }
+          ],
+          "sources": [
+            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2009-011A"
+          ],
+          "needsReview": false
+        },
+        {
+          "id": "dawn",
+          "world": "deepspace",
+          "name": {
+            "ar": "مركبة داون الفضائية",
+            "en": "Dawn Spacecraft"
+          },
+          "cosparId": "2007-043A",
+          "alternateNames": [
+            "Discovery 9",
+            "Dawn"
+          ],
+          "type": "orbiter",
+          "status": "silent",
+          "location": null,
+          "coordinatesText": null,
+          "card": null,
+          "chips": [
+            {
+              "icon": "orbit",
+              "label": {
+                "ar": "الأهداف الفلكية",
+                "en": "Targets"
+              },
+              "value": {
+                "ar": "الكويكب فيستا والكوكب القزم سيريس",
+                "en": "Asteroid Vesta & Dwarf Planet Ceres"
+              }
+            },
+            {
+              "icon": "calendar",
+              "label": {
+                "ar": "تاريخ الإطلاق",
+                "en": "Launched"
+              },
+              "value": {
+                "ar": "٢٧ سبتمبر ٢٠٠٧",
+                "en": "Sep 27, 2007"
+              }
+            },
+            {
+              "icon": "zap",
+              "label": {
+                "ar": "نظام الدفع",
+                "en": "Propulsion"
+              },
+              "value": {
+                "ar": "دفع أيوني كهربائي متطور",
+                "en": "Advanced Ion Propulsion"
+              }
+            }
+          ],
+          "images": [],
+          "summary": {
+            "ar": "أول مركبة فضائية تدور حول جسمين مختلفين خارج الأرض في حزام الكويكبات الرئيسي: الكويكب العملاق فيستا والكوكب القزم الجليدي سيريس.",
+            "en": "NASA's historic mission that became the first spacecraft to orbit two different extraterrestrial bodies: giant asteroid Vesta and icy dwarf planet Ceres."
+          },
+          "facts": [
+            {
+              "id": "region",
+              "label": {
+                "ar": "المنطقة الفضائية",
+                "en": "Region"
+              },
+              "value": {
+                "ar": "حزام الكويكبات الرئيسي بين المريخ والمشتري",
+                "en": "Main asteroid belt between Mars and Jupiter"
+              }
+            },
+            {
+              "id": "propulsion",
+              "label": {
+                "ar": "نوع المحرك",
+                "en": "Propulsion"
+              },
+              "value": {
+                "ar": "محركات دفع أيونية بالزينون",
+                "en": "Xenon ion thrusters"
+              }
+            }
+          ],
+          "timeline": [
+            {
+              "date": "2007-09-27",
+              "event": {
+                "ar": "إطلاق مركبة داون نحو حزام الكويكبات",
+                "en": "Launch of Dawn towards asteroid belt"
+              }
+            },
+            {
+              "date": "2011-07-16",
+              "event": {
+                "ar": "دخول المدار حول الكويكب العملاق فيستا",
+                "en": "Enters orbit around giant asteroid Vesta"
+              }
+            },
+            {
+              "date": "2015-03-06",
+              "event": {
+                "ar": "دخول المدار حول الكوكب القزم سيريس",
+                "en": "Historic orbit insertion around dwarf planet Ceres"
+              }
+            },
+            {
+              "date": "2018-11-01",
+              "event": {
+                "ar": "نفاد وقود الهيدرازين ونهاية المهمة في مدار مستقر حول سيريس",
+                "en": "Hydrazine depletion concludes mission in stable Ceres orbit"
+              }
+            }
+          ],
+          "highlights": [
+            {
+              "title": {
+                "ar": "استكشاف البقع اللامعة على سيريس",
+                "en": "Bright Faculae Spots on Ceres"
+              },
+              "description": {
+                "ar": "كشفت داون عن بقع ملحية لامعة وبقايا محيط مائي جوفي تحت قشرة الكوكب القزم سيريس.",
+                "en": "Revealed dazzling sodium carbonate salt spots and past subsurface oceanic brine on Ceres."
+              }
+            }
+          ],
+          "people": [],
+          "instruments": [
+            {
+              "name": {
+                "ar": "كاميرا التأطير ومطياف أشعة غاما",
+                "en": "Framing Camera & GRaND"
+              },
+              "purpose": {
+                "ar": "رسم خرائط طبوغرافية وتحليل العناصر السطحية لسيريس وفيستا",
+                "en": "High-resolution topography and elemental mapping of asteroids"
+              }
+            }
+          ],
+          "quizFacts": [],
+          "sources": [
+            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-043A"
+          ],
+          "needsReview": false
+        }
+      ],
+      "storyCards": [
+        {
+          "cardKey": "eros",
+          "world": "deepspace",
+          "title": {
+            "ar": "نير شوميكر على إيروس",
+            "en": "NEAR Shoemaker on Eros"
+          },
+          "tag": {
+            "ar": "صخرة كبيرة سابحة في الفضاء",
+            "en": "Floating Rock in Space"
+          },
+          "kidText": {
+            "ar": "أول مركبة تهبط على كويكب! هبطت على صخرة كبيرة سابحة في الفضاء اسمها «إيروس»، وفضلت مستقرة فوقها.",
+            "en": "The first spacecraft ever to land on an asteroid! It touched down on the giant space rock Eros and stayed there."
+          },
+          "audio": {
+            "ar": "/audio/ar/bonus-card-eros.mp3",
+            "en": null
+          },
+          "hero": {
+            "src": "images/deep-space.jpg",
+            "focus": "35% 24%",
+            "scale": 2.1
+          }
+        }
+      ]
+    }
+  ]
 }

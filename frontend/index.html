@@ -1031,9 +1031,23 @@
         </div>
 
         <div class="fact-body">
-          <h3 class="fact-title" id="fact-card-title"></h3>
+          <div class="fact-header-row">
+            <h3 class="fact-title" id="fact-card-title"></h3>
+            <span class="fact-status-badge" id="fact-card-status" hidden></span>
+          </div>
           <p class="fact-tag" id="fact-card-tag"></p>
+          <div class="fact-chips" id="fact-card-chips" hidden></div>
           <p class="fact-text" id="fact-card-text"></p>
+          <div class="fact-gallery" id="fact-card-gallery" hidden></div>
+          <div class="fact-details-section" id="fact-card-details-section" hidden>
+            <button type="button" class="fact-details-toggle" id="btn-toggle-fact-details" aria-expanded="false">
+              <span id="fact-details-toggle-text">تفاصيل أكتر</span>
+              <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </button>
+            <div class="fact-details-content" id="fact-card-details-content" hidden></div>
+          </div>
         </div>
 
         <button type="button" id="btn-fact-audio" class="btn btn-blue fact-audio-btn">

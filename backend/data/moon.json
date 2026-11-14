@@ -1,462 +1,923 @@
 {
-  "topic": {
-    "id": "moon-exploration",
-    "name": {
-      "en": "Moon Exploration & Apollo Program",
-      "ar": "استكشاف القمر وبرنامج أبولو"
-    },
-    "overview": {
-      "en": "A comprehensive overview of NASA's historic lunar missions, focusing on the Apollo Lunar Modules, surface scientific experiment packages (EASEP & ALSEP), and the Lunar Roving Vehicle (LRV) that enabled humanity's first steps and extended geological exploration on the Moon.",
-      "ar": "نظرة شاملة على مهام وكالة ناسا التاريخية لاستكشاف القمر، مع التركيز على مركبات الهبوط القمرية (Apollo Lunar Modules)، وحزم التجارب العلمية السطحية (EASEP و ALSEP)، والعربة القمرية المتجولة (LRV) التي مكنت البشرية من خطو خطواتها الأولى وتوسيع نطاق الاستكشاف الجيولوجي على سطح القمر."
-    },
-    "coverImage": "",
-    "subtopics": [
-      {
-        "id": "apollo-11-eagle-easep",
-        "name": {
-          "en": "Apollo 11 Lunar Module (Eagle) & EASEP",
-          "ar": "مركبة هبوط أبولو 11 (إيغل) وحزمة EASEP"
-        },
-        "cosparId": "1969-059C",
-        "alternateNames": [
-          "Apollo 11 LM/EASEP",
-          "LM-5",
-          "Eagle"
-        ],
-        "summary": {
-          "en": "The first crewed spacecraft to land on the Moon on July 20, 1969, carrying Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin to the Sea of Tranquility, along with the Early Apollo Scientific Experiment Package (EASEP).",
-          "ar": "أول مركبة فضائية مأهولة تهبط على سطح القمر في 20 يوليو 1969، حاملة القائد نيل أرمسترونغ وطيار الوحدة القمرية باز ألدرين إلى بحر السكون، برفقة حزمة تجارب أبولو العلمية المبكرة (EASEP)."
-        },
-        "images": [],
-        "factsInBrief": {
-          "launchDate": "1969-07-16",
-          "landingDate": "1969-07-20",
-          "launchVehicle": {
-            "en": "Saturn V",
-            "ar": "ساتورن 5 (Saturn V)"
-          },
-          "launchSite": {
-            "en": "Cape Canaveral, United States",
-            "ar": "كيب كانافيرال، الولايات المتحدة"
-          },
-          "landingSite": {
-            "name": {
-              "en": "Mare Tranquillitatis (Sea of Tranquility)",
-              "ar": "بحر السكون (Mare Tranquillitatis)"
-            },
-            "coordinates": "0.67416° N, 23.47314° E"
-          },
-          "totalMassKg": 15103,
-          "surfaceDuration": {
-            "en": "21 hours, 36 minutes",
-            "ar": "21 ساعة و36 دقيقة"
-          },
-          "samplesCollectedKg": 21.55
-        },
-        "crew": [
-          {
-            "name": {
-              "en": "Neil A. Armstrong",
-              "ar": "نيل أرمسترونغ"
-            },
-            "role": {
-              "en": "Commander (First human to walk on the Moon)",
-              "ar": "قائد المهمة (أول إنسان يمشي على سطح القمر)"
-            }
-          },
-          {
-            "name": {
-              "en": "Edwin E. 'Buzz' Aldrin, Jr.",
-              "ar": "إدوين 'باز' ألدرين"
-            },
-            "role": {
-              "en": "Lunar Module Pilot",
-              "ar": "طيار الوحدة القمرية"
-            }
-          },
-          {
-            "name": {
-              "en": "Michael Collins",
-              "ar": "مايكل كولينز"
-            },
-            "role": {
-              "en": "Command Module Pilot (Orbiting CSM)",
-              "ar": "طيار وحدة القيادة (في المدار القمري)"
-            }
-          }
-        ],
-        "missionHighlights": [
-          {
-            "title": {
-              "en": "Historic First Landing & Moonwalk",
-              "ar": "أول هبوط تاريخي وسير على القمر"
-            },
-            "description": {
-              "en": "Eagle landed at 20:17:40 UT on July 20, 1969. Hours later, Neil Armstrong stepped onto the lunar soil, uttering his famous words, followed by Buzz Aldrin 19 minutes later. They traversed ~250 meters, collected 21.55 kg of lunar rocks and core samples, and unveiled a commemorative peace plaque.",
-              "ar": "هبطت المركبة 'إيغل' في 20 يوليو 1969. وبعد ساعات، خطا نيل أرمسترونغ على تربة القمر مطلقاً عبارته الشهيرة، وتبعه باز ألدرين بعد 19 دقيقة. قطع الرائدان مسافة تقارب 250 متراً، وجمعا 21.55 كجم من صخور وعينات القمر، وأزاحا الستار عن لوحة تذكارية للسلام."
-            }
-          },
-          {
-            "title": {
-              "en": "Two-Stage Spacecraft Architecture",
-              "ar": "التصميم الهندسي ذو المرحلتين للمركبة"
-            },
-            "description": {
-              "en": "Comprised an octagonal Descent Stage (with a 45,000 N deep-throttling landing rocket and four landing legs) that stayed on the Moon as a launchpad, and a pressurized Ascent Stage (6.65 cubic meters, 15,000 N engine) with no seats that returned the crew to the Command Module.",
-              "ar": "تتكون المركبة من مرحلة هبوط ثمانية الأضلاع (مزودة بمحرك هبوط بقوة 45,000 نيوتن وأربع أرجل هبوط) بقيت على القمر كمنصة إطلاق، ومرحلة صعود مضغوطة (بحجم 6.65 متر مكعب ومحرك بقوة 15,000 نيوتن) بدون مقاعد أعادت الرواد إلى وحدة القيادة."
-            }
-          }
-        ],
-        "scientificPayload": {
-          "name": {
-            "en": "EASEP (Early Apollo Scientific Experiment Package)",
-            "ar": "EASEP (حزمة تجارب أبولو العلمية المبكرة)"
-          },
-          "massKg": 48,
-          "powerSource": {
-            "en": "Two canted solar panels (operated during lunar day only)",
-            "ar": "لوحان شمسيان مائلان (تعمل الحزمة خلال النهار القمري فقط)"
-          },
-          "description": {
-            "en": "Deployed 17 meters south of the LM, EASEP was the forerunner to ALSEP. It operated across two lunar days until August 27, 1969, surviving temperatures 30°C higher than planned.",
-            "ar": "نُشرت على بُعد 17 متراً جنوب مركبة الهبوط، وكانت التمهيد لحزم ALSEP اللاحقة. عملت الحزمة ليومين قمريين متتاليين حتى 27 أغسطس 1969، متحملة درجات حرارة تجاوزت الحد الأقصى المخطط له بمقدار 30 درجة مئوية."
-          },
-          "instruments": [
-            {
-              "name": {
-                "en": "Passive Seismic Experiment Package (PSEP)",
-                "ar": "مقياس الزلازل السلبي"
-              },
-              "purpose": {
-                "en": "Measured lunar seismic activity (moonquakes) and physical properties of the lunar crust and interior.",
-                "ar": "قياس النشاط الزلزالي القمري والخصائص الفيزيائية لقشرة القمر وباطنه."
-              }
-            },
-            {
-              "name": {
-                "en": "Laser Ranging Retroreflector (LRRR)",
-                "ar": "عاكس الليزر الرجعي (LRRR)"
-              },
-              "purpose": {
-                "en": "Unpowered array of 100 fused-silica corner cubes deployed 5m NNW of EASEP to reflect Earth-based laser beams, measuring the Earth-Moon distance with centimeter precision.",
-                "ar": "مصفوفة غير مزودة بالطاقة تضم 100 منشور زجاجي وُضعت على بُعد 5 أمتار شمال-شمال غرب الحزمة لعكس أشعة الليزر الأرضية وقياس المسافة بين الأرض والقمر بدقة السنتيمتر."
-              }
-            },
-            {
-              "name": {
-                "en": "Lunar Dust Detector",
-                "ar": "كاشف الغبار القمري"
-              },
-              "purpose": {
-                "en": "Measured lunar dust accumulation and radiation damage on solar cells.",
-                "ar": "قياس تراكم الغبار القمري والأضرار الإشعاعية على الخلايا الشمسية."
-              }
-            }
-          ]
-        }
+  "schemaVersion": 2,
+  "worlds": [
+    {
+      "id": "moon",
+      "name": {
+        "ar": "القمر",
+        "en": "The Moon"
       },
-      {
-        "id": "apollo-12-intrepid-alsep",
-        "name": {
-          "en": "Apollo 12 Lunar Module (Intrepid) & ALSEP",
-          "ar": "مركبة هبوط أبولو 12 (إنتريبيد) وحزمة ALSEP"
-        },
-        "cosparId": "1969-099C",
-        "alternateNames": [
-          "Apollo 12 LM/ALSEP",
-          "LM-6",
-          "Intrepid"
-        ],
-        "summary": {
-          "en": "The second crewed lunar landing on November 19, 1969, demonstrating pinpoint landing accuracy near the Surveyor 3 probe in the Ocean of Storms and deploying the first full nuclear-powered ALSEP station.",
-          "ar": "ثاني هبوط مأهول على القمر في 19 نوفمبر 1969، والذي أثبت دقة الهبوط الفائقة بالقرب من مسبار 'سيرفيور 3' في محيط العواصف، وشهد نشر أول محطة علمية متكاملة (ALSEP) تعمل بالطاقة النووية."
-        },
-        "images": [],
-        "factsInBrief": {
-          "launchDate": "1969-11-14",
-          "landingDate": "1969-11-19",
-          "launchVehicle": {
-            "en": "Saturn V",
-            "ar": "ساتورن 5 (Saturn V)"
-          },
-          "launchSite": {
-            "en": "Cape Canaveral, United States",
-            "ar": "كيب كانافيرال، الولايات المتحدة"
-          },
-          "landingSite": {
-            "name": {
-              "en": "Oceanus Procellarum (Ocean of Storms)",
-              "ar": "محيط العواصف (Oceanus Procellarum)"
-            },
-            "coordinates": "3.0128° S, 23.4219° W"
-          },
-          "totalMassKg": 15235,
-          "surfaceDuration": {
-            "en": "31 hours, 31 minutes",
-            "ar": "31 ساعة و31 دقيقة"
-          },
-          "samplesCollectedKg": 34.35
-        },
-        "crew": [
-          {
-            "name": {
-              "en": "Charles P. 'Pete' Conrad, Jr.",
-              "ar": "تشارلز 'بيت' كونراد"
-            },
-            "role": {
-              "en": "Commander",
-              "ar": "قائد المهمة"
-            }
-          },
-          {
-            "name": {
-              "en": "Alan L. Bean",
-              "ar": "آلان بين"
-            },
-            "role": {
-              "en": "Lunar Module Pilot",
-              "ar": "طيار الوحدة القمرية"
-            }
-          },
-          {
-            "name": {
-              "en": "Richard F. Gordon, Jr.",
-              "ar": "ريتشارد غوردون"
-            },
-            "role": {
-              "en": "Command Module Pilot (Orbiting CSM)",
-              "ar": "طيار وحدة القيادة (في المدار القمري)"
-            }
-          }
-        ],
-        "missionHighlights": [
-          {
-            "title": {
-              "en": "Pinpoint Landing & Surveyor 3 Rendezvous",
-              "ar": "الهبوط الدقيق والالتقاء بمسبار سيرفيور 3"
-            },
-            "description": {
-              "en": "Intrepid landed within 180 meters of the robotic Surveyor 3 spacecraft (which landed in April 1967). During two EVAs totaling 7 hours and 45 minutes (covering 1.35 km), Conrad and Bean inspected Surveyor 3 and retrieved ~10 kg of its parts—including its TV camera—to study the effects of 2.5 years of harsh lunar exposure.",
-              "ar": "هبطت 'إنتريبيد' على بُعد 180 متراً فقط من المسبار الآلي 'سيرفيور 3' (الذي هبط في أبريل 1967). خلال جولتي سير قمريتين استغرقتا 7 ساعات و45 دقيقة (بمسافة 1.35 كم)، فحص كونراد وبين المسبار واستعادا نحو 10 كجم من أجزائه لدراسة تأثير التعرض للبيئة القمرية القاسية لمدة عامين ونصف."
-            }
-          },
-          {
-            "title": {
-              "en": "First Artificial Moonquake",
-              "ar": "أول زلزال قمري اصطناعي"
-            },
-            "description": {
-              "en": "After crew transfer back to the CSM, the Intrepid ascent stage was intentionally deorbited and crashed 60 km from the Apollo 12 landing site, generating the first recorded artificial moonquake that reverberated through the Moon for nearly an hour.",
-              "ar": "بعد عودة الطاقم إلى وحدة القيادة، تم توجيه مرحلة الصعود عمداً لتصطدم بسطح القمر على بُعد 60 كم من موقع الهبوط، مما أحدث أول زلزال قمري اصطناعي مسجل استمر صداه في باطن القمر لقرابة ساعة كاملة."
-            }
-          }
-        ],
-        "scientificPayload": {
-          "name": {
-            "en": "Apollo 12 ALSEP & SNAP-27 RTG",
-            "ar": "حزمة تجارب أبولو 12 (ALSEP) ومولد SNAP-27 النووي"
-          },
-          "powerSource": {
-            "en": "SNAP-27 Radioisotope Thermoelectric Generator (Plutonium-238 fuel capsule, ~70W DC output, 89.6-year half-life)",
-            "ar": "مولد نظائر مشعة كهروحراري طراز SNAP-27 (كبسولة بلوتونيوم-238، بقدرة ~70 واط تيار مستمر وعمر نصف 89.6 عاماً)"
-          },
-          "description": {
-            "en": "Unlike EASEP, the nuclear-powered ALSEP operated continuously through both lunar day and night for nearly 8 years until shut down on September 30, 1977.",
-            "ar": "على عكس EASEP، عملت حزمة ALSEP المزودة بالطاقة النووية بشكل متواصل خلال الليل والنهار القمريين لمدة تقارب 8 سنوات حتى تم إيقاف تشغيلها في 30 سبتمبر 1977."
-          },
-          "instruments": [
-            {
-              "name": {
-                "en": "Passive Seismometer",
-                "ar": "مقياس الزلازل السلبي"
-              },
-              "purpose": {
-                "en": "Monitored natural and impact-induced moonquakes to map the Moon's internal structure.",
-                "ar": "رصد الزلازل القمرية الطبيعية والناتجة عن الاصطدامات لرسم خريطة البنية الداخلية للقمر."
-              }
-            },
-            {
-              "name": {
-                "en": "Lunar Surface Magnetometer (LSM)",
-                "ar": "مقياس المغناطيسية السطحي القمري (LSM)"
-              },
-              "purpose": {
-                "en": "Measured the local and global magnetic field at the lunar surface.",
-                "ar": "قياس المجال المغناطيسي المحلي والعام على سطح القمر."
-              }
-            },
-            {
-              "name": {
-                "en": "Solar Wind Spectrometer",
-                "ar": "مطياف الرياح الشمسية"
-              },
-              "purpose": {
-                "en": "Measured fluxes and energy spectra of electrons and protons streaming from the Sun.",
-                "ar": "قياس تدفقات وأطياف طاقة الإلكترونات والبروتونات المنبعثة من الشمس."
-              }
-            },
-            {
-              "name": {
-                "en": "Suprathermal Ion Detector & Cold Cathode Ion Gauge",
-                "ar": "كاشف الأيونات فوق الحرارية ومقياس التأين ذو المهبط البارد"
-              },
-              "purpose": {
-                "en": "Measured low-energy positive ions and the ultra-thin lunar exosphere (atmosphere) and its variations.",
-                "ar": "قياس الأيونات الموجبة منخفضة الطاقة والغلاف الجوي القمري الرقيق للغاية وتغيراته."
-              }
-            },
-            {
-              "name": {
-                "en": "Lunar Dust Detector",
-                "ar": "كاشف الغبار القمري"
-              },
-              "purpose": {
-                "en": "Tracked dust accumulation, radiation damage, and reflected infrared temperatures.",
-                "ar": "تتبع تراكم الغبار، والأضرار الإشعاعية، ودرجات حرارة الأشعة تحت الحمراء المنعكسة."
-              }
-            }
-          ]
-        }
+      "overview": {
+        "ar": "نظرة شاملة على مهام وكالة ناسا التاريخية لاستكشاف القمر، مع التركيز على مركبات الهبوط القمرية، وحزم التجارب العلمية السطحية، والعربة القمرية المتجولة التي مكنت البشرية من خطو أولى خطواتها على سطح القمر.",
+        "en": "A comprehensive overview of NASA's historic lunar missions, focusing on the Apollo Lunar Modules, surface scientific experiment packages (EASEP & ALSEP), and the Lunar Roving Vehicle (LRV) that enabled humanity's first steps on the Moon."
       },
-      {
-        "id": "apollo-15-falcon-lrv",
-        "name": {
-          "en": "Apollo 15 Lunar Module (Falcon) & Lunar Roving Vehicle (LRV)",
-          "ar": "مركبة هبوط أبولو 15 (فالكون) والعربة القمرية المتجولة (LRV)"
-        },
-        "cosparId": "1971-063C",
-        "alternateNames": [
-          "Falcon",
-          "LM-10",
-          "Apollo 15 LM/ALSEP",
-          "Rover 15"
-        ],
-        "summary": {
-          "en": "The first 'J-mission' featuring an extended 3-day lunar stay, advanced orbital science, and the debut of the Lunar Roving Vehicle (LRV) in the rugged Hadley-Apennine highlands.",
-          "ar": "أول مهمة من فئة 'J' التي تميزت بإقامة قمرية ممتدة لثلاثة أيام، وأبحاث مدارية متقدمة، والظهور الأول للعربة القمرية المتجولة (LRV) في مرتفعات هادلي-أبينين الوعرة."
-        },
-        "images": [],
-        "factsInBrief": {
-          "launchDate": "1971-07-26",
-          "landingDate": "1971-07-30",
-          "launchVehicle": {
-            "en": "Saturn V",
-            "ar": "ساتورن 5 (Saturn V)"
+      "coverImage": "",
+      "narration": [
+        {
+          "text": {
+            "ar": "وصلنا القمر! بصوا حوالينا... السما سودة والأرض منورة فوقنا.",
+            "en": "We made it to the Moon! Look around — pitch-black sky and bright Earth above us."
           },
-          "launchSite": {
-            "en": "Cape Canaveral, United States",
-            "ar": "كيب كانافيرال، الولايات المتحدة"
-          },
-          "landingSite": {
-            "name": {
-              "en": "Hadley-Apennine (Mare Imbrium)",
-              "ar": "هادلي-أبينين (بحر الأمطار - Mare Imbrium)"
-            },
-            "coordinates": "26.13239° N, 3.63330° E"
-          },
-          "totalMassKg": 16430,
-          "surfaceDuration": {
-            "en": "66 hours, 55 minutes",
-            "ar": "66 ساعة و55 دقيقة"
-          },
-          "evaTotalDuration": {
-            "en": "18 hours, 35 minutes (across 3 moonwalks + 33-min standup EVA)",
-            "ar": "18 ساعة و35 دقيقة (عبر 3 جولات سير + جولة استطلاع وقوفاً لمدة 33 دقيقة)"
-          },
-          "traverseDistanceKm": 27.9,
-          "samplesCollectedKg": 77.31
-        },
-        "crew": [
-          {
-            "name": {
-              "en": "David R. Scott",
-              "ar": "ديفيد سكوت"
-            },
-            "role": {
-              "en": "Commander",
-              "ar": "قائد المهمة"
-            }
-          },
-          {
-            "name": {
-              "en": "James B. Irwin",
-              "ar": "جيمس إروين"
-            },
-            "role": {
-              "en": "Lunar Module Pilot",
-              "ar": "طيار الوحدة القمرية"
-            }
-          },
-          {
-            "name": {
-              "en": "Alfred M. Worden",
-              "ar": "ألفريد وردن"
-            },
-            "role": {
-              "en": "Command Module Pilot (Orbiting CSM)",
-              "ar": "طيار وحدة القيادة (في المدار القمري)"
-            }
+          "audio": {
+            "ar": null,
+            "en": null
           }
-        ],
-        "missionHighlights": [
-          {
-            "title": {
-              "en": "First Lunar Roving Vehicle (LRV) Operations",
-              "ar": "أول تشغيل للعربة القمرية المتجولة (LRV)"
-            },
-            "description": {
-              "en": "Stowed folded in the Falcon descent stage, the electric four-wheel-drive Lunar Rover revolutionized surface mobility. Scott and Irwin drove 27.9 km across three geological traverses—reaching Hadley Rille, Elbow, St. George, and Spur craters—collecting 77.31 kg of samples, including the ancient 'Genesis Rock'.",
-              "ar": "حُملت العربة الكهربائية ذات الدفع الرباعي مطوية داخل مرحلة الهبوط للمركبة 'فالكون'، وأحدثت ثورة في التنقل على القمر. قادها سكوت وإروين لمسافة 27.9 كم عبر ثلاث جولات جيولوجية وصولاً إلى أخدود هادلي وفوهات إلبو وسانت جورج وسبور، وجمعا 77.31 كجم من العينات بما في ذلك 'صخرة التكوين' العتيقة."
-            }
+        },
+        {
+          "text": {
+            "ar": "هنا مفيش هوا ولا ريح، عشان كده آثار الخطوات والعجل لسه موجودة لحد النهارده!",
+            "en": "There's no wind or air here, so astronaut footprints and tire tracks are still here today!"
           },
-          {
-            "title": {
-              "en": "Galileo's Hammer & Feather Experiment",
-              "ar": "تجربة غاليليو للمطرقة والريشة"
-            },
-            "description": {
-              "en": "At the end of the final EVA, Commander David Scott performed a live televised physics demonstration, dropping a geological hammer and a falcon feather simultaneously; in the airless lunar vacuum, both struck the surface at the exact same instant.",
-              "ar": "في ختام الجولة الأخيرة، أجرى القائد ديفيد سكوت تجربة فيزيائية متلفزة على الهواء مباشرة بإسقاط مطرقة جيولوجية وريشة صقر في آن واحد؛ وفي الفراغ القمري الخالي من الهواء، ارتطمتا بالسطح في اللحظة ذاتها تماماً."
-            }
+          "audio": {
+            "ar": null,
+            "en": null
           }
-        ],
-        "scientificPayload": {
+        },
+        {
+          "text": {
+            "ar": "دوسوا على النقط الصفراء عشان نشوف التلات مركبات اللي سابهم البشر على القمر.",
+            "en": "Tap the glowing yellow dots to discover 3 real spacecraft humans left on the Moon."
+          },
+          "audio": {
+            "ar": null,
+            "en": null
+          }
+        }
+      ],
+      "machines": [
+        {
+          "id": "apollo-11-eagle-easep",
+          "world": "moon",
           "name": {
-            "en": "Apollo 15 ALSEP & Heat Flow Experiment",
-            "ar": "حزمة تجارب أبولو 15 (ALSEP) وتجربة التدفق الحراري"
+            "ar": "مركبة هبوط أبولو 11 (إيغل) وحزمة EASEP",
+            "en": "Apollo 11 Lunar Module (Eagle) & EASEP"
           },
-          "powerSource": {
-            "en": "SNAP-27 Radioisotope Thermoelectric Generator (~70W DC)",
-            "ar": "مولد نظائر مشعة كهروحراري طراز SNAP-27 (بقدرة ~70 واط تيار مستمر)"
+          "cosparId": "1969-059C",
+          "alternateNames": [
+            "Apollo 11 LM/EASEP",
+            "LM-5",
+            "Eagle"
+          ],
+          "type": "lander",
+          "status": "silent",
+          "location": {
+            "lat": 0.67416,
+            "lon": 23.47314
           },
-          "description": {
-            "en": "Featured an expanded 7-instrument ALSEP suite powered by SNAP-27, adding the first subsurface Heat Flow Experiment alongside deep 3-meter core drilling.",
-            "ar": "تضمنت حزمة موسعة من 7 أجهزة علمية تعمل بمولد SNAP-27، وأضافت لأول مرة تجربة قياس التدفق الحراري تحت السطح إلى جانب الحفر العميق لاستخراج عينات لُبية بعمق 3 أمتار."
+          "coordinatesText": "0.67416° N, 23.47314° E",
+          "card": {
+            "cardKey": "eagle",
+            "title": {
+              "ar": "النسر",
+              "en": "Eagle"
+            },
+            "tag": {
+              "ar": "أبولو ١١ · ١٩٦٩",
+              "en": "Apollo 11 · 1969"
+            },
+            "kidText": {
+              "ar": "أول مركبة هبطت ببشر على القمر. نصّها التحتاني لسه موجود هناك لحد دلوقتي، وجنبه جهاز صغير كان بيحس بـ «زلازل القمر»!",
+              "en": "The first craft to land humans on the Moon! Its lower half is still parked there, right beside a small device that sensed moonquakes."
+            },
+            "audio": {
+              "ar": "/audio/ar/moon-card-eagle.mp3",
+              "en": null
+            },
+            "hero": {
+              "src": "images/moon-surface.jpg",
+              "focus": "28% 45%",
+              "scale": 2.1
+            }
+          },
+          "chips": [
+            {
+              "icon": "calendar",
+              "label": {
+                "ar": "تاريخ الهبوط",
+                "en": "Landed"
+              },
+              "value": {
+                "ar": "٢٠ يوليو ١٩٦٩",
+                "en": "July 20, 1969"
+              }
+            },
+            {
+              "icon": "weight",
+              "label": {
+                "ar": "الكتلة الإجمالية",
+                "en": "Mass"
+              },
+              "value": {
+                "ar": "١٥,١٠٣ كجم",
+                "en": "15,103 kg"
+              }
+            },
+            {
+              "icon": "clock",
+              "label": {
+                "ar": "المدة على السطح",
+                "en": "Surface Time"
+              },
+              "value": {
+                "ar": "٢١ ساعة و٣٦ دقيقة",
+                "en": "21 hrs 36 mins"
+              }
+            },
+            {
+              "icon": "gem",
+              "label": {
+                "ar": "عينات الصخور",
+                "en": "Samples"
+              },
+              "value": {
+                "ar": "٢١٫٥٥ كجم",
+                "en": "21.55 kg"
+              }
+            }
+          ],
+          "images": [],
+          "summary": {
+            "ar": "أول مركبة فضائية مأهولة تهبط على سطح القمر في 20 يوليو 1969، حاملة القائد نيل أرمسترونغ وطيار الوحدة القمرية باز ألدرين إلى بحر السكون، برفقة حزمة تجارب أبولو العلمية المبكرة (EASEP).",
+            "en": "The first crewed spacecraft to land on the Moon on July 20, 1969, carrying Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin to the Sea of Tranquility, along with the Early Apollo Scientific Experiment Package (EASEP)."
+          },
+          "facts": [
+            {
+              "id": "launch-vehicle",
+              "label": {
+                "ar": "صاروخ الإطلاق",
+                "en": "Launch Vehicle"
+              },
+              "value": {
+                "ar": "ساتورن 5 (Saturn V)",
+                "en": "Saturn V"
+              }
+            },
+            {
+              "id": "launch-site",
+              "label": {
+                "ar": "موقع الإطلاق",
+                "en": "Launch Site"
+              },
+              "value": {
+                "ar": "كيب كانافيرال، الولايات المتحدة",
+                "en": "Cape Canaveral, United States"
+              }
+            },
+            {
+              "id": "landing-site",
+              "label": {
+                "ar": "موقع الهبوط",
+                "en": "Landing Site"
+              },
+              "value": {
+                "ar": "بحر السكون (Mare Tranquillitatis)",
+                "en": "Mare Tranquillitatis (Sea of Tranquility)"
+              }
+            },
+            {
+              "id": "total-mass",
+              "label": {
+                "ar": "الكتلة الإجمالية",
+                "en": "Total Mass"
+              },
+              "value": {
+                "ar": "١٥,١٠٣ كجم",
+                "en": "15,103 kg"
+              },
+              "numeric": {
+                "value": 15103,
+                "unit": "kg"
+              }
+            },
+            {
+              "id": "samples-collected",
+              "label": {
+                "ar": "العينات المجمعة",
+                "en": "Samples Collected"
+              },
+              "value": {
+                "ar": "٢١٫٥٥ كجم",
+                "en": "21.55 kg"
+              },
+              "numeric": {
+                "value": 21.55,
+                "unit": "kg"
+              }
+            }
+          ],
+          "timeline": [
+            {
+              "date": "1969-07-16",
+              "event": {
+                "ar": "انطلاق صاروخ ساتورن 5 من كيب كانافيرال",
+                "en": "Launch of Saturn V from Cape Canaveral"
+              }
+            },
+            {
+              "date": "1969-07-20",
+              "event": {
+                "ar": "هبوط مركبة إيغل التاريخي على سطح القمر في بحر السكون",
+                "en": "Historic landing of Lunar Module Eagle on Mare Tranquillitatis"
+              }
+            },
+            {
+              "date": "1969-07-21",
+              "event": {
+                "ar": "صعود طاقم أرمسترونغ وألدرين والالتحام بوحدة القيادة",
+                "en": "Ascent stage liftoff and rendezvous with Command Module"
+              }
+            },
+            {
+              "date": "1969-08-27",
+              "event": {
+                "ar": "توقف حزمة EASEP بعد انتهاء اليومين القمريين",
+                "en": "EASEP scientific package end of operations after 2 lunar days"
+              }
+            }
+          ],
+          "highlights": [
+            {
+              "title": {
+                "ar": "أول هبوط تاريخي وسير على القمر",
+                "en": "Historic First Landing & Moonwalk"
+              },
+              "description": {
+                "ar": "هبطت المركبة 'إيغل' في 20 يوليو 1969. وبعد ساعات، خطا نيل أرمسترونغ على تربة القمر مطلقاً عبارته الشهيرة، وتبعه باز ألدرين بعد 19 دقيقة. قطع الرائدان مسافة تقارب 250 متراً، وجمعا 21.55 كجم من صخور وعينات القمر.",
+                "en": "Eagle landed at 20:17:40 UT on July 20, 1969. Neil Armstrong stepped onto the lunar soil, followed by Buzz Aldrin 19 minutes later. They traversed ~250 meters and collected 21.55 kg of lunar samples."
+              }
+            },
+            {
+              "title": {
+                "ar": "نشر حزمة EASEP العلمية",
+                "en": "Deployment of EASEP Scientific Package"
+              },
+              "description": {
+                "ar": "تضمنت مقياس الزلازل السلبي وعاكس الليزر الرجعي الذي مكن العلماء على الأرض من قياس المسافة بين الأرض والقمر بدقة فائقة.",
+                "en": "Included the Passive Seismic Experiment and Laser Ranging Retroreflector which enabled ultra-precise Earth-Moon distance measurements."
+              }
+            }
+          ],
+          "people": [
+            {
+              "name": {
+                "ar": "نيل أرمسترونغ",
+                "en": "Neil A. Armstrong"
+              },
+              "role": {
+                "ar": "قائد المهمة (أول إنسان يمشي على سطح القمر)",
+                "en": "Commander (First human to walk on the Moon)"
+              }
+            },
+            {
+              "name": {
+                "ar": "إدوين 'باز' ألدرين",
+                "en": "Edwin E. 'Buzz' Aldrin, Jr."
+              },
+              "role": {
+                "ar": "طيار الوحدة القمرية",
+                "en": "Lunar Module Pilot"
+              }
+            },
+            {
+              "name": {
+                "ar": "مايكل كولينز",
+                "en": "Michael Collins"
+              },
+              "role": {
+                "ar": "طيار وحدة القيادة (في المدار القمري)",
+                "en": "Command Module Pilot (Orbiting CSM)"
+              }
+            }
+          ],
+          "payload": {
+            "name": {
+              "ar": "حزمة تجارب أبولو العلمية المبكرة (EASEP)",
+              "en": "Early Apollo Scientific Experiment Package (EASEP)"
+            },
+            "description": {
+              "ar": "حزمة تجارب علمية أولى عملت بالطاقة الشمسية على القمر.",
+              "en": "Early solar-powered scientific experiment package deployed on the Moon."
+            }
           },
           "instruments": [
             {
               "name": {
-                "en": "Heat Flow Experiment (HFE)",
-                "ar": "تجربة التدفق الحراري (HFE)"
+                "ar": "مقياس الزلازل السلبي",
+                "en": "Passive Seismic Experiment Package (PSEP)"
               },
               "purpose": {
-                "en": "Measured the rate of heat loss from the Moon's interior and the thermal conductivity of lunar regolith via drilled boreholes.",
-                "ar": "قياس معدل فقدان الحرارة من باطن القمر والتوصيل الحراري للتربة القمرية عبر ثقوب محفورة."
+                "ar": "قياس النشاط الزلزالي القمري والخصائص الفيزيائية لباطن القمر",
+                "en": "Measured lunar seismic activity and physical properties of the interior"
               }
             },
             {
               "name": {
-                "en": "Core ALSEP Geophysical Suite",
-                "ar": "مجموعة أجهزة ALSEP الجيوفيزيائية الأساسية"
+                "ar": "عاكس الليزر الرجعي (LRRR)",
+                "en": "Laser Ranging Retroreflector (LRRR)"
               },
               "purpose": {
-                "en": "Included Passive Seismometer, Lunar Surface Magnetometer, Solar Wind Spectrometer, Suprathermal Ion Detector, Cold Cathode Ion Gauge, and Lunar Dust Detector (operated until September 30, 1977).",
-                "ar": "شملت مقياس الزلازل السلبي، ومقياس المغناطيسية السطحي، ومطياف الرياح الشمسية، وكاشف الأيونات فوق الحرارية، ومقياس التأين ذي المهبط البارد، وكاشف الغبار القمري (عملت حتى 30 سبتمبر 1977)."
+                "ar": "عكس أشعة الليزر الأرضية وقياس المسافة بدقة السنتيمتر",
+                "en": "Reflected Earth-based laser beams to measure Earth-Moon distance"
               }
             }
-          ]
+          ],
+          "quizFacts": [
+            {
+              "id": "eagle-landing-date",
+              "fact": {
+                "ar": "هبطت مركبة النسر على القمر في ٢٠ يوليو ١٩٦٩.",
+                "en": "Eagle landed on the Moon on July 20, 1969."
+              }
+            },
+            {
+              "id": "eagle-astronauts",
+              "fact": {
+                "ar": "نيل أرمسترونغ وباز ألدرين هما أول من مشيا على القمر.",
+                "en": "Neil Armstrong and Buzz Aldrin were the first humans to walk on the Moon."
+              }
+            }
+          ],
+          "sources": [
+            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-059C"
+          ],
+          "needsReview": false
+        },
+        {
+          "id": "apollo-12-intrepid-alsep",
+          "world": "moon",
+          "name": {
+            "ar": "مركبة هبوط أبولو 12 (إنتريبيد) وحزمة ALSEP",
+            "en": "Apollo 12 Lunar Module (Intrepid) & ALSEP"
+          },
+          "cosparId": "1969-099C",
+          "alternateNames": [
+            "Apollo 12 LM/ALSEP",
+            "LM-6",
+            "Intrepid"
+          ],
+          "type": "lander",
+          "status": "silent",
+          "location": {
+            "lat": -3.0128,
+            "lon": -23.4219
+          },
+          "coordinatesText": "3.0128° S, 23.4219° W",
+          "card": {
+            "cardKey": "intrepid",
+            "title": {
+              "ar": "إنتربيد وسيرفيور ٣",
+              "en": "Intrepid & Surveyor 3"
+            },
+            "tag": {
+              "ar": "أبولو ١٢ · ١٩٦٩",
+              "en": "Apollo 12 · 1969"
+            },
+            "kidText": {
+              "ar": "مركبة إنتربيد هبطت جنب مركبة قديمة اسمها «سيرفيور ٣»، ورواد الفضاء فكّوا منها حوالي ١٠ كيلوجرام من أجزائها ورجعوا بيها للأرض.",
+              "en": "Intrepid landed right next to the older Surveyor 3 probe, and astronauts brought back about 10 kg of its parts to study on Earth."
+            },
+            "audio": {
+              "ar": "/audio/ar/moon-card-intrepid.mp3",
+              "en": null
+            },
+            "hero": {
+              "src": "images/moon-surface.jpg",
+              "focus": "53.5% 41%",
+              "scale": 2.8
+            }
+          },
+          "chips": [
+            {
+              "icon": "calendar",
+              "label": {
+                "ar": "تاريخ الهبوط",
+                "en": "Landed"
+              },
+              "value": {
+                "ar": "١٩ نوفمبر ١٩٦٩",
+                "en": "Nov 19, 1969"
+              }
+            },
+            {
+              "icon": "target",
+              "label": {
+                "ar": "دقة الهبوط",
+                "en": "Precision"
+              },
+              "value": {
+                "ar": "١٦٠ متراً من سيرفيور ٣",
+                "en": "160m from Surveyor 3"
+              }
+            },
+            {
+              "icon": "clock",
+              "label": {
+                "ar": "المدة على السطح",
+                "en": "Surface Time"
+              },
+              "value": {
+                "ar": "٣١ ساعة و٣١ دقيقة",
+                "en": "31 hrs 31 mins"
+              }
+            },
+            {
+              "icon": "gem",
+              "label": {
+                "ar": "عينات الصخور",
+                "en": "Samples"
+              },
+              "value": {
+                "ar": "٣٤٫٣٥ كجم",
+                "en": "34.35 kg"
+              }
+            }
+          ],
+          "images": [],
+          "summary": {
+            "ar": "ثاني مهمة هبوط مأهولة على القمر، تميزت بهبوط فائق الدقة على بُعد 160 متراً فقط من المسبار الآلي سيرفيور 3 غير المأهول في محيط العواصف، ونشر أول حزمة علمية ALSEP تعمل بمولد نووي.",
+            "en": "The second crewed lunar landing mission, famous for its pinpoint precision landing just 160 meters from the robotic Surveyor 3 probe in Oceanus Procellarum, and deployment of the first nuclear-powered ALSEP station."
+          },
+          "facts": [
+            {
+              "id": "launch-vehicle",
+              "label": {
+                "ar": "صاروخ الإطلاق",
+                "en": "Launch Vehicle"
+              },
+              "value": {
+                "ar": "ساتورن 5 (Saturn V)",
+                "en": "Saturn V"
+              }
+            },
+            {
+              "id": "landing-site",
+              "label": {
+                "ar": "موقع الهبوط",
+                "en": "Landing Site"
+              },
+              "value": {
+                "ar": "محيط العواصف (Oceanus Procellarum)",
+                "en": "Oceanus Procellarum (Ocean of Storms)"
+              }
+            },
+            {
+              "id": "total-mass",
+              "label": {
+                "ar": "الكتلة الإجمالية",
+                "en": "Total Mass"
+              },
+              "value": {
+                "ar": "١٥,٢٣٥ كجم",
+                "en": "15,235 kg"
+              },
+              "numeric": {
+                "value": 15235,
+                "unit": "kg"
+              }
+            },
+            {
+              "id": "samples-collected",
+              "label": {
+                "ar": "العينات المجمعة",
+                "en": "Samples Collected"
+              },
+              "value": {
+                "ar": "٣٤٫٣٥ كجم",
+                "en": "34.35 kg"
+              },
+              "numeric": {
+                "value": 34.35,
+                "unit": "kg"
+              }
+            }
+          ],
+          "timeline": [
+            {
+              "date": "1969-11-14",
+              "event": {
+                "ar": "إطلاق أبولو 12 بنجاح رغم التعرض لصاعقة برق أثناء الصعود",
+                "en": "Launch of Apollo 12, recovering after being struck by lightning during ascent"
+              }
+            },
+            {
+              "date": "1969-11-19",
+              "event": {
+                "ar": "الهبوط الدقيق لمركبة إنتريبيد في محيط العواصف",
+                "en": "Pinpoint landing of Intrepid in Ocean of Storms"
+              }
+            },
+            {
+              "date": "1969-11-20",
+              "event": {
+                "ar": "زيارة المسبار سيرفيور 3 واسترجاع كاميرته وأجزاء منه للأرض",
+                "en": "Astronauts walk to Surveyor 3 and retrieve its camera and tubing"
+              }
+            },
+            {
+              "date": "1977-09-30",
+              "event": {
+                "ar": "إيقاف تشغيل حزمة ALSEP بعد نحو 8 سنوات من العمل المتواصل",
+                "en": "ALSEP station shut down after nearly 8 years of continuous operation"
+              }
+            }
+          ],
+          "highlights": [
+            {
+              "title": {
+                "ar": "الهبوط الفائق الدقة",
+                "en": "Pinpoint Precision Landing"
+              },
+              "description": {
+                "ar": "استطاع الرائد بيت كونراد الهبوط على بعد 160 متراً فقط من سيرفيور 3، مما أثبت إمكانية الهبوط في مواقع قمرية محددة بدقة.",
+                "en": "Pete Conrad achieved pinpoint landing within walking distance (160m) of Surveyor 3, proving targeted landing capability."
+              }
+            },
+            {
+              "title": {
+                "ar": "فحص أجهزة سيرفيور 3 بعد سنوات على القمر",
+                "en": "Surveyor 3 Hardware Inspection"
+              },
+              "description": {
+                "ar": "استرجع الرواد حوالي 10 كجم من أجزاء سيرفيور 3 لدراسة تأثير البيئة القمرية والإشعاع على المواد المصنوعة بشرياً.",
+                "en": "Astronauts removed ~10 kg of Surveyor parts to analyze how long-term lunar environment affected materials."
+              }
+            }
+          ],
+          "people": [
+            {
+              "name": {
+                "ar": "تشارلز 'بيت' كونراد",
+                "en": "Charles P. 'Pete' Conrad, Jr."
+              },
+              "role": {
+                "ar": "قائد المهمة",
+                "en": "Commander"
+              }
+            },
+            {
+              "name": {
+                "ar": "آلان بين",
+                "en": "Alan L. Bean"
+              },
+              "role": {
+                "ar": "طيار الوحدة القمرية",
+                "en": "Lunar Module Pilot"
+              }
+            },
+            {
+              "name": {
+                "ar": "ريتشارد غوردون",
+                "en": "Richard F. Gordon, Jr."
+              },
+              "role": {
+                "ar": "طيار وحدة القيادة",
+                "en": "Command Module Pilot"
+              }
+            }
+          ],
+          "payload": {
+            "name": {
+              "ar": "حزمة تجارب أبولو 12 (ALSEP)",
+              "en": "Apollo 12 ALSEP & SNAP-27 RTG"
+            },
+            "description": {
+              "ar": "حزمة أجهزة علمية متطورة عملت بمولد نووي حراري لمدة 8 سنوات.",
+              "en": "Advanced geophysical station powered by SNAP-27 nuclear RTG operating for 8 years."
+            }
+          },
+          "instruments": [
+            {
+              "name": {
+                "ar": "مقياس الزلازل السلبي",
+                "en": "Passive Seismometer"
+              },
+              "purpose": {
+                "ar": "رصد الزلازل القمرية الطبيعية والاصطدامات",
+                "en": "Monitored natural and impact moonquakes"
+              }
+            },
+            {
+              "name": {
+                "ar": "مقياس المغناطيسية السطحي القمري (LSM)",
+                "en": "Lunar Surface Magnetometer (LSM)"
+              },
+              "purpose": {
+                "ar": "قياس المجال المغناطيسي المحلي على سطح القمر",
+                "en": "Measured local and global lunar magnetic fields"
+              }
+            }
+          ],
+          "quizFacts": [
+            {
+              "id": "intrepid-surveyor-parts",
+              "fact": {
+                "ar": "رواد أبولو ١٢ زاروا مسبار سيرفيور ٣ وفكوا منه أجزاء ورجعوا بيها للأرض.",
+                "en": "Apollo 12 astronauts visited Surveyor 3 and brought pieces of it back to Earth."
+              }
+            }
+          ],
+          "sources": [
+            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-099C"
+          ],
+          "needsReview": false
+        },
+        {
+          "id": "apollo-15-falcon-lrv",
+          "world": "moon",
+          "name": {
+            "ar": "مركبة هبوط أبولو 15 (فالكون) والعربة القمرية المتجولة (LRV)",
+            "en": "Apollo 15 Lunar Module (Falcon) & Lunar Roving Vehicle (LRV)"
+          },
+          "cosparId": "1971-063C",
+          "alternateNames": [
+            "Apollo 15 LM/LRV",
+            "LM-10",
+            "Falcon",
+            "Lunar Roving Vehicle 1"
+          ],
+          "type": "rover",
+          "status": "silent",
+          "location": {
+            "lat": 26.13239,
+            "lon": 3.6333
+          },
+          "coordinatesText": "26.13239° N, 3.63330° E",
+          "card": {
+            "cardKey": "rover",
+            "title": {
+              "ar": "العربية القمرية",
+              "en": "Lunar Rover"
+            },
+            "tag": {
+              "ar": "فالكون · أبولو ١٥ · ١٩٧١",
+              "en": "Falcon · Apollo 15 · 1971"
+            },
+            "kidText": {
+              "ar": "أول عربية اتساقت على القمر! مشيت حوالي ٢٨ كيلومتر، ولسه راكنة هناك على سطح القمر لحد النهارده.",
+              "en": "The very first car driven on the Moon! It traveled about 28 kilometers and is still parked there today."
+            },
+            "audio": {
+              "ar": "/audio/ar/moon-card-rover.mp3",
+              "en": null
+            },
+            "hero": {
+              "src": "images/moon-surface.jpg",
+              "focus": "78% 50%",
+              "scale": 2.2
+            }
+          },
+          "chips": [
+            {
+              "icon": "car",
+              "label": {
+                "ar": "مسافة التجوال",
+                "en": "Distance"
+              },
+              "value": {
+                "ar": "٢٧٫٩ كم (~٢٨ كم)",
+                "en": "27.9 km (~28 km)"
+              }
+            },
+            {
+              "icon": "calendar",
+              "label": {
+                "ar": "تاريخ الهبوط",
+                "en": "Landed"
+              },
+              "value": {
+                "ar": "٣٠ يوليو ١٩٧١",
+                "en": "July 30, 1971"
+              }
+            },
+            {
+              "icon": "clock",
+              "label": {
+                "ar": "المدة على السطح",
+                "en": "Surface Time"
+              },
+              "value": {
+                "ar": "٦٦ ساعة و٥٥ دقيقة",
+                "en": "66 hrs 55 mins"
+              }
+            },
+            {
+              "icon": "gem",
+              "label": {
+                "ar": "عينات الصخور",
+                "en": "Samples"
+              },
+              "value": {
+                "ar": "٧٧٫٣١ كجم",
+                "en": "77.31 kg"
+              }
+            }
+          ],
+          "images": [],
+          "summary": {
+            "ar": "أول مهمة من الفئة المتقدمة 'J-missions' التي ركزت على العلوم الموسعة، وشهدت أول استخدام للعربة القمرية المتجولة (LRV-1) التي ضاعفت نطاق استكشاف الرواد لسطح القمر.",
+            "en": "The first advanced 'J-mission' dedicated to intensive lunar science, introducing the Lunar Roving Vehicle (LRV-1) which drastically expanded the astronauts' exploration range across the Hadley-Apennine region."
+          },
+          "facts": [
+            {
+              "id": "launch-vehicle",
+              "label": {
+                "ar": "صاروخ الإطلاق",
+                "en": "Launch Vehicle"
+              },
+              "value": {
+                "ar": "ساتورن 5 (Saturn V)",
+                "en": "Saturn V"
+              }
+            },
+            {
+              "id": "landing-site",
+              "label": {
+                "ar": "موقع الهبوط",
+                "en": "Landing Site"
+              },
+              "value": {
+                "ar": "هادلي-أبينين (بحر الأمطار)",
+                "en": "Hadley-Apennine (Mare Imbrium)"
+              }
+            },
+            {
+              "id": "distance-traveled",
+              "label": {
+                "ar": "المسافة المقطوعة بالعربة",
+                "en": "Distance Traveled"
+              },
+              "value": {
+                "ar": "٢٧٫٩ كم",
+                "en": "27.9 km"
+              },
+              "numeric": {
+                "value": 27.9,
+                "unit": "km"
+              }
+            },
+            {
+              "id": "total-mass",
+              "label": {
+                "ar": "الكتلة الإجمالية",
+                "en": "Total Mass"
+              },
+              "value": {
+                "ar": "١٦,٤٣٠ كجم",
+                "en": "16,430 kg"
+              },
+              "numeric": {
+                "value": 16430,
+                "unit": "kg"
+              }
+            },
+            {
+              "id": "samples-collected",
+              "label": {
+                "ar": "العينات المجمعة",
+                "en": "Samples Collected"
+              },
+              "value": {
+                "ar": "٧٧٫٣١ كجم",
+                "en": "77.31 kg"
+              },
+              "numeric": {
+                "value": 77.31,
+                "unit": "kg"
+              }
+            }
+          ],
+          "timeline": [
+            {
+              "date": "1971-07-26",
+              "event": {
+                "ar": "انطلاق مهمة أبولو 15 المتقدمة من فلوريدا",
+                "en": "Launch of Apollo 15 from Florida"
+              }
+            },
+            {
+              "date": "1971-07-30",
+              "event": {
+                "ar": "هبوط فالكون عند سهل هادلي وجبال أبينين القمرية",
+                "en": "Falcon touches down at Hadley-Apennine"
+              }
+            },
+            {
+              "date": "1971-07-31",
+              "event": {
+                "ar": "إنزال أول عربة قمرية وبدء أول رحلة قيادة على سطح القمر",
+                "en": "Deployment of first Lunar Roving Vehicle and first drive on the Moon"
+              }
+            },
+            {
+              "date": "1971-08-02",
+              "event": {
+                "ar": "تجربة سقوط المطرقة والريشة الشهيرة لديفيد سكوت في الفراغ القمري",
+                "en": "David Scott performs famous hammer and feather drop experiment in vacuum"
+              }
+            }
+          ],
+          "highlights": [
+            {
+              "title": {
+                "ar": "أول قيادة لمركبة على جرم فضائي",
+                "en": "First Vehicle Driven on another World"
+              },
+              "description": {
+                "ar": "قطعت العربة القمرية 27.9 كيلومتر بسرعة وصلت إلى 12 كم/ساعة، مما سمح بزيارة أخدود هادلي وجمع صخرة التكوين الشهيرة (Genesis Rock).",
+                "en": "The rover covered 27.9 km at speeds up to 12 km/h, reaching Hadley Rille and collecting the ancient 'Genesis Rock'."
+              }
+            },
+            {
+              "title": {
+                "ar": "تجربة غاليليو للمطرقة والريشة",
+                "en": "Galileo Hammer-Feather Experiment"
+              },
+              "description": {
+                "ar": "أسقط ديفيد سكوت مطرقة جيولوجية وريشة صقر في نفس اللحظة ليثبت أنه في انعدام الهواء يسقط الجسمان بنفس السرعة.",
+                "en": "Commander Scott dropped a hammer and feather simultaneously, proving Galileo's law in the lunar vacuum."
+              }
+            }
+          ],
+          "people": [
+            {
+              "name": {
+                "ar": "ديفيد سكوت",
+                "en": "David R. Scott"
+              },
+              "role": {
+                "ar": "قائد المهمة",
+                "en": "Commander"
+              }
+            },
+            {
+              "name": {
+                "ar": "جيمس إروين",
+                "en": "James B. Irwin"
+              },
+              "role": {
+                "ar": "طيار الوحدة القمرية",
+                "en": "Lunar Module Pilot"
+              }
+            },
+            {
+              "name": {
+                "ar": "ألفريد وردن",
+                "en": "Alfred M. Worden"
+              },
+              "role": {
+                "ar": "طيار وحدة القيادة",
+                "en": "Command Module Pilot"
+              }
+            }
+          ],
+          "payload": {
+            "name": {
+              "ar": "العربة القمرية LRV وتجارب ALSEP الموسعة",
+              "en": "Lunar Roving Vehicle & Expanded ALSEP"
+            },
+            "description": {
+              "ar": "مركبة كهربائية بأربع عجلات مستقلة وتجارب التدفق الحراري لباطن القمر.",
+              "en": "Electric 4-wheel rover with independent drive motors and heat flow experiments."
+            }
+          },
+          "instruments": [
+            {
+              "name": {
+                "ar": "العربة القمرية (LRV-1)",
+                "en": "Lunar Roving Vehicle (LRV-1)"
+              },
+              "purpose": {
+                "ar": "نقل الرواد ومعدات الحفر وجمع الصخور عبر مسافات طويلة",
+                "en": "Transported astronauts, drilling gear, and lunar samples across kilometers"
+              }
+            },
+            {
+              "name": {
+                "ar": "تجربة التدفق الحراري (HFE)",
+                "en": "Heat Flow Experiment (HFE)"
+              },
+              "purpose": {
+                "ar": "قياس معدل فقدان الحرارة من باطن القمر عبر ثقوب محفورة بعمق 3 أمتار",
+                "en": "Measured heat loss rate from lunar interior via drilled boreholes"
+              }
+            }
+          ],
+          "quizFacts": [
+            {
+              "id": "rover-distance-28km",
+              "fact": {
+                "ar": "العربية القمرية في أبولو ١٥ مشيت حوالي ٢٨ كيلومتر على سطح القمر.",
+                "en": "The Apollo 15 Lunar Rover drove about 28 kilometers across the Moon."
+              }
+            }
+          ],
+          "sources": [
+            "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063C"
+          ],
+          "needsReview": false
         }
-      }
-    ]
-  }
+      ],
+      "storyCards": []
+    }
+  ]
 }
